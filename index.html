@@ -1,0 +1,3521 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sentiero Cardio-Protetto · Morbegno–Sondrio | BNI Valtellina</title>
+<meta name="description" content="26 km di ciclopedonale. 5 postazioni DAE accessibili H24. Defibrillazione entro 3-5 minuti. Il progetto di cardioprotezione del Sentiero Valtellina promosso dal Capitolo BNI Valtellina con Croce Rossa Italiana e AREU Lombardia.">
+<meta name="theme-color" content="#0b0f12">
+
+<link rel="canonical" href="https://sentieridelcuore.it/">
+<meta property="og:url" content="https://sentieridelcuore.it/">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="it_IT">
+<meta property="og:title" content="Sentiero Cardio-Protetto: il battito della Valtellina">
+<meta property="og:description" content="Una rete di 5 defibrillatori accessibili H24 lungo i 26 km della ciclopedonale Morbegno–Sondrio. Adotta 1 DAE.">
+<meta property="og:image" content="https://sentieridelcuore.it/assets/og-cover.jpg">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%230b0f12'/%3E%3Cpath d='M2 17h6l3-9 4 17 4-12 2.5 4H30' fill='none' stroke='%23e11d2a' stroke-width='2.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+
+<style>
+/* ── Font self-hosted (nessuna richiesta a Google: gli IP dei visitatori
+     restano qui — requisito GDPR). File woff2 latin, subset variabili. ── */
+@font-face{font-family:'Anton';font-style:normal;font-weight:400;font-display:swap;src:url('assets/fonts/anton.woff2') format('woff2')}
+@font-face{font-family:'Archivo';font-style:normal;font-weight:100 900;font-display:swap;src:url('assets/fonts/archivo.woff2') format('woff2')}
+@font-face{font-family:'Newsreader';font-style:normal;font-weight:200 500;font-display:swap;src:url('assets/fonts/newsreader.woff2') format('woff2')}
+</style>
+<style>
+/* ══════════════════════════════════════════════════════════════
+   SENTIERO CARDIO-PROTETTO — Morbegno / Sondrio
+   Capitolo BNI Valtellina · 10° Anniversario
+   Landing page one-page, self-contained (no build step).
+   ══════════════════════════════════════════════════════════════ */
+
+:root{
+  --ink:        #0b0f12;
+  --ink-2:      #141b20;
+  --ink-3:      #1d262d;
+  --paper:      #f3f0e9;
+  --paper-2:    #e9e4d9;
+  --stone:      #78838c;
+  --stone-2:    #59636b;
+
+  --ecg:        #e11d2a;   /* rosso tracciato / emergenza */
+  --ecg-soft:   #ff4a55;
+  --larice:     #c8703c;   /* legno lamellare della colonnina */
+  --alpe:       #2f4a3f;   /* verde valle */
+  --oro:        #c9a227;
+  --argento:    #9aa7b0;
+  --bronzo:     #b07d4e;
+
+  --max:        1220px;
+  --gut:        clamp(20px, 5vw, 64px);
+
+  --f-display:  'Anton', 'Archivo', Impact, sans-serif;
+  --f-sans:     'Archivo', system-ui, sans-serif;
+  --f-serif:    'Newsreader', Georgia, serif;
+
+  --r:          3px;
+  --ease:       cubic-bezier(.2,.7,.25,1);
+}
+
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth; -webkit-text-size-adjust:100%; overflow-x:clip}
+body{
+  margin:0; background:var(--paper); color:var(--ink);
+  font-family:var(--f-sans); font-size:17px; line-height:1.62;
+  -webkit-font-smoothing:antialiased; overflow-x:hidden;
+}
+img{max-width:100%; display:block}
+a{color:inherit}
+button{font:inherit}
+
+/* ── Tipografia ─────────────────────────────────────────────── */
+.display{
+  font-family:var(--f-display); font-weight:400;
+  text-transform:uppercase; line-height:.9;
+  letter-spacing:-.005em; word-spacing:.02em;
+}
+h2.t{
+  font-family:var(--f-display); text-transform:uppercase;
+  /* 1.0 e non meno: sotto questo valore gli accenti (GIÀ, PIÙ) collidono con la riga sopra */
+  font-size:clamp(2.1rem,5.4vw,4rem); line-height:1;
+  letter-spacing:-.01em; margin:0 0 .5em;
+}
+h3{font-family:var(--f-sans); font-weight:800; letter-spacing:-.015em; margin:0 0 .4em; font-size:1.18rem}
+p{margin:0 0 1.1em}
+/* Newsreader a 400 e non 300: sotto questo peso il serif su fondo scuro
+   si assottiglia fino a perdere leggibilità (segnalato in revisione). */
+.lead{
+  font-family:var(--f-serif); font-weight:400;
+  font-size:clamp(1.16rem,2.1vw,1.45rem); line-height:1.58;
+  color:var(--stone-2); max-width:60ch;
+}
+.dark .lead{color:#ccd5dc}
+.lead strong{font-weight:600}
+.eyebrow{
+  font-size:.735rem; font-weight:700; letter-spacing:.22em;
+  text-transform:uppercase; color:var(--ecg);
+  display:flex; align-items:center; gap:.7em; margin:0 0 1.4em;
+}
+.eyebrow::before{content:''; width:34px; height:2px; background:var(--ecg); flex:none}
+.eyebrow.mut{color:var(--stone)}
+/* link nei contenuti: sottolineatura sottile color battito */
+a.ln{color:inherit; text-decoration:underline; text-decoration-thickness:1px;
+     text-decoration-color:rgba(225,29,42,.55); text-underline-offset:3px;
+     transition:color .2s, text-decoration-color .2s}
+a.ln:hover{color:var(--ecg); text-decoration-color:var(--ecg)}
+.eyebrow.mut::before{background:var(--stone)}
+.mono{font-variant-numeric:tabular-nums; font-feature-settings:'tnum' 1}
+
+/* ── Layout ─────────────────────────────────────────────────── */
+.wrap{max-width:var(--max); margin-inline:auto; padding-inline:var(--gut)}
+section{position:relative; padding-block:clamp(72px,10vw,132px)}
+/* l'header è sticky: gli ancoraggi devono fermarsi sotto di esso */
+section[id],header[id],[id]{scroll-margin-top:84px}
+.dark{background:var(--ink); color:var(--paper)}
+.dark h2.t{color:var(--paper)}
+.rule{height:1px; background:currentColor; opacity:.14; border:0; margin:0}
+
+/* ── Texture: carta millimetrata ECG + grana ────────────────
+   Reticolo fine (1 mm) + reticolo maggiore (5 mm), come la carta
+   su cui il defibrillatore stampa il tracciato. Sfuma verso il basso
+   così da non disturbare la lettura dei testi lunghi.              */
+.topo{
+  position:absolute; inset:0; pointer-events:none;
+  --g1:rgba(196,74,74,.085);  /* linea fine */
+  --g2:rgba(196,74,74,.18);   /* linea maggiore */
+  background-image:
+    linear-gradient(to right,  var(--g2) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--g2) 1px, transparent 1px),
+    linear-gradient(to right,  var(--g1) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--g1) 1px, transparent 1px);
+  background-size:60px 60px, 60px 60px, 12px 12px, 12px 12px;
+  -webkit-mask-image:linear-gradient(to bottom, #000 0%, rgba(0,0,0,.3) 38%, transparent 72%);
+          mask-image:linear-gradient(to bottom, #000 0%, rgba(0,0,0,.3) 38%, transparent 72%);
+}
+.dark .topo{--g1:rgba(243,240,233,.055); --g2:rgba(225,29,42,.16)}
+.grain{
+  position:fixed; inset:0; pointer-events:none; z-index:9999; opacity:.16;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)' opacity='.55'/%3E%3C/svg%3E");
+  mix-blend-mode:multiply;
+}
+
+/* ── Navigazione ────────────────────────────────────────────── */
+.nav{
+  position:sticky; top:0; z-index:100;
+  background:rgba(11,15,18,.86); backdrop-filter:blur(14px) saturate(140%);
+  border-bottom:1px solid rgba(243,240,233,.11); color:var(--paper);
+  transition:background .3s var(--ease);
+}
+.nav-in{display:flex; align-items:center; gap:clamp(14px,3vw,34px); height:66px}
+.brand{display:flex; align-items:center; gap:11px; text-decoration:none; flex:none}
+.brand svg{width:38px; height:20px; overflow:visible}
+.brand svg path{animation:marchio 2.4s ease-in-out infinite}
+@keyframes marchio{
+  0%,100%{opacity:.85; transform:scaleY(1)}
+  7%{opacity:1; transform:scaleY(1.22)}
+  16%{opacity:.85; transform:scaleY(1)}
+}
+.brand svg{transform-origin:50% 50%}
+.brand b{font-family:var(--f-display); text-transform:uppercase; font-size:1.02rem; letter-spacing:.01em; font-weight:400}
+.brand span{display:block; font-size:.6rem; letter-spacing:.2em; text-transform:uppercase; color:var(--stone); margin-top:-2px}
+.nav-links{display:flex; gap:clamp(8px,1.4vw,20px); margin-left:auto; list-style:none; padding:0; margin-block:0}
+.nav-links a{
+  text-decoration:none; font-size:.76rem; font-weight:600; letter-spacing:.06em;
+  text-transform:uppercase; color:#c3ccd3; padding:6px 0; position:relative; white-space:nowrap;
+}
+.nav-links a{transition:color .25s var(--ease)}
+.nav-links a:hover,.nav-links a:focus-visible{color:#fff}
+.nav-links a::after{
+  content:''; position:absolute; left:0; right:100%; bottom:0; height:2px;
+  background:var(--ecg); transition:right .35s var(--ease);
+}
+.nav-links a:hover::after,.nav-links a:focus-visible::after{right:0}
+.nav-links a[aria-current="true"]{color:#fff}
+.nav-links a[aria-current="true"]::after{right:0}
+
+/* barra di avanzamento della lettura */
+.progress{position:absolute; left:0; bottom:-1px; height:2px; width:0; background:var(--ecg); transition:width .12s linear}
+
+/* menu compatto sotto i 980px */
+.nav-toggle{
+  display:none; margin-left:auto; width:42px; height:42px; border:1px solid rgba(243,240,233,.25);
+  background:transparent; border-radius:var(--r); cursor:pointer; padding:0;
+  flex-direction:column; align-items:center; justify-content:center; gap:5px;
+}
+.nav-toggle span{display:block; width:18px; height:2px; background:var(--paper); transition:transform .3s var(--ease), opacity .2s}
+.nav.open .nav-toggle span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.nav.open .nav-toggle span:nth-child(2){opacity:0}
+.nav.open .nav-toggle span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+@media (max-width:1240px){
+  .nav-toggle{display:flex}
+  .nav-links{
+    position:absolute; top:100%; left:0; right:0; flex-direction:column; gap:0; margin:0;
+    background:rgba(11,15,18,.98); border-bottom:1px solid rgba(243,240,233,.14);
+    padding:8px var(--gut) 18px; display:none;
+  }
+  .nav.open .nav-links{display:flex}
+  .nav-links a{padding:13px 0; font-size:.86rem; border-bottom:1px solid rgba(243,240,233,.08)}
+  .nav-links a::after{display:none}
+  .nav-in > .btn{display:none}
+  .nav-links li:last-child a{border-bottom:0}
+  .solo-menu a{color:var(--ecg); font-weight:800}
+  .solo-menu a:hover{color:#fff}
+}
+/* la voce "Adotta" serve solo nel menu compatto: sopra c'è già il pulsante */
+.solo-menu{display:none}
+@media (max-width:1240px){.solo-menu{display:block}}
+
+/* torna su */
+.totop{
+  position:fixed; right:clamp(16px,3vw,28px); bottom:clamp(16px,3vw,28px); z-index:98;
+  width:48px; height:48px; border-radius:50%; border:0; cursor:pointer;
+  background:var(--ink); color:var(--paper); display:grid; place-items:center;
+  box-shadow:0 12px 30px -12px rgba(11,15,18,.7);
+  opacity:0; visibility:hidden; transform:translateY(12px);
+  transition:opacity .3s var(--ease), transform .3s var(--ease), visibility .3s;
+}
+.totop.on{opacity:1; visibility:visible; transform:none}
+.totop:hover{background:var(--ecg)}
+
+/* ── Bottoni ────────────────────────────────────────────────── */
+.btn{
+  display:inline-flex; align-items:center; gap:.65em; text-decoration:none;
+  padding:15px 26px; border-radius:var(--r); font-weight:700;
+  font-size:.83rem; letter-spacing:.1em; text-transform:uppercase;
+  border:1.5px solid transparent; cursor:pointer; position:relative; overflow:hidden;
+  transition:transform .2s var(--ease), background .25s, color .25s, border-color .25s;
+}
+.btn:active{transform:translateY(1px)}
+.btn-primary{background:var(--ecg); color:#fff; box-shadow:0 10px 30px -12px rgba(225,29,42,.75)}
+.btn-primary:hover{background:#a8121b; box-shadow:0 16px 34px -12px rgba(225,29,42,.85); transform:translateY(-2px)}
+.btn-primary:active{transform:translateY(0)}
+
+/* Ghost: in hover si inverte. Le due coppie fondo/testo sono dichiarate per
+   esteso — usare currentColor per lo sfondo rendeva il testo invisibile
+   sulle card chiare, dove testo e fondo diventavano lo stesso colore. */
+.btn-ghost{border-color:currentColor; color:inherit; opacity:.92}
+.btn-ghost:hover{background:var(--ink); color:var(--paper); border-color:var(--ink); opacity:1; transform:translateY(-2px)}
+.dark .btn-ghost:hover,
+.tier--gold .btn-ghost:hover,
+#adotta .btn-ghost:hover{background:var(--paper); color:var(--ink); border-color:var(--paper)}
+.btn-sm{padding:11px 19px; font-size:.74rem}
+.btn .ar{transition:transform .25s var(--ease)}
+.btn:hover .ar{transform:translateX(4px)}
+
+/* ══ HERO ═══════════════════════════════════════════════════ */
+.hero{
+  background:var(--ink); color:var(--paper); overflow:hidden;
+  padding-block:clamp(64px,11vw,116px) clamp(56px,8vw,92px);
+  min-height:min(92vh,860px); display:flex; align-items:safe center;
+}
+.hero::before{
+  content:''; position:absolute; inset:0;
+  background:
+    radial-gradient(120% 90% at 78% 12%, rgba(200,112,60,.20), transparent 58%),
+    radial-gradient(90% 80% at 8% 96%, rgba(225,29,42,.20), transparent 60%);
+}
+.hero-in{position:relative; width:100%; z-index:1}
+
+/* ── Cuore matematico: canvas fisso su tutta la pagina ──────
+   Sta sopra i contenuti (le particelle disgregate attraversano le
+   sezioni) ma sotto la navigazione e il pulsante torna-su.        */
+.cuore{position:fixed; inset:0; width:100%; height:100%; pointer-events:none; z-index:60}
+/* su schermo stretto resta pieno: l'opacità bassa lo riduceva a pulviscolo */
+@media (max-width:900px){.cuore{opacity:.85}}
+/* I contenuti stanno SOPRA il cuore (z 70 > 60), gli sfondi delle sezioni
+   sotto: così il cuore abita lo spazio vuoto del layout invece di passare
+   sopra ai testi. È la differenza fra un elemento della composizione e un
+   corpo estraneo appiccicato in cima — e su mobile, dove il testo occupa
+   tutta la larghezza, è l'unica cosa che rende il cuore compatibile con
+   la leggibilità.                                                        */
+section > .wrap,section > .soci,.hero-in,footer > .wrap{position:relative; z-index:70}
+.hero h1{margin:0 0 .5em; max-width:none}
+.hero h1 .l1{
+  display:block; font-family:var(--f-sans); font-weight:700; text-transform:uppercase;
+  font-size:clamp(.72rem,1.5vw,.94rem); letter-spacing:.28em; color:#a9b4bc;
+  margin-bottom:.9em;
+}
+/* Il paragrafo d'apertura passa ad Archivo: lo stesso carattere della
+   navigazione e dei testi correnti, quindi già "di casa" nella pagina,
+   ma con un'asta piena — il serif chiaro su nero non reggeva né il
+   contrasto né la resa a schermo. Qui siamo a 12,5:1 su #0b0f12. */
+.hero .lead{
+  font-family:var(--f-sans); font-weight:400; letter-spacing:.004em;
+  font-size:clamp(1.06rem,1.65vw,1.24rem); line-height:1.66;
+  color:#dfe6eb; max-width:54ch;
+}
+.hero .lead strong{color:#fff; font-weight:700}
+.hero h1 .l2{display:block; font-size:clamp(2.7rem,8.2vw,6.3rem)}
+.hero h1 .l2 em{font-style:normal; color:var(--ecg)}
+.hero-grid{display:grid; grid-template-columns:1.35fr .8fr; gap:clamp(28px,5vw,72px); align-items:end}
+@media (max-width:900px){.hero-grid{grid-template-columns:1fr; align-items:start}}
+.hero-cta{display:flex; flex-wrap:wrap; gap:12px; margin-top:2.1em}
+.hero-note{
+  margin-top:2.2em; font-size:.84rem; color:#a9b4bc; letter-spacing:.02em;
+  display:flex; align-items:center; gap:.6em; flex-wrap:wrap;
+}
+.hero-note b{color:#e4eaee; font-weight:600}
+.dot-live{width:8px; height:8px; border-radius:50%; background:var(--ecg); flex:none; animation:beat 1.9s var(--ease) infinite}
+@keyframes beat{0%,100%{transform:scale(1); box-shadow:0 0 0 0 rgba(225,29,42,.55)}45%{transform:scale(1.35); box-shadow:0 0 0 9px rgba(225,29,42,0)}}
+
+/* ── Monitor cardiaco dell'hero ─────────────────────────────
+   width esplicita: un <svg> è un elemento sostituito e con width:auto
+   userebbe la larghezza intrinseca del viewBox (1600px), sfondando il layout. */
+.ecg-bg{position:absolute; left:0; width:100%; top:44%; height:340px; transform:translateY(-50%); pointer-events:none; opacity:.78}
+.ecg-bg use{fill:none; stroke:var(--ecg); stroke-linecap:round; stroke-linejoin:round}
+
+/* alone diffuso: respira al ritmo del battito */
+.ecg-echo{stroke-width:9; opacity:.12; filter:blur(10px); animation:respiro 7.15s ease-in-out infinite}
+
+/* Linea di fondo: chiara, fra il bianco e il grigio — si disegna una volta
+   all'ingresso e resta. Il rosso non è più il colore del tracciato ma quello
+   della spazzata che lo percorre: è il passaggio a colorarlo, e il contrasto
+   sul nero cresce parecchio rispetto al rosso su rosso di prima. */
+/* `.ecg-bg use.ecg-base` e non `.ecg-base`: la regola generica
+   `.ecg-bg use{stroke:var(--ecg)}` ha specificità più alta e vincerebbe */
+.ecg-bg use.ecg-base{stroke:#d7dee3; stroke-width:2; opacity:.42; stroke-dasharray:4000; stroke-dashoffset:4000; animation:trace 4.2s var(--ease) .25s forwards}
+
+/* spazzata luminosa: dasharray e animazione calcolati via JS sulla lunghezza reale */
+.ecg-sweep{stroke-width:3; opacity:0; filter:drop-shadow(0 0 14px rgba(225,29,42,.95))}
+
+/* cursore in testa alla spazzata, pulsa sul complesso QRS */
+.ecg-cursor{fill:#fff; opacity:0; filter:drop-shadow(0 0 13px rgba(255,95,105,.95)); animation:battito 7.15s linear infinite}
+@keyframes trace{to{stroke-dashoffset:0}}
+@keyframes respiro{0%,100%{opacity:.09}7%{opacity:.30}18%{opacity:.11}}
+@keyframes battito{0%,100%{r:5}6%{r:9.5}15%{r:5}}
+
+/* countdown */
+.count{
+  border:1px solid rgba(243,240,233,.17); border-radius:var(--r);
+  padding:22px 24px; background:rgba(243,240,233,.035); backdrop-filter:blur(6px);
+}
+.count h4{
+  margin:0 0 16px; font-size:.68rem; letter-spacing:.2em; text-transform:uppercase;
+  color:var(--stone); font-weight:700;
+}
+.count-grid{display:grid; grid-template-columns:repeat(4,1fr); gap:8px; text-align:center}
+.count-grid b{
+  display:block; font-family:var(--f-display); font-size:clamp(1.7rem,4.4vw,2.5rem);
+  line-height:1; color:var(--paper); font-variant-numeric:tabular-nums; font-weight:400;
+}
+.count-grid span{display:block; font-size:.6rem; letter-spacing:.14em; text-transform:uppercase; color:var(--stone); margin-top:7px}
+.count-foot{
+  margin:18px 0 0; padding-top:15px; border-top:1px solid rgba(243,240,233,.13);
+  font-size:.8rem; color:#b9c3cb; line-height:1.5;
+}
+.count-foot b{color:var(--paper); font-weight:700; display:block}
+
+/* ══ FASCIA DATI ════════════════════════════════════════════ */
+.stats{background:var(--ecg); color:#fff; padding-block:0}
+.stats-in{display:grid; grid-template-columns:repeat(5,1fr)}
+@media (max-width:860px){.stats-in{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:359px){.stats-in{grid-template-columns:1fr}}
+.stat{padding:34px clamp(14px,2.2vw,26px); border-left:1px solid rgba(255,255,255,.22)}
+.stat:first-child{border-left:0}
+@media (max-width:860px){
+  .stat{border-top:1px solid rgba(255,255,255,.22)}
+  .stat:nth-child(-n+2){border-top:0}
+  .stat:nth-child(odd){border-left:0}
+}
+@media (max-width:359px){.stat{border-left:0!important} .stat:nth-child(2){border-top:1px solid rgba(255,255,255,.22)}}
+.stat b{display:block; font-family:var(--f-display); font-size:clamp(2.2rem,5vw,3.1rem); line-height:.95; font-weight:400}
+.stat span{display:block; font-size:.71rem; letter-spacing:.15em; text-transform:uppercase; margin-top:10px; opacity:.86; font-weight:600}
+a.stat{text-decoration:none; color:inherit; transition:background .25s var(--ease)}
+a.stat::after{
+  content:'↓'; position:absolute; top:16px; right:16px; font-size:.85rem;
+  opacity:0; transform:translateY(-4px); transition:opacity .25s, transform .25s var(--ease);
+}
+a.stat{position:relative}
+a.stat:hover,a.stat:focus-visible{background:rgba(0,0,0,.14)}
+a.stat:hover::after,a.stat:focus-visible::after{opacity:.75; transform:none}
+
+/* ══ Griglie generiche ══════════════════════════════════════ */
+.split{display:grid; grid-template-columns:.95fr 1.05fr; gap:clamp(30px,6vw,84px); align-items:start}
+@media (max-width:920px){.split{grid-template-columns:1fr}}
+.cards-3{display:grid; grid-template-columns:repeat(3,1fr); gap:clamp(16px,2.4vw,26px)}
+@media (max-width:900px){.cards-3{grid-template-columns:1fr}}
+.card{
+  background:#fff; border:1px solid rgba(11,15,18,.1); border-radius:var(--r);
+  padding:clamp(24px,3vw,34px); position:relative; transition:transform .3s var(--ease), box-shadow .3s var(--ease);
+}
+.card{border-top:2px solid transparent}
+.card:hover{transform:translateY(-4px); box-shadow:0 22px 44px -28px rgba(11,15,18,.5); border-top-color:var(--ecg)}
+.card:hover h3{color:var(--ecg)}
+.card h3{transition:color .25s var(--ease)}
+.card .num{
+  font-family:var(--f-display); font-size:.9rem; color:var(--ecg);
+  letter-spacing:.1em; display:block; margin-bottom:14px;
+}
+.card p{font-size:.94rem; color:var(--stone-2); margin-bottom:0}
+.dark .card{background:var(--ink-2); border-color:rgba(243,240,233,.13)}
+.dark .card p{color:#b0bac2}
+
+/* ══ PERCHÉ CONTA (i numeri dell'arresto cardiaco) ══════════ */
+.fatti{display:grid; grid-template-columns:repeat(3,1fr); gap:clamp(18px,3vw,36px); margin-top:clamp(44px,6vw,72px)}
+@media (max-width:820px){.fatti{grid-template-columns:1fr; gap:26px}}
+.fatti > div{border-top:2px solid var(--ink); padding-top:18px}
+.fatti b{
+  display:block; font-family:var(--f-display); font-weight:400; color:var(--ecg);
+  font-size:clamp(2.6rem,6vw,4.3rem); line-height:.9; letter-spacing:-.01em;
+}
+.fatti span{display:block; margin-top:12px; font-size:.9rem; color:var(--stone-2); max-width:30ch; line-height:1.5}
+.fatti-fonte{margin-top:clamp(22px,3vw,30px); font-size:.72rem; color:var(--stone); letter-spacing:.02em}
+
+.cta-row{display:flex; flex-wrap:wrap; gap:12px; margin-top:clamp(32px,4vw,48px)}
+
+/* ══ MAPPA / RETE ═══════════════════════════════════════════ */
+.map-stage{
+  position:relative; margin-top:clamp(34px,5vw,58px);
+  border:1px solid rgba(243,240,233,.15); border-radius:var(--r);
+  background:linear-gradient(180deg,#111a20,#0c1216); padding:clamp(22px,3.4vw,40px);
+  overflow:hidden;
+}
+.map-scroll{overflow-x:auto; overflow-y:hidden; -webkit-overflow-scrolling:touch}
+.map-svg{width:100%; height:auto; display:block; overflow:visible}
+
+/* ── Le cinque tappe in verticale (solo mobile) ───────────────
+   Sotto i 720px lo schema orizzontale mostrava 3 nodi su 5 e
+   costringeva a scorrere di lato. Qui la tratta si rialza in
+   verticale con lo stesso idioma della roadmap: linea che si
+   disegna all'ingresso, nodi che pulsano, km in tabellare.     */
+.rete-tappe{display:none}
+@media (max-width:720px){
+  .map-scroll{display:none}
+  /* geometria: la linea sta a 13px dal bordo (2px, centro 13+1);
+     i nodi sono figli di .tappa, che inizia a 36px — da qui il -22px
+     con cui i pallini ricadono esattamente sul binario */
+  .rete-tappe{
+    display:block; position:relative; list-style:none;
+    margin:0; padding:4px 0 4px 36px;
+  }
+  /* binario spento + tracciato rosso che lo ricopre entrando in vista */
+  .rete-tappe::before,.rete-tappe::after{
+    content:''; position:absolute; left:13px; top:20px; width:2px; border-radius:2px;
+  }
+  .rete-tappe::before{bottom:20px; background:rgba(243,240,233,.2)}
+  .rete-tappe::after{height:0; background:var(--ecg); box-shadow:0 0 12px rgba(225,29,42,.65)}
+  .reveal.in .rete-tappe::after{animation:filo 2.8s var(--ease) .25s forwards}
+
+  .rete-tappe li{margin:0}
+  .tappa{
+    position:relative; display:flex; align-items:baseline; gap:12px; width:100%;
+    background:none; border:0; border-radius:var(--r); cursor:pointer;
+    padding:15px 14px 15px 13px; text-align:left; color:inherit;
+    transition:background .22s var(--ease);
+  }
+  .tappa::before,.tappa::after{
+    content:''; position:absolute; left:-22px; top:50%; border-radius:50%;
+    transform:translate(-50%,-50%);
+  }
+  /* nucleo del nodo */
+  .tappa::before{width:15px; height:15px; background:var(--ecg); z-index:1; transition:width .25s var(--ease), height .25s var(--ease)}
+  /* alone che respira, sfalsato tappa per tappa come nello schema orizzontale */
+  .tappa::after{width:22px; height:22px; background:var(--ecg); opacity:.22; animation:aloneV 2.6s var(--ease) infinite}
+  .rete-tappe li:nth-child(2) .tappa::after{animation-delay:.4s}
+  .rete-tappe li:nth-child(3) .tappa::after{animation-delay:.8s}
+  .rete-tappe li:nth-child(4) .tappa::after{animation-delay:1.2s}
+  .rete-tappe li:nth-child(5) .tappa::after{animation-delay:1.6s}
+  @keyframes aloneV{0%,100%{width:22px;height:22px;opacity:.24}50%{width:38px;height:38px;opacity:0}}
+
+  .tappa-n{
+    font-size:.86rem; font-weight:800; letter-spacing:.13em; text-transform:uppercase;
+    color:#c3ccd3; transition:color .2s var(--ease);
+  }
+  .tappa-km{
+    flex:none; min-width:3.6em; font-size:.72rem; font-weight:700; letter-spacing:.08em;
+    text-transform:uppercase; color:#7d878f; transition:color .2s var(--ease);
+  }
+  .tappa[aria-pressed="true"]{background:rgba(225,29,42,.11)}
+  .tappa[aria-pressed="true"]::before{width:19px; height:19px}
+  .tappa[aria-pressed="true"] .tappa-n{color:#fff}
+  .tappa[aria-pressed="true"] .tappa-km{color:var(--ecg)}
+  .tappa:focus-visible{outline:2px solid var(--ecg); outline-offset:2px}
+}
+@keyframes filo{to{height:calc(100% - 40px)}}
+@media (prefers-reduced-motion:reduce){
+  .rete-tappe::after{height:calc(100% - 40px)}
+  .tappa::after{display:none}
+}
+.map-svg .track{fill:none; stroke:rgba(243,240,233,.22); stroke-width:2}
+.map-svg .pulse{fill:none; stroke:var(--ecg); stroke-width:2.6; stroke-linecap:round; stroke-linejoin:round;
+  stroke-dasharray:1400; stroke-dashoffset:1400; filter:drop-shadow(0 0 10px rgba(225,29,42,.6))}
+.reveal.in .map-svg .pulse{animation:trace 3.2s var(--ease) .2s forwards}
+.map-cursor{fill:#fff; opacity:0; filter:drop-shadow(0 0 9px rgba(255,95,105,.9))}
+.reveal.in .map-cursor{animation:accendi .6s 3.2s forwards}
+@keyframes accendi{to{opacity:1}}
+.node{cursor:pointer}
+.node circle.hit{fill:transparent}
+.node circle.core{fill:var(--ecg); transition:r .25s var(--ease)}
+.node circle.halo{fill:var(--ecg); opacity:.22; animation:halo 2.6s var(--ease) infinite}
+.node:nth-child(2) circle.halo{animation-delay:.4s}
+.node:nth-child(3) circle.halo{animation-delay:.8s}
+.node:nth-child(4) circle.halo{animation-delay:1.2s}
+.node:nth-child(5) circle.halo{animation-delay:1.6s}
+@keyframes halo{0%,100%{r:11; opacity:.24}50%{r:19; opacity:0}}
+.node text{
+  fill:#c3ccd3; font-family:var(--f-sans); font-size:12px; font-weight:700;
+  letter-spacing:.13em; text-transform:uppercase; text-anchor:middle; transition:fill .2s;
+}
+.node.on text,.node:hover text{fill:#fff}
+.node.on circle.core,.node:hover circle.core{r:11}
+.map-detail{
+  display:grid; grid-template-columns:auto 1fr; gap:clamp(16px,3vw,34px); align-items:start;
+  margin-top:clamp(24px,3.4vw,38px); padding-top:clamp(22px,3vw,30px);
+  border-top:1px solid rgba(243,240,233,.14);
+}
+@media (max-width:700px){.map-detail{grid-template-columns:1fr}}
+.map-detail .km{
+  font-family:var(--f-display); font-size:clamp(2.4rem,6vw,3.6rem); color:var(--ecg);
+  line-height:.9; font-weight:400;
+}
+.map-detail .km small{display:block; font-family:var(--f-sans); font-size:.62rem; letter-spacing:.2em; color:var(--stone); margin-top:8px; font-weight:700}
+.map-detail h3{color:var(--paper); font-size:1.5rem}
+.map-detail p{color:#b0bac2; font-size:.96rem; margin-bottom:0; max-width:62ch}
+.map-actions{display:flex; flex-wrap:wrap; gap:10px; margin-top:20px}
+.node.on circle.core{stroke:#fff; stroke-width:2.5}
+
+/* ══ POSTAZIONE / DESIGN ════════════════════════════════════ */
+/* Il totem non è una fotografia ma un modello: la cornice deve comportarsi
+   come uno strumento — bordo netto, nessun effetto al passaggio del mouse,
+   didascalia fuori dal quadro perché dentro ci sono già i comandi del viewer. */
+.totem{margin:0 0 clamp(34px,5vw,56px)}
+.totem-stage{
+  position:relative; border-radius:var(--r); overflow:hidden;
+  border:1px solid rgba(11,15,18,.14); background:#f4f7f5;
+  height:clamp(430px, 64vh, 660px);
+}
+.totem-stage iframe{position:absolute; inset:0; width:100%; height:100%; border:0; display:block}
+.totem figcaption{display:flex; gap:clamp(14px,2.2vw,26px); margin-top:14px; align-items:center}
+/* il fotoinserimento sul sentiero: piccolo accanto alla didascalia,
+   si apre a tutto schermo nel lucernario */
+.totem-mini{
+  flex:0 0 clamp(150px,17vw,214px); position:relative; display:block; padding:0;
+  border:1px solid rgba(11,15,18,.24); border-radius:var(--r); overflow:hidden;
+  background:#dedad0; cursor:zoom-in; font:inherit;
+}
+.totem-mini img{display:block; width:100%; height:auto; transition:transform .6s var(--ease)}
+.totem-mini:hover img,.totem-mini:focus-visible img{transform:scale(1.05)}
+.totem-mini-tag{
+  position:absolute; left:0; right:0; bottom:0; padding:14px 8px 5px; pointer-events:none;
+  background:linear-gradient(transparent,rgba(11,15,18,.8)); color:#fff; text-align:left;
+  font-size:.58rem; letter-spacing:.14em; text-transform:uppercase; font-weight:700;
+}
+.totem-dida{
+  display:flex; flex-direction:column; gap:7px; font-size:.72rem;
+  letter-spacing:.13em; text-transform:uppercase; font-weight:700; color:var(--ink);
+}
+.totem-dida em{
+  font-style:normal; letter-spacing:.02em; text-transform:none;
+  font-weight:500; font-size:.82rem; color:var(--stone-2);
+}
+/* il lucernario: velo scuro a tutto schermo per guardare l'ambientazione */
+.lucernario{
+  position:fixed; inset:0; z-index:420; background:rgba(8,11,13,.93);
+  display:grid; place-items:center; padding:clamp(16px,4vw,48px);
+  opacity:0; pointer-events:none; transition:opacity .3s var(--ease);
+}
+.lucernario.aperto{opacity:1; pointer-events:auto}
+.lucernario figure{margin:0; text-align:center}
+.lucernario img{
+  width:min(880px,94vw); max-height:80vh; height:auto;
+  border-radius:var(--r); box-shadow:0 30px 80px rgba(0,0,0,.55);
+}
+.lucernario figcaption{margin-top:14px; color:var(--paper); font-size:.86rem; font-weight:500}
+.lucernario .chiudi{
+  position:absolute; top:clamp(14px,3vw,26px); right:clamp(14px,3vw,26px);
+  width:44px; height:44px; border:1px solid rgba(243,240,233,.4); border-radius:50%;
+  background:none; color:var(--paper); font-size:1.3rem; line-height:1; cursor:pointer;
+  transition:background .25s, color .25s;
+}
+.lucernario .chiudi:hover{background:var(--paper); color:var(--ink)}
+@media (max-width:760px){
+  /* il totem è largo 4 m: in un riquadro verticale la sagoma si riduce e
+     avanza vuoto sopra e sotto. Meglio una finestra bassa e larga. */
+  .totem-stage{height:clamp(400px, 66vh, 540px)}
+  .totem figcaption{align-items:flex-start}
+}
+.feat{display:grid; grid-template-columns:repeat(4,1fr); gap:clamp(18px,2.6vw,30px)}
+@media (max-width:1000px){.feat{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:520px){.feat{grid-template-columns:1fr}}
+.feat > div{border-top:2px solid var(--ink); padding-top:16px}
+.dark .feat > div{border-color:var(--ecg)}
+.feat h3{font-size:1rem; margin-bottom:.5em}
+.feat p{font-size:.9rem; color:var(--stone-2); margin:0}
+.dark .feat p{color:#a9b3bb}
+
+/* ══ MODELLO / PILASTRI ════════════════════════════════════ */
+.pillar{border-left:3px solid var(--ecg); padding-left:22px}
+.pillar h3{font-size:1.28rem}
+.pillar p{font-size:.95rem; color:var(--stone-2); margin-bottom:0}
+.dark .pillar p{color:#adb7bf}
+.notice{
+  margin-top:clamp(34px,5vw,52px); border:1px solid rgba(11,15,18,.16); border-left:4px solid var(--stone);
+  background:rgba(11,15,18,.035); padding:clamp(20px,3vw,30px); border-radius:var(--r);
+}
+.dark .notice{border-color:rgba(243,240,233,.18); border-left-color:var(--stone); background:rgba(243,240,233,.04)}
+.notice h3{font-size:.78rem; letter-spacing:.18em; text-transform:uppercase; color:var(--stone)}
+.notice p{font-size:.9rem; margin-bottom:0; color:var(--stone-2); max-width:88ch}
+.dark .notice p{color:#a9b3bb}
+
+/* ══ MARGINE ZERO ═══════════════════════════════════════════ */
+.eq{display:flex; flex-wrap:wrap; align-items:stretch; gap:12px; margin-top:clamp(28px,4vw,44px)}
+.eq-op{display:flex; align-items:center; font-family:var(--f-display); font-size:1.8rem; color:var(--ecg); padding-inline:2px}
+.eq-item{
+  flex:1 1 168px; border:1px solid rgba(243,240,233,.16); border-radius:var(--r);
+  padding:24px 20px; background:rgba(243,240,233,.035);
+}
+.eq-item b{display:block; font-family:var(--f-display); font-size:clamp(1.7rem,3.4vw,2.3rem); line-height:1; margin-bottom:12px; font-weight:400}
+.eq-item small{
+  display:block; font-size:.66rem; letter-spacing:.2em; text-transform:uppercase;
+  color:var(--ecg); font-weight:700; margin-bottom:10px; font-family:var(--f-sans);
+}
+.eq-item.adott{transition:border-color .3s var(--ease), transform .3s var(--ease)}
+.eq-item.adott:hover{border-color:rgba(225,29,42,.55); transform:translateY(-3px)}
+.eq-item span{font-size:.82rem; color:#a9b3bb; line-height:1.45; display:block}
+.eq-item.res{background:var(--ecg); border-color:var(--ecg); flex:1 1 210px}
+.eq-item.res span{color:rgba(255,255,255,.94); font-size:.95rem; font-weight:600}
+
+/* ══ SPONSOR ════════════════════════════════════════════════ */
+.tiers{display:grid; grid-template-columns:repeat(3,1fr); gap:clamp(14px,2vw,20px); margin-top:clamp(34px,5vw,56px); align-items:start}
+@media (max-width:940px){.tiers{grid-template-columns:1fr}}
+.tier{
+  border:1px solid rgba(11,15,18,.14); border-radius:var(--r); background:#fff;
+  padding:clamp(26px,3vw,34px); display:flex; flex-direction:column; position:relative;
+  transition:transform .3s var(--ease), box-shadow .3s var(--ease);
+}
+.tier:hover{transform:translateY(-6px); box-shadow:0 30px 56px -28px rgba(11,15,18,.6)}
+.tier .accent{transition:height .3s var(--ease)}
+.tier:hover .accent{height:7px}
+.tier .accent{position:absolute; inset:0 0 auto; height:4px; border-radius:var(--r) var(--r) 0 0}
+.tier--bronze .accent{background:var(--bronzo)}
+.tier--silver .accent{background:var(--argento)}
+.tier--gold .accent{background:var(--oro)}
+.tier--silver{border-color:var(--ecg); box-shadow:0 22px 46px -30px rgba(11,15,18,.5)}
+.tier--gold{background:var(--ink); color:var(--paper); border-color:var(--ink)}
+.tier--gold h3{color:var(--oro)}
+.tier--gold li{color:#c4cdd4}
+.tag{
+  position:absolute; top:-11px; right:22px; background:var(--ecg); color:#fff;
+  font-size:.62rem; letter-spacing:.16em; text-transform:uppercase; font-weight:700;
+  padding:5px 11px; border-radius:2px;
+}
+.tier h3{font-family:var(--f-display); font-size:1.6rem; letter-spacing:.06em; margin-bottom:.1em; font-weight:400}
+.tier--bronze h3{color:var(--bronzo)}
+.tier--silver h3{color:#6b7883}
+.price{font-family:var(--f-display); font-size:clamp(2.3rem,4.4vw,3rem); line-height:1; margin:14px 0 4px; font-weight:400}
+.price-sub{font-size:.73rem; letter-spacing:.14em; text-transform:uppercase; color:var(--stone); font-weight:600; margin-bottom:22px}
+.tier ul{list-style:none; margin:0 0 26px; padding:0; flex:1}
+.tier li{
+  position:relative; padding-left:26px; margin-bottom:11px; font-size:.92rem;
+  color:var(--stone-2); line-height:1.45;
+}
+.tier li::before{
+  content:''; position:absolute; left:0; top:.42em; width:13px; height:7px;
+  border-left:2px solid var(--ecg); border-bottom:2px solid var(--ecg); transform:rotate(-45deg);
+}
+.tier--gold li::before{border-color:var(--oro)}
+.tier li.inh{font-weight:700; color:var(--ink)}
+.tier--gold li.inh{color:var(--oro)}
+.tier li.inh::before{display:none}
+.tier li.inh{padding-left:0}
+
+/* tabella comparativa */
+.table-scroll{overflow-x:auto; margin-top:clamp(38px,5vw,64px); border:1px solid rgba(11,15,18,.14); border-radius:var(--r); background:#fff}
+table{border-collapse:collapse; width:100%; min-width:640px; font-size:.9rem}
+caption{
+  text-align:left; padding:20px clamp(16px,2.4vw,26px); font-size:.72rem; letter-spacing:.18em;
+  text-transform:uppercase; color:var(--stone); font-weight:700; border-bottom:1px solid rgba(11,15,18,.1);
+}
+th,td{padding:14px clamp(12px,2vw,22px); text-align:left; border-bottom:1px solid rgba(11,15,18,.08); vertical-align:top}
+thead th{
+  font-size:.72rem; letter-spacing:.14em; text-transform:uppercase; font-weight:800;
+  background:var(--paper-2); white-space:nowrap;
+}
+thead th:nth-child(2){color:var(--bronzo)}
+thead th:nth-child(3){color:#6b7883}
+thead th:nth-child(4){color:#9a7c14}
+tbody th{font-weight:600; color:var(--ink); width:36%}
+td{text-align:center; color:var(--stone-2)}
+td.y{color:var(--ecg); font-weight:800}
+td.n{color:#c3c8cc}
+tbody tr{transition:background .2s var(--ease)}
+tbody tr:hover{background:rgba(225,29,42,.07)}
+tbody tr:hover th{color:var(--ecg)}
+tbody th{transition:color .2s var(--ease)}
+
+/* ── La stessa tabella, a schede (solo mobile) ────────────────
+   Sotto i 720px le quattro colonne non ci stanno: ogni riga
+   diventa una scheda con la voce in testa e i tre livelli
+   affiancati sotto. Il confronto resta possibile a colpo
+   d'occhio, senza scorrimento laterale. Il markup è lo stesso —
+   una sola fonte di verità — e i `role` espliciti tengono in
+   piedi la semantica di tabella, che il display:block perde.  */
+@media (max-width:720px){
+  .table-scroll{overflow-x:visible; border:0; background:transparent}
+  table{display:block; min-width:0; font-size:.92rem}
+  /* a piena larghezza il letter-spacing da .18em mandava il titolo su tre righe */
+  caption{padding:0 0 16px; border-bottom:0; letter-spacing:.1em; font-size:.68rem}
+  /* l'intestazione vive nelle etichette delle celle: qui resta
+     solo per i lettori di schermo */
+  thead{position:absolute; width:1px; height:1px; overflow:hidden; clip:rect(0 0 0 0); white-space:nowrap}
+  tbody{display:block}
+  tbody tr{
+    display:grid; grid-template-columns:repeat(3,1fr);
+    background:#fff; border:1px solid rgba(11,15,18,.14); border-radius:var(--r);
+    margin-bottom:10px; overflow:hidden;
+  }
+  tbody tr:hover{background:#fff}
+  tbody tr:last-child{margin-bottom:0}
+  tbody th{
+    grid-column:1/-1; display:block; width:auto;
+    padding:13px 16px 12px; font-size:.9rem; line-height:1.4;
+    border-bottom:1px solid rgba(11,15,18,.1);
+  }
+  tbody tr:hover th{color:var(--ink)}
+  tbody td{
+    display:block; padding:10px 6px 13px; border-bottom:0;
+    border-left:1px solid rgba(11,15,18,.08); font-size:.9rem;
+  }
+  tbody td:nth-of-type(1){border-left:0}
+  tbody tr:last-child th{border-bottom:1px solid rgba(11,15,18,.1)}
+  tbody tr:last-child td{border-bottom:0}
+  /* il nome del livello sopra al valore, nel colore del livello */
+  tbody td::before{
+    content:attr(data-l); display:block; margin-bottom:6px;
+    font-size:.58rem; font-weight:800; letter-spacing:.14em; text-transform:uppercase;
+  }
+  tbody td:nth-of-type(1)::before{color:var(--bronzo)}
+  tbody td:nth-of-type(2)::before{color:#6b7883}
+  tbody td:nth-of-type(3)::before{color:#9a7c14}
+}
+.pillar{transition:border-color .3s var(--ease)}
+.pillar:hover{border-left-width:5px; padding-left:20px}
+.pillar{transition:border-left-width .25s var(--ease), padding-left .25s var(--ease)}
+tbody tr:last-child th,tbody tr:last-child td{border-bottom:0}
+
+/* ══ ROADMAP ════════════════════════════════════════════════ */
+.road{position:relative; margin-top:clamp(38px,5vw,60px)}
+.road::before{content:''; position:absolute; left:0; right:0; top:11px; height:2px; background:rgba(243,240,233,.16)}
+.road-grid{display:grid; grid-template-columns:repeat(4,1fr); gap:clamp(16px,2.4vw,30px); position:relative}
+@media (max-width:900px){
+  .road::before{left:11px; right:auto; top:0; bottom:0; width:2px; height:auto}
+  .road-grid{grid-template-columns:1fr; gap:34px; padding-left:38px}
+}
+.step{position:relative; padding-top:38px}
+@media (max-width:900px){.step{padding-top:0}}
+.step::before{
+  content:''; position:absolute; left:0; top:4px; width:16px; height:16px; border-radius:50%;
+  background:var(--ink); border:3px solid var(--ecg);
+}
+@media (max-width:900px){.step::before{left:-38px; top:3px}}
+.step.done::before{background:var(--ecg)}
+.step time{
+  display:block; font-size:.72rem; letter-spacing:.16em; text-transform:uppercase;
+  color:var(--ecg); font-weight:700; margin-bottom:8px;
+}
+.step h3{font-size:1.05rem; color:var(--paper)}
+.step p{font-size:.88rem; color:#a9b3bb; margin:0}
+.step-link{
+  display:inline-flex; align-items:center; gap:.4em; margin-top:14px; text-decoration:none;
+  font-size:.74rem; font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:var(--ecg);
+  border-bottom:1px solid transparent; transition:border-color .25s, gap .25s var(--ease);
+}
+.step-link::after{content:'→'}
+.step-link:hover{border-color:var(--ecg); gap:.75em}
+
+/* ══ VIDEO ══════════════════════════════════════════════════ */
+.videos{display:grid; grid-template-columns:1fr 1fr; gap:clamp(16px,2.4vw,26px); margin-top:clamp(30px,4vw,48px)}
+@media (max-width:820px){.videos{grid-template-columns:1fr}}
+.vframe{
+  position:relative; aspect-ratio:16/9; border-radius:var(--r); overflow:hidden;
+  background:linear-gradient(140deg,#18222a,#0d1317); border:1px solid rgba(243,240,233,.14);
+  display:flex; flex-direction:column; align-items:center; justify-content:center; gap:14px;
+  text-align:center; padding:24px; color:var(--stone);
+}
+.vframe iframe,.vframe video{position:absolute; inset:0; width:100%; height:100%; border:0}
+.vframe .play{
+  width:62px; height:62px; border-radius:50%; border:2px solid var(--ecg);
+  display:grid; place-items:center; color:var(--ecg); flex:none;
+}
+.vframe b{color:#d3dbe1; font-size:.98rem; letter-spacing:.02em}
+.vframe small{font-size:.74rem; letter-spacing:.12em; text-transform:uppercase}
+
+/* ══ SOCI DEL CAPITOLO (slider) ═════════════════════════════ */
+.soci{display:grid; gap:14px; overflow:hidden; -webkit-mask-image:linear-gradient(to right,transparent,#000 7%,#000 93%,transparent);
+      mask-image:linear-gradient(to right,transparent,#000 7%,#000 93%,transparent)}
+.soci-riga{overflow:hidden}
+.soci-track{display:flex; gap:14px; width:max-content; will-change:transform}
+.soci-riga[data-dir="1"]  .soci-track{animation:scorri var(--dur,72s) linear infinite}
+.soci-riga[data-dir="-1"] .soci-track{animation:scorri var(--dur,72s) linear infinite reverse}
+@keyframes scorri{from{transform:translate3d(0,0,0)}to{transform:translate3d(-50%,0,0)}}
+.soci:hover .soci-track,.soci:focus-within .soci-track{animation-play-state:paused}
+
+.soc{
+  flex:none; width:284px; display:flex; align-items:center; gap:14px; text-decoration:none;
+  padding:16px 18px; border:1px solid rgba(243,240,233,.13); border-radius:var(--r);
+  background:rgba(243,240,233,.035); color:inherit;
+  transition:border-color .3s var(--ease), background .3s var(--ease), transform .3s var(--ease);
+}
+.soc:hover,.soc:focus-visible{background:rgba(243,240,233,.08); border-color:rgba(225,29,42,.55); transform:translateY(-3px)}
+/* i marchi sono già in bianco e nero; il riquadro è più largo dell'altezza
+   così i logotipi orizzontali non vengono rimpiccioliti dentro un quadrato */
+.soc-mark{
+  flex:none; width:76px; height:54px; border-radius:2px; display:grid; place-items:center;
+  padding:5px;
+  background:rgba(243,240,233,.06); border:1px solid rgba(243,240,233,.13);
+  transition:background .3s var(--ease), border-color .3s var(--ease);
+}
+.soc:hover .soc-mark{background:rgba(243,240,233,.12); border-color:rgba(243,240,233,.24)}
+.soc-mark img{width:100%; height:100%; object-fit:contain; opacity:.78; transition:opacity .3s var(--ease)}
+.soc:hover .soc-mark img{opacity:1}
+/* la freccia sta sulla categoria: il ::after del nome è già preso dal pallino filiera */
+a.soc .soc-cat::after{
+  content:' ↗'; color:var(--ecg); opacity:0; transition:opacity .25s var(--ease);
+}
+a.soc:hover .soc-cat::after,a.soc:focus-visible .soc-cat::after{opacity:1}
+.soc-txt{min-width:0}
+.soc-name{
+  display:block; font-size:.87rem; font-weight:700; color:var(--paper); letter-spacing:-.01em;
+  white-space:nowrap; overflow:hidden; text-overflow:ellipsis;
+}
+.soc-cat{
+  display:block; font-size:.68rem; letter-spacing:.06em; color:#8b959e; margin-top:3px;
+  white-space:nowrap; overflow:hidden; text-overflow:ellipsis;
+}
+.soc.pro .soc-name::after{
+  content:''; display:inline-block; width:6px; height:6px; border-radius:50%;
+  background:var(--ecg); margin-left:7px; vertical-align:middle;
+}
+.soci-legenda{display:block; margin-top:14px; font-family:var(--f-sans); font-size:.74rem; letter-spacing:.1em; text-transform:uppercase; color:var(--stone)}
+.soci-legenda i{display:inline-block; width:7px; height:7px; border-radius:50%; background:var(--ecg); margin-right:7px}
+.soci-nota{font-size:.8rem; color:var(--stone); margin:0}
+.soci-nota a{color:#b6c0c7; text-decoration:none; border-bottom:1px solid rgba(182,192,199,.4); transition:color .2s, border-color .2s}
+.soci-nota a:hover{color:#fff; border-color:var(--ecg)}
+@media (prefers-reduced-motion:reduce){
+  .soci{mask-image:none; -webkit-mask-image:none}
+  .soci-riga{overflow-x:auto}
+  .soci-track{animation:none}
+}
+
+/* ══ EVENTO ═════════════════════════════════════════════════ */
+.event{display:grid; grid-template-columns:1.1fr .9fr; gap:clamp(30px,5vw,72px); align-items:center}
+@media (max-width:900px){.event{grid-template-columns:1fr}}
+.event-meta{list-style:none; padding:0; margin:clamp(24px,3vw,34px) 0 0}
+.event-meta li{
+  display:grid; grid-template-columns:130px 1fr; gap:16px; padding:15px 0;
+  border-top:1px solid rgba(11,15,18,.12); font-size:.95rem;
+}
+.dark .event-meta li{border-color:rgba(243,240,233,.14)}
+.event-meta li:last-child{border-bottom:1px solid rgba(11,15,18,.12)}
+/* sigillo del decennale: presente, mai invadente */
+.sigillo-10{width:min(190px,44%); height:auto; display:block; margin:0 0 22px}
+
+.dark .event-meta li:last-child{border-color:rgba(243,240,233,.14)}
+.event-meta dt,.event-meta b{
+  font-size:.7rem; letter-spacing:.16em; text-transform:uppercase; color:var(--stone); font-weight:700;
+  padding-top:3px;
+}
+
+/* ══ FORM ═══════════════════════════════════════════════════
+   Leggero e caldo: campi a filo, chip per il livello, congedo
+   con battito dopo l'invio. Niente gabbie, niente riquadri.  */
+.form-card{
+  background:#fff; color:var(--ink);   /* la sezione madre è scura: senza questo, testo bianco su bianco */
+  border-radius:6px; overflow:hidden;
+  padding:clamp(28px,4vw,46px);
+  box-shadow:0 40px 80px -40px rgba(60,5,10,.55);
+  position:relative;
+}
+.form-card::before{content:''; position:absolute; inset:0 0 auto; height:5px; background:var(--ink)}
+.form-head{margin-bottom:clamp(22px,3vw,30px)}
+.form-head .kicker{
+  display:block; font-size:.66rem; letter-spacing:.22em; text-transform:uppercase;
+  color:var(--ecg); font-weight:700; margin-bottom:10px;
+}
+.form-head h3{font-family:var(--f-display); font-weight:400; font-size:1.7rem; letter-spacing:.01em; text-transform:uppercase; margin-bottom:.35em}
+.form-head p{font-size:.92rem; color:var(--stone-2); margin:0; max-width:44ch}
+
+.fg{display:grid; grid-template-columns:1fr 1fr; gap:22px 26px}
+@media (max-width:620px){.fg{grid-template-columns:1fr}}
+.f{display:flex; flex-direction:column; gap:4px}
+.f.full{grid-column:1/-1}
+.f label,.f .label{
+  font-size:.66rem; letter-spacing:.14em; text-transform:uppercase; font-weight:700; color:var(--stone);
+}
+.f label em{font-style:normal; text-transform:none; letter-spacing:.02em; font-weight:500; color:#b3bac0}
+/* :not(...) obbligatorio: senza, appearance:none azzerava anche il disegno
+   nativo di checkbox e radio — la casella privacy si spuntava ma restava
+   invisibile, e sembrava che non si potesse selezionare. */
+.f input:not([type="checkbox"]):not([type="radio"]),.f select,.f textarea{
+  font-family:inherit; font-size:1rem; color:var(--ink); background:transparent;
+  border:0; border-bottom:1.5px solid rgba(11,15,18,.16); border-radius:0;
+  padding:9px 2px 10px; transition:border-color .25s var(--ease);
+  -webkit-appearance:none; appearance:none;
+}
+.f input::placeholder,.f textarea::placeholder{color:#a9b0b6}
+.f input:focus,.f select:focus,.f textarea:focus{outline:0; border-bottom-color:var(--ecg)}
+
+/* campo in errore + messaggio sotto */
+.f input[aria-invalid="true"],.f textarea[aria-invalid="true"]{border-bottom-color:var(--ecg)}
+.f-msg{
+  display:none; margin-top:6px; font-size:.78rem; font-weight:600; color:var(--ecg);
+  letter-spacing:0; text-transform:none;
+}
+.f-msg::before{content:'! '; font-weight:800}
+.f.err .f-msg{display:block}
+.f select{
+  cursor:pointer;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1l5 5 5-5' fill='none' stroke='%2378838c' stroke-width='2'/%3E%3C/svg%3E");
+  background-repeat:no-repeat; background-position:right 4px center; padding-right:24px;
+}
+.f textarea{resize:none; min-height:44px; overflow:hidden}
+
+/* livello di adozione come chip */
+.chips{display:flex; flex-wrap:wrap; gap:8px; margin-top:8px}
+.chips input{position:absolute; opacity:0; pointer-events:none}
+.chip{
+  padding:9px 15px; border:1.5px solid rgba(11,15,18,.18); border-radius:999px;
+  font-size:.82rem; font-weight:600; color:var(--stone-2); cursor:pointer; user-select:none;
+  transition:all .22s var(--ease);
+}
+.chip:hover{border-color:var(--ecg); color:var(--ink)}
+.chips input:checked + .chip{background:var(--ink); border-color:var(--ink); color:#fff}
+.chips input:focus-visible + .chip{outline:2px solid var(--ecg); outline-offset:2px}
+
+/* honeypot: invisibile agli umani, irresistibile per i bot */
+.hp{position:absolute; left:-6000px; top:0; height:1px; overflow:hidden}
+
+.f label.f-consent{
+  display:flex; gap:13px; align-items:flex-start; font-size:.86rem; color:var(--stone-2);
+  line-height:1.55; text-transform:none; letter-spacing:0; font-weight:400; cursor:pointer;
+  padding:10px 12px 10px 10px; margin:-10px -12px -10px -10px; border-radius:var(--r);
+  transition:background .2s var(--ease);
+}
+.f label.f-consent:hover{background:rgba(11,15,18,.035)}
+/* casella disegnata da noi: quadrato pieno, spunta bianca, 22px di lato
+   (bersaglio comodo anche col pollice) */
+.f-consent input[type="checkbox"]{
+  flex:none; margin:1px 0 0; width:22px; height:22px; border-radius:4px; cursor:pointer;
+  -webkit-appearance:none; appearance:none;
+  border:1.8px solid rgba(11,15,18,.34); background:#fff;
+  background-repeat:no-repeat; background-position:center; background-size:14px 14px;
+  transition:background-color .18s var(--ease), border-color .18s var(--ease);
+}
+.f-consent input[type="checkbox"]:hover{border-color:var(--ecg)}
+.f-consent input[type="checkbox"]:checked{
+  background-color:var(--ecg); border-color:var(--ecg);
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M2.5 8.6l3.6 3.6L13.5 4' fill='none' stroke='%23fff' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+}
+.f-consent input[type="checkbox"]:focus-visible{outline:2px solid var(--ecg); outline-offset:3px}
+.f.err .f-consent input[type="checkbox"]{border-color:var(--ecg); box-shadow:0 0 0 3px rgba(225,29,42,.16)}
+.f-consent a{color:var(--ink); text-decoration:underline; text-underline-offset:2px; font-weight:600}
+.f-consent a:hover{color:var(--ecg)}
+.form-foot{display:flex; flex-wrap:wrap; gap:16px; align-items:center; margin-top:26px}
+.form-foot small{font-size:.76rem; color:var(--stone); max-width:38ch}
+.form-err{margin:14px 0 0; font-size:.86rem; color:var(--ecg)}
+.form-err a{color:inherit}
+
+/* congedo dopo l'invio */
+.form-ok{text-align:center; padding:clamp(20px,4vw,40px) 8px}
+.form-ok svg{width:64px; height:40px; margin-bottom:18px}
+.form-ok svg path{
+  fill:none; stroke:var(--ecg); stroke-width:2.6; stroke-linecap:round; stroke-linejoin:round;
+  stroke-dasharray:220; stroke-dashoffset:220; animation:trace 1.6s var(--ease) .1s forwards;
+}
+.form-ok h3{font-family:var(--f-display); font-weight:400; text-transform:uppercase; font-size:1.6rem; margin-bottom:.4em}
+.form-ok p{font-size:.94rem; color:var(--stone-2); max-width:46ch; margin-inline:auto}
+.form-ok .ok-ret{font-size:.78rem; color:var(--stone); margin-top:18px}
+
+/* informativa ripiegata */
+.privacy{margin-top:clamp(22px,3vw,30px); border-top:1px solid rgba(11,15,18,.1); padding-top:16px}
+.privacy summary{
+  cursor:pointer; font-size:.72rem; letter-spacing:.14em; text-transform:uppercase;
+  font-weight:700; color:var(--stone); list-style:none; display:flex; align-items:center; gap:8px;
+}
+.privacy summary::-webkit-details-marker{display:none}
+.privacy summary::after{content:'+'; font-size:1rem; color:var(--ecg)}
+.privacy[open] summary::after{content:'−'}
+.privacy summary:hover{color:var(--ink)}
+.privacy .pv{font-size:.8rem; color:var(--stone-2); line-height:1.6; margin-top:12px}
+.privacy .pv p{margin:0 0 .8em; font-size:inherit}
+.privacy .pv b{color:var(--ink)}
+
+/* ══ FOOTER ═════════════════════════════════════════════════ */
+footer{background:var(--ink); color:#96a1a9; padding-block:clamp(52px,7vw,84px) 34px; font-size:.88rem}
+.f-grid{display:grid; grid-template-columns:1.4fr 1fr 1fr; gap:clamp(24px,4vw,54px)}
+@media (max-width:820px){.f-grid{grid-template-columns:1fr 1fr}}
+@media (max-width:520px){.f-grid{grid-template-columns:1fr}}
+footer h4{font-size:.7rem; letter-spacing:.18em; text-transform:uppercase; color:var(--paper); margin:0 0 16px; font-weight:800}
+footer a{color:#b6c0c7; text-decoration:none; border-bottom:1px solid transparent; transition:border-color .2s, color .2s}
+footer a:hover{color:#fff; border-color:var(--ecg)}
+footer ul{list-style:none; padding:0; margin:0}
+footer li{margin-bottom:9px}
+/* lockup del capitolo: il marchio BNI va su fondo chiaro, come da linee guida */
+.bni-lock{
+  display:inline-flex; align-items:center; gap:14px; text-decoration:none;
+  border:1px solid rgba(243,240,233,.13); border-radius:var(--r); padding:10px 16px 10px 10px;
+  transition:border-color .3s var(--ease), background .3s var(--ease);
+}
+.bni-lock:hover{border-color:rgba(225,29,42,.6); background:rgba(243,240,233,.04)}
+.bni-plate{
+  background:#fff; border-radius:2px; padding:9px 12px; display:grid; place-items:center; flex:none;
+  transition:transform .3s var(--ease);
+}
+.bni-lock:hover .bni-plate{transform:scale(1.04)}
+.bni-plate img{width:128px; height:auto; display:block}
+.bni-txt b{display:block; color:var(--paper); font-size:.86rem; font-weight:700; letter-spacing:-.01em}
+.bni-txt span{display:block; font-size:.72rem; color:#7d878f; letter-spacing:.08em; margin-top:2px}
+
+.f-bottom{
+  margin-top:clamp(38px,5vw,58px); padding-top:24px; border-top:1px solid rgba(243,240,233,.12);
+  display:flex; flex-wrap:wrap; gap:14px; justify-content:space-between; font-size:.78rem; color:#6f7a82;
+}
+/* logo Ufficio Service, piccolo, in bianco */
+.us-mini{display:inline-block; margin-top:18px; opacity:.65; transition:opacity .3s var(--ease)}
+.us-mini:hover{opacity:1}
+.us-mini img{width:96px; height:auto; display:block}
+
+/* ══ Documenti legali (privacy / cookie) ════════════════════
+   Schede a tutta pagina sopra al sito: il bundle è un file solo,
+   quindi non esistono pagine separate da linkare.               */
+.doc{
+  position:fixed; inset:0; z-index:400; background:rgba(6,9,11,.72);
+  backdrop-filter:blur(6px); overflow-y:auto; overscroll-behavior:contain;
+  padding:clamp(14px,4vw,52px);
+  animation:docIn .34s var(--ease);
+}
+@keyframes docIn{from{opacity:0}to{opacity:1}}
+.doc[hidden]{display:none}
+.doc-in{
+  position:relative; max-width:820px; margin-inline:auto; background:var(--paper);
+  color:var(--ink); border-radius:6px; padding:clamp(28px,5vw,62px);
+  box-shadow:0 60px 120px -50px rgba(0,0,0,.85);
+  animation:docUp .42s var(--ease);
+}
+@keyframes docUp{from{transform:translateY(24px)}to{transform:none}}
+.doc-in::before{content:''; position:absolute; inset:0 0 auto; height:5px; background:var(--ecg); border-radius:6px 6px 0 0}
+.doc-x{
+  position:absolute; top:14px; right:14px; width:42px; height:42px; line-height:1;
+  border:1px solid rgba(11,15,18,.16); background:#fff; border-radius:var(--r);
+  font-size:1.5rem; color:var(--stone-2); cursor:pointer;
+  transition:border-color .2s var(--ease), color .2s var(--ease), background .2s var(--ease);
+}
+.doc-x:hover{border-color:var(--ecg); color:var(--ecg); background:var(--paper-2)}
+.doc h2.t{font-size:clamp(1.9rem,4.6vw,3rem)}
+.doc-date{font-size:.76rem; letter-spacing:.06em; color:var(--stone); margin:0 0 2.2em; text-transform:uppercase; font-weight:600}
+.doc h3{
+  font-family:var(--f-sans); font-weight:800; font-size:1rem; letter-spacing:-.01em;
+  margin:2em 0 .5em; padding-top:.9em; border-top:1px solid rgba(11,15,18,.12);
+}
+.doc p{font-size:.94rem; color:var(--stone-2); line-height:1.68}
+.doc p b{color:var(--ink)}
+.doc-ul{margin:0 0 1.1em; padding-left:1.1em; font-size:.94rem; color:var(--stone-2); line-height:1.68}
+.doc-ul li{margin-bottom:.6em}
+.doc-ul b{color:var(--ink)}
+.doc-key{
+  background:var(--paper-2); border-left:3px solid var(--ecg); padding:16px 20px;
+  font-size:.96rem!important; color:var(--ink)!important;
+}
+.doc-foot{
+  margin:2.4em 0 0; padding-top:1.2em; border-top:1px solid rgba(11,15,18,.12);
+  font-size:.78rem!important; color:var(--stone)!important; font-style:italic;
+}
+.doc a[data-doc],.pv-more a{
+  color:var(--ink); font-weight:600; text-decoration:underline;
+  text-decoration-color:rgba(225,29,42,.55); text-underline-offset:3px;
+}
+.doc a[data-doc]:hover,.pv-more a:hover{color:var(--ecg)}
+.pv-more{display:flex; flex-wrap:wrap; gap:18px; margin-top:1.2em!important}
+body.doc-open{overflow:hidden}
+
+/* ══ MAPPA GEOREFERENZIATA ══════════════════════════════════
+   Nessuna richiesta esterna finché l'utente non la chiede: prima
+   c'è un'anteprima disegnata in casa, poi le tile di OpenStreetMap. */
+.geo{margin-top:clamp(34px,5vw,56px)}
+.geo-head{display:flex; flex-wrap:wrap; align-items:baseline; gap:10px 18px; margin-bottom:16px}
+.geo-head h3{color:var(--paper); font-size:1.06rem; margin:0}
+.geo-head p{margin:0; font-size:.8rem; color:var(--stone)}
+.geo-stage{
+  position:relative; border:1px solid rgba(243,240,233,.15); border-radius:var(--r);
+  overflow:hidden; background:#0c1216; height:clamp(340px,52vw,520px);
+}
+.geo-gate{
+  position:absolute; inset:0; display:flex; flex-direction:column;
+  align-items:center; justify-content:center; text-align:center; gap:14px;
+  padding:clamp(20px,4vw,40px); z-index:3;
+  background:linear-gradient(180deg,rgba(12,18,22,.72),rgba(12,18,22,.93));
+}
+.geo-gate .geo-sfondo{position:absolute; inset:0; width:100%; height:100%; opacity:.5; z-index:-1}
+/* solo il titolo del cancello: senza `>` prendeva anche i <b> dentro la nota */
+.geo-gate > b{color:var(--paper); font-size:1.02rem; letter-spacing:-.01em}
+.geo-gate small b{color:#c9d2d9; font-weight:700}
+.geo-gate p{margin:0; max-width:52ch; font-size:.85rem; color:#a9b3bb; line-height:1.6}
+.geo-gate small{font-size:.72rem; color:var(--stone); max-width:56ch; line-height:1.55}
+.geo-gate small a{color:#b6c0c7}
+.geo-map{position:absolute; inset:0; touch-action:none; cursor:grab; background:#dfd9cf}
+.geo-map.trascina{cursor:grabbing}
+.geo-tiles{position:absolute; inset:0; overflow:hidden}
+/* cartografia in scala di grigi: la mappa entra nella palette del sito
+   (avorio, inchiostro, rosso) e i segnaposto restano l'unica cosa a colori */
+.geo-tiles img{
+  position:absolute; user-select:none; -webkit-user-drag:none;
+  filter:grayscale(1) contrast(.88) brightness(1.08);
+}
+.geo-map{background:#e6e3dd}
+/* avviso quando si prova a zoomare con la rotella senza modificatore */
+.geo-avviso{
+  position:absolute; inset:0; z-index:5; display:grid; place-items:center; text-align:center;
+  background:rgba(11,15,18,.62); color:var(--paper); padding:24px;
+  font-size:.9rem; font-weight:600; letter-spacing:.01em;
+  opacity:0; pointer-events:none; transition:opacity .25s var(--ease);
+}
+.geo-avviso.on{opacity:1}
+.geo-avviso kbd{
+  font:inherit; background:rgba(243,240,233,.16); border:1px solid rgba(243,240,233,.3);
+  border-radius:3px; padding:1px 7px; margin:0 2px;
+}
+.geo-over{position:absolute; inset:0; pointer-events:none; overflow:hidden}
+/* `>` obbligatorio: senza, la regola prendeva anche gli SVG dentro i
+   segnaposto, li toglieva dal flusso e faceva collassare il pulsante */
+.geo-over > svg{position:absolute; inset:0; width:100%; height:100%; overflow:visible}
+.geo-pin{
+  position:absolute; transform:translate(-50%,-100%); pointer-events:auto;
+  border:0; background:transparent; padding:0 0 4px; cursor:pointer; line-height:0;
+}
+.geo-pin svg{width:32px; height:42px; display:block; filter:drop-shadow(0 4px 6px rgba(0,0,0,.45))}
+.geo-pin .pin-b{fill:var(--ecg)}
+.geo-pin[aria-pressed="true"] .pin-b,.geo-pin:hover .pin-b{fill:#0b0f12}
+/* etichetta sotto la punta, non addosso al segnaposto */
+.geo-pin em{
+  position:absolute; left:50%; top:calc(100% + 3px); transform:translateX(-50%);
+  font-style:normal; font-size:.62rem; font-weight:800; letter-spacing:.09em; text-transform:uppercase;
+  line-height:1.5; color:#0b0f12; background:rgba(255,255,255,.94); padding:2px 7px;
+  border-radius:2px; white-space:nowrap; pointer-events:none;
+  box-shadow:0 1px 3px rgba(0,0,0,.3);
+}
+.geo-card{
+  position:absolute; left:14px; top:14px; z-index:4; max-width:min(300px,calc(100% - 76px));
+  background:rgba(11,15,18,.93); border:1px solid rgba(243,240,233,.16); border-radius:var(--r);
+  padding:14px 16px; color:var(--paper);
+}
+.geo-card b{display:block; font-size:.95rem; margin-bottom:2px}
+.geo-card span{display:block; font-size:.72rem; letter-spacing:.14em; text-transform:uppercase; color:var(--ecg); font-weight:700}
+.geo-card p{margin:8px 0 0; font-size:.78rem; color:#a9b3bb; line-height:1.5}
+.geo-ui{position:absolute; right:12px; top:12px; z-index:4; display:flex; flex-direction:column; gap:6px}
+.geo-ui button{
+  width:36px; height:36px; border:1px solid rgba(11,15,18,.22); background:rgba(255,255,255,.94);
+  color:var(--ink); border-radius:var(--r); cursor:pointer; font-size:1.05rem; font-weight:700; line-height:1;
+  transition:background .2s var(--ease), color .2s var(--ease);
+}
+.geo-ui button:hover{background:var(--ecg); color:#fff; border-color:var(--ecg)}
+.geo-ui .geo-off{font-size:.6rem; font-weight:800; letter-spacing:.06em; height:auto; padding:7px 0}
+.geo-attr{
+  position:absolute; right:0; bottom:0; z-index:4; font-size:.64rem; letter-spacing:.02em;
+  background:rgba(255,255,255,.82); color:#33393e; padding:3px 8px; border-radius:2px 0 0 0;
+}
+.geo-attr a{color:#33393e}
+.geo-nota{margin:10px 0 0; font-size:.74rem; color:var(--stone); line-height:1.55}
+.geo-nota a{color:#b6c0c7}
+
+/* ══ Reveal on scroll ═══════════════════════════════════════ */
+.reveal{opacity:0; transform:translateY(26px); transition:opacity .8s var(--ease), transform .8s var(--ease)}
+.reveal.in{opacity:1; transform:none}
+.reveal[data-d="1"]{transition-delay:.09s}
+.reveal[data-d="2"]{transition-delay:.18s}
+.reveal[data-d="3"]{transition-delay:.27s}
+.reveal[data-d="4"]{transition-delay:.36s}
+
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.001ms!important; animation-iteration-count:1!important; transition-duration:.001ms!important}
+  html{scroll-behavior:auto}
+  .reveal{opacity:1; transform:none}
+  .ecg-base,.map-svg .pulse{stroke-dashoffset:0; opacity:.45}
+  .ecg-cursor,.ecg-sweep,.map-cursor{display:none}
+}
+::selection{background:var(--ecg); color:#fff}
+:focus-visible{outline:2px solid var(--ecg); outline-offset:3px}
+.sr{position:absolute; width:1px; height:1px; overflow:hidden; clip:rect(0 0 0 0); white-space:nowrap}
+.skip{position:absolute; left:-999px; top:8px; z-index:200; background:var(--ecg); color:#fff; padding:10px 18px; border-radius:var(--r)}
+.skip:focus{left:8px}
+</style>
+</head>
+<body>
+<div class="grain" aria-hidden="true"></div>
+
+<!-- Cuore matematico: vive su tutta la pagina. Composto nelle sezioni dove ha
+     spazio (hero, adozione, imprese), disgregato in polvere durante lo scroll;
+     alcune particelle seguono il cursore; il click lo attraversa con un lampo. -->
+<canvas id="cuore" class="cuore" aria-hidden="true"></canvas>
+
+<a class="skip" href="#main">Vai al contenuto</a>
+
+<!-- ═══ FILTRO SVG: curve di livello (texture topografica) ═══ -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <!-- (nessun filtro: la texture di fondo è la carta ECG, in CSS) -->
+</svg>
+
+<!-- ═══════════════ NAV ═══════════════ -->
+<nav class="nav">
+  <div class="wrap nav-in">
+    <a class="brand" href="#top" aria-label="Sentiero Cardio-Protetto — home">
+      <svg viewBox="0 0 60 24" aria-hidden="true"><path d="M0 15h9l3.5-1 2.5-7.5 3.5 14 3-9 2.5 3.5h7l3-1 2.5-6 3 10.5 2.5-7.5 2 4h16" fill="none" stroke="#e11d2a" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <span style="display:block">
+        <b>Sentiero Cardio-Protetto</b>
+        <span>BNI Valtellina</span>
+      </span>
+    </a>
+    <button class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="nav-menu" aria-label="Apri il menu">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links" id="nav-menu">
+      <li><a href="#perche">Perch&eacute;</a></li>
+      <li><a href="#progetto">Progetto</a></li>
+      <li><a href="#rete">La rete</a></li>
+      <li><a href="#postazione">Postazione</a></li>
+      <li><a href="#modello">Modello</a></li>
+      <li><a href="#sponsor">Sponsor</a></li>
+      <li><a href="#roadmap">Roadmap</a></li>
+      <li><a href="#soci">I soci</a></li>
+      <li><a href="#evento">Evento</a></li>
+      <li class="solo-menu"><a href="#adotta">Adotta 1 DAE &rarr;</a></li>
+    </ul>
+    <a class="btn btn-primary btn-sm" href="#adotta" style="flex:none">Adotta 1 DAE</a>
+  </div>
+  <span class="progress" id="progress" aria-hidden="true"></span>
+</nav>
+
+<main id="main">
+<a id="top"></a>
+
+<!-- ═══════════════ HERO ═══════════════ -->
+<header class="hero">
+  <!-- Monitor cardiaco: tracciato di base + spazzata luminosa + cursore che corre
+       sulla linea. Cinque complessi QRS percorsi in 5 s ≈ 60 battiti al minuto. -->
+  <svg class="ecg-bg" viewBox="0 0 1600 340" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+    <defs>
+      <path id="ecg-line" d="M0 190 H300 l26-6 20 -84 26 176 24 -104 22 40 h64 l24 -14 26 -128 28 216 26 -128 24 44 h150 l30 -10 22 -70 26 150 24 -92 20 34 h120 l26 -8 24 -96 28 190 24 -110 22 40 H1600"/>
+    </defs>
+    <use class="ecg-echo"  href="#ecg-line"/>
+    <use class="ecg-base"  href="#ecg-line"/>
+    <use class="ecg-sweep" href="#ecg-line" id="ecg-sweep"/>
+    <circle class="ecg-cursor" r="7">
+      <animateMotion dur="7.15s" repeatCount="indefinite" begin="-0.86s">
+        <mpath href="#ecg-line" xlink:href="#ecg-line"/>
+      </animateMotion>
+    </circle>
+  </svg>
+
+  <div class="wrap hero-in">
+    <div class="hero-grid">
+      <div>
+        <h1 class="display">
+          <span class="l1">Capitolo BNI Valtellina · 10° Anniversario</span>
+          <span class="l2">Il battito<br>della <em>Valtellina</em></span>
+        </h1>
+        <p class="lead">
+          Un arresto cardiaco concede <strong style="color:#fff;font-weight:600">cinque minuti</strong>.
+          Sul sentiero, l&rsquo;ambulanza ne impiega di più. Per questo stiamo costruendo una rete di
+          5 defibrillatori accessibili H24 lungo i 26 km tra Morbegno e Sondrio:
+          <strong style="color:#fff;font-weight:600">soccorso in 3&ndash;5 minuti, ovunque ti trovi</strong>.
+        </p>
+        <div class="hero-cta">
+          <a class="btn btn-primary" href="#adotta">Adotta 1 DAE <span class="ar">&rarr;</span></a>
+          <a class="btn btn-ghost" href="#rete">Vedi la rete</a>
+        </div>
+        <p class="hero-note">
+          <span class="dot-live" aria-hidden="true"></span>
+          <b id="slot-note">5 postazioni · slot sponsor in assegnazione</b>
+          <span>&mdash; presentazione ufficiale a Morbegno</span>
+        </p>
+      </div>
+
+      <!-- Countdown evento -->
+      <div class="count" id="countdown" aria-live="polite">
+        <h4>All&rsquo;inaugurazione mancano</h4>
+        <div class="count-grid">
+          <div><b class="mono" data-cd="d">—</b><span>Giorni</span></div>
+          <div><b class="mono" data-cd="h">—</b><span>Ore</span></div>
+          <div><b class="mono" data-cd="m">—</b><span>Minuti</span></div>
+          <div><b class="mono" data-cd="s">—</b><span>Secondi</span></div>
+        </div>
+        <p class="count-foot">
+          <b>Giovedì 29 ottobre 2026</b>
+          Chiostro di Sant&rsquo;Antonio, Morbegno &mdash; teatro da 220 posti e serata conviviale nel chiostro.
+        </p>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- ═══════════════ FASCIA DATI ═══════════════ -->
+<section class="stats" aria-label="I numeri del progetto">
+  <div class="wrap">
+    <div class="stats-in">
+      <a class="stat" href="#rete"><b class="mono" data-cnt="26">0</b><span>Km di sentiero</span></a>
+      <a class="stat" href="#rete"><b class="mono" data-cnt="5">0</b><span>Postazioni DAE</span></a>
+      <a class="stat" href="#perche"><b>3&ndash;5</b><span>Minuti al defibrillatore</span></a>
+      <a class="stat" href="#postazione"><b>H24</b><span>Accesso libero, 365 giorni</span></a>
+      <a class="stat" href="#costi"><b>0 %</b><span>Margine sui fondi raccolti</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════ PERCHÉ CONTA ═══════════════ -->
+<section id="perche">
+  <div class="topo" aria-hidden="true"></div>
+  <div class="wrap">
+    <div class="split">
+      <div class="reveal">
+        <p class="eyebrow">Perché conta</p>
+        <h2 class="t">Cinque minuti.<br>La differenza tra<br>una statistica<br>e una storia.</h2>
+      </div>
+      <div class="reveal" data-d="1">
+        <p class="lead">
+          L&rsquo;arresto cardiaco improvviso colpisce ogni anno circa 60.000 persone in Italia.
+          Non sceglie l&rsquo;età e non risparmia gli allenati: spesso arriva senza alcun preavviso.
+        </p>
+        <p>
+          Quando accade, ogni minuto senza defibrillazione toglie circa il 10% di probabilità
+          di sopravvivenza: dopo dieci minuti non resta quasi nulla. Con un DAE entro 3&ndash;5 minuti,
+          la sopravvivenza può superare il 50%. <strong>È esattamente la finestra su cui è disegnata
+          questa rete.</strong>
+        </p>
+        <p style="margin-bottom:0">
+          Il <a class="ln" href="https://sentiero.valtellina.it/" target="_blank" rel="noopener">Sentiero Valtellina</a> è il luogo dove la valle corre, pedala e porta i bambini in
+          bicicletta &mdash; spesso a minuti dalla strada carrozzabile più vicina. Proteggerlo non è
+          un&rsquo;opera in più: <strong>è il pezzo che manca all&rsquo;infrastruttura più amata del territorio.</strong>
+        </p>
+      </div>
+    </div>
+
+    <div class="fatti reveal">
+      <div><b>60.000</b><span>arresti cardiaci improvvisi ogni anno in Italia: più di uno ogni dieci minuti</span></div>
+      <div><b>&minus;10%</b><span>di probabilità di sopravvivenza per ogni minuto che passa senza defibrillazione</span></div>
+      <div><b>&gt;50%</b><span>di sopravvivenza quando il DAE interviene entro 3&ndash;5 minuti &mdash; contro meno del 10% senza</span></div>
+    </div>
+    <p class="fatti-fonte reveal">Dati di letteratura scientifica ampiamente consolidati (<a class="ln" href="https://www.ircouncil.it/" target="_blank" rel="noopener">IRC &mdash; Italian Resuscitation Council</a>; linee guida <a class="ln" href="https://www.erc.edu/" target="_blank" rel="noopener">ERC</a> sulla rianimazione cardiopolmonare).</p>
+  </div>
+</section>
+
+<!-- ═══════════════ IL PROGETTO ═══════════════ -->
+<section id="progetto">
+  <div class="topo" aria-hidden="true"></div>
+  <div class="wrap">
+    <div class="split">
+      <div class="reveal">
+        <p class="eyebrow">Il progetto</p>
+        <h2 class="t">La ciclopedonale<br>più frequentata<br>della provincia.</h2>
+      </div>
+      <div class="reveal" data-d="1">
+        <p class="lead">
+          Il <a class="ln" href="https://sentiero.valtellina.it/" target="_blank" rel="noopener">Sentiero Valtellina</a> è il luogo dove la provincia cammina, corre e pedala ogni giorno.
+          È anche un corridoio lungo e stretto, spesso lontano dalla viabilità ordinaria: quando serve
+          un soccorso, i minuti diventano chilometri.
+        </p>
+        <p>
+          Il Capitolo BNI Valtellina, in occasione dei suoi <strong>10 anni dalla fondazione</strong>, ha scelto
+          di lasciare al territorio un&rsquo;infrastruttura permanente anziché una celebrazione. La prima tratta
+          coperta è quella <strong>Morbegno&ndash;Sondrio</strong>: 26 km, cinque nodi ad alta frequentazione,
+          una rete di defibrillatori semiautomatici sempre accessibili.
+        </p>
+        <p style="margin-bottom:0">
+          Ogni postazione è registrata in <strong>AREU Lombardia</strong>: il DAE è geolocalizzato sulla mappa
+          regionale e ricercabile in tempo reale dalla centrale 118, che può indirizzare il chiamante
+          al presidio più vicino mentre l&rsquo;ambulanza è in arrivo.
+        </p>
+      </div>
+    </div>
+
+    <div class="cards-3" style="margin-top:clamp(44px,6vw,76px)">
+      <article class="card reveal"><span class="num">01</span>
+        <h3>Dove serve davvero</h3>
+        <p>Le postazioni nascono nei punti di massimo snodo: pump track, campo da basket, aree di sosta
+        e punti di ristoro. Luoghi con persone, accessi carrabili e riferimenti chiari da dare al 118.</p>
+      </article>
+      <article class="card reveal" data-d="1"><span class="num">02</span>
+        <h3>Sempre accessibile</h3>
+        <p>Teca termoregolata, alimentazione garantita dalla Comunità Montana e, dove l&rsquo;allaccio diretto
+        non è possibile, autonomia solare. Nessun orario, nessuna chiave, nessuna barriera.</p>
+      </article>
+      <article class="card reveal" data-d="2"><span class="num">03</span>
+        <h3>Gestita da chi lo fa di mestiere</h3>
+        <p>Croce Rossa Italiana garantisce monitoraggio remoto, manutenzione esclusiva e formazione BLSD
+        sul territorio. L&rsquo;infrastruttura resta viva ben oltre il giorno dell&rsquo;inaugurazione.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════ LA RETE / MAPPA ═══════════════ -->
+<section id="rete" class="dark">
+  <div class="topo" aria-hidden="true"></div>
+  <div class="wrap">
+    <div class="split" style="align-items:end">
+      <div class="reveal">
+        <p class="eyebrow">La rete</p>
+        <h2 class="t">26 chilometri.<br>5 nodi vitali.<br>1 rete di sicurezza.</h2>
+      </div>
+      <p class="lead reveal" data-d="1" style="margin-bottom:0">
+        Una postazione ogni cinque chilometri circa. Ovunque ci si trovi lungo la tratta,
+        il defibrillatore più vicino è raggiungibile nella finestra utile all&rsquo;intervento.
+      </p>
+    </div>
+
+    <div class="map-stage reveal">
+      <div class="map-scroll">
+      <svg class="map-svg" viewBox="0 0 1000 200" role="img" aria-label="Schema della tratta Morbegno–Sondrio con le cinque postazioni DAE">
+        <line class="track" x1="60" y1="96" x2="940" y2="96"/>
+        <path class="pulse" id="map-line" d="M60 96h160l14-4 10-30 14 62 12-38 10 10h160l14-4 10-30 14 62 12-38 10 10h160l14-4 10-30 14 62 12-38 10 10h160l14-4 10-30 14 62 12-38 10 10"/>
+        <circle class="map-cursor" r="4.5">
+          <animateMotion dur="9s" repeatCount="indefinite">
+            <mpath href="#map-line" xlink:href="#map-line"/>
+          </animateMotion>
+        </circle>
+        <g id="nodes"></g>
+      </svg>
+      </div>
+
+      <!-- Stessa tratta, rialzata in verticale: compare solo sotto i 720px,
+           dove lo schema orizzontale non ci stava. Popolata dallo stesso
+           array NODI, quindi una sola fonte di verità. -->
+      <ol class="rete-tappe" id="rete-tappe" aria-label="Le cinque postazioni della tratta"></ol>
+
+      <div class="map-detail">
+        <div class="km mono"><span id="d-km">0</span><span style="font-size:.42em"> km</span><small>Progressiva</small></div>
+        <div>
+          <h3 id="d-name">Morbegno</h3>
+          <p id="d-desc">Testa di tratta e sede dell&rsquo;evento di presentazione. Postazione pilota del progetto.</p>
+          <div class="map-actions">
+            <button class="btn btn-primary btn-sm" type="button" id="d-adopt">Adotta questa postazione <span class="ar">&rarr;</span></button>
+            <a class="btn btn-ghost btn-sm" href="#postazione">Com&rsquo;è fatta</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- ── Mappa georeferenziata ──────────────────────────────
+           Spenta finché non la si chiede: prima un'anteprima disegnata
+           qui dentro (zero richieste esterne, zero cookie), poi le tile
+           di OpenStreetMap. La scelta non viene memorizzata da nessuna
+           parte: al reload si torna spenti.
+           ▸ SVILUPPATORE: coordinate indicative, da confermare con
+             Comunità Montana e AREU — si aggiornano in GEO_DAE.        -->
+      <div class="geo">
+        <div class="geo-head">
+          <h3>Dove sorgeranno, sul territorio</h3>
+          <p>Posizioni indicative lungo la ciclopedonale &mdash; in via di conferma con Comunità Montana e AREU Lombardia.</p>
+        </div>
+
+        <div class="geo-stage" id="geo-stage">
+          <div class="geo-gate" id="geo-gate">
+            <svg class="geo-sfondo" viewBox="0 0 800 400" aria-hidden="true" preserveAspectRatio="xMidYMid slice">
+              <defs>
+                <linearGradient id="geo-cielo" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0" stop-color="#16212a"/><stop offset="1" stop-color="#0b1114"/>
+                </linearGradient>
+              </defs>
+              <rect width="800" height="400" fill="url(#geo-cielo)"/>
+              <path d="M0 150 90 74 168 132 250 58 330 128 410 70 500 140 585 84 668 146 752 92 800 138 800 400 0 400Z" fill="#101a20"/>
+              <path d="M0 208 105 168 205 210 310 174 420 214 530 178 640 216 748 182 800 204 800 400 0 400Z" fill="#0d151a"/>
+              <path d="M30 300C140 268 200 322 300 292 400 262 470 312 570 286 660 262 720 300 780 282" fill="none" stroke="#2b3a44" stroke-width="9" stroke-linecap="round"/>
+              <path d="M30 300C140 268 200 322 300 292 400 262 470 312 570 286 660 262 720 300 780 282" fill="none" stroke="rgba(225,29,42,.55)" stroke-width="2" stroke-dasharray="7 9" stroke-linecap="round"/>
+              <g fill="#e11d2a">
+                <circle cx="52" cy="296" r="6"/><circle cx="232" cy="303" r="6"/><circle cx="412" cy="285" r="6"/>
+                <circle cx="592" cy="284" r="6"/><circle cx="772" cy="283" r="6"/>
+              </g>
+            </svg>
+            <b>Mappa interattiva delle cinque postazioni</b>
+            <p>Per non trasmettere dati a nessuno senza che tu lo sappia, la mappa parte solo se la chiedi tu.</p>
+            <button class="btn btn-primary btn-sm" type="button" id="geo-on">Attiva la mappa interattiva <span class="ar">&rarr;</span></button>
+            <small>Attivandola, il browser richiede le immagini cartografiche a <b>OpenStreetMap Foundation</b>,
+              che riceve il tuo indirizzo IP. Nessun cookie viene installato e la scelta non viene memorizzata.
+              <a href="#cookie-policy" data-doc="cookie-policy">Cookie policy</a></small>
+          </div>
+        </div>
+
+        <p class="geo-nota">
+          Le progressive chilometriche (0 &middot; 6 &middot; 12 &middot; 19 &middot; 26) e i punti sulla mappa sono
+          <b>stimati</b>: la posa definitiva sarà fissata con Comunità Montana e registrata in AREU Lombardia.
+          Cartografia &copy; <a class="ln" href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OpenStreetMap</a>, contributori.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════ LA POSTAZIONE ═══════════════ -->
+<section id="postazione">
+  <div class="topo" aria-hidden="true"></div>
+  <div class="wrap">
+    <div class="split" style="align-items:end; margin-bottom:clamp(34px,5vw,56px)">
+      <div class="reveal">
+        <p class="eyebrow">La postazione</p>
+        <h2 class="t">Progettata per<br>il paesaggio.<br>Costruita per<br>l&rsquo;emergenza.</h2>
+      </div>
+      <p class="lead reveal" data-d="1" style="margin-bottom:0">
+        Il disegno è dell&rsquo;architetto <strong>Pier Luigi Pastori</strong>: il profilo della colonnina
+        riproduce un tracciato elettrocardiografico. Da lontano è un arredo del sentiero, da vicino
+        è inequivocabile.
+      </p>
+    </div>
+
+    <figure class="totem reveal">
+      <div class="totem-stage">
+        <iframe src="assets/totem-3d.html#embed=1&amp;bare=1" loading="lazy"
+                title="Modello 3D del totem DAE: ruota il modello, ingrandisci e isola i singoli materiali"></iframe>
+      </div>
+      <figcaption>
+        <button class="totem-mini" type="button" id="apri-ambient" aria-haspopup="dialog"
+                aria-label="Ingrandisci il fotoinserimento del totem sul sentiero">
+          <img src="assets/totem-ambientato.jpg" loading="lazy" width="608" height="366"
+               alt="Fotoinserimento del totem DAE sul Sentiero Valtellina: la seduta in legno con teca a bordo sentiero, la fontanella e le montagne della valle sullo sfondo">
+          <span class="totem-mini-tag">Sul sentiero &middot; ingrandisci</span>
+        </button>
+        <span class="totem-dida">
+          <span>Totem DAE · modello di studio</span>
+          <em>Trascina per ruotare · rotella o pizzico per lo zoom · <b>Componenti</b> per isolare i materiali.
+          Qui accanto, il totem <b>ambientato sul sentiero</b>.</em>
+        </span>
+      </figcaption>
+    </figure>
+
+    <div class="feat">
+      <div class="reveal">
+        <h3>Design a elettrocardiogramma</h3>
+        <p>Firma dell&rsquo;arch. Pier Luigi Pastori: estetica alpina e riconoscibilità immediata anche a distanza.</p>
+      </div>
+      <div class="reveal" data-d="1">
+        <h3>Materiali locali</h3>
+        <p>Struttura in legno lamellare ad alto isolamento su basamento in calcestruzzo, pensata per durare nel clima valtellinese.</p>
+      </div>
+      <div class="reveal" data-d="2">
+        <h3>Sicurezza integrata</h3>
+        <p>Alloggiamento nascosto per fototrappola: deterrente contro furti, atti vandalici e manomissioni.</p>
+      </div>
+      <div class="reveal" data-d="3">
+        <h3>Totale autonomia</h3>
+        <p>Teca termoregolata per la salvaguardia di piastre e batteria, con durata stimata di 3&ndash;5 anni e registrazione AREU.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════ MODELLO OPERATIVO ═══════════════ -->
+<section id="modello" class="dark">
+  <div class="topo" aria-hidden="true"></div>
+  <div class="wrap">
+    <div class="split" style="align-items:end; margin-bottom:clamp(34px,5vw,58px)">
+      <div class="reveal">
+        <p class="eyebrow">Modello operativo</p>
+        <h2 class="t">Le alleanze<br>già attive.</h2>
+      </div>
+      <p class="lead reveal" data-d="1" style="margin-bottom:0">
+        Nessuna delle competenze critiche resta in capo a volontari improvvisati.
+        Ogni funzione ha un titolare istituzionale.
+      </p>
+    </div>
+
+    <div class="cards-3">
+      <div class="pillar reveal">
+        <h3>Comunità Montana</h3>
+        <p>Nulla osta e definizione delle posizioni lungo la tratta. Allacciamento e fornitura elettrica
+        offerti a titolo gratuito, supporto sulle concessioni del suolo (<a class="ln" href="https://www.comune.morbegno.so.it/" target="_blank" rel="noopener">Morbegno</a> e <a class="ln" href="https://www.comune.sondrio.it/" target="_blank" rel="noopener">Sondrio</a>).</p>
+      </div>
+      <div class="pillar reveal" data-d="1">
+        <h3><a class="ln" href="https://cri.it/" target="_blank" rel="noopener">Croce Rossa Italiana</a></h3>
+        <p>Partner tecnico del progetto: sistema di monitoraggio remoto IoT, contratto di manutenzione
+        esclusiva, formazione BLSD sul territorio e promozione sociale dell&rsquo;iniziativa.</p>
+      </div>
+      <div class="pillar reveal" data-d="2">
+        <h3><a class="ln" href="http://www.areu.lombardia.it/" target="_blank" rel="noopener">AREU 118 Lombardia</a></h3>
+        <p>Registrazione ufficiale SOREU di ogni postazione. Il DAE è geolocalizzato sulla mappa regionale
+        e ricercabile in tempo reale dai soccorsi.</p>
+      </div>
+    </div>
+
+    <div class="notice reveal">
+      <h3>Responsabilità e gestione tecnica</h3>
+      <p>La gestione tecnica, la manutenzione e il monitoraggio delle postazioni sono di competenza
+      <strong>esclusiva della Croce Rossa Italiana</strong>. BNI Valtellina, il Capitolo e le aziende
+      sponsor sono pertanto esonerati da ogni responsabilità in caso di malfunzionamento, manomissione
+      o danneggiamento delle colonnine e delle apparecchiature installate.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════ MARGINE ZERO ═══════════════ -->
+<section id="costi" class="dark" style="background:var(--ink-2)">
+  <div class="wrap">
+    <div class="reveal">
+      <p class="eyebrow">Come funziona l&rsquo;adozione</p>
+      <h2 class="t" style="max-width:16ch">La quota costruisce.<br>Il canone custodisce.</h2>
+      <p class="lead" style="color:#b9c3cb">
+        La <strong style="color:#fff;font-weight:600">quota alla firma</strong> copre per intero la
+        costruzione della postazione: colonnina, defibrillatore e teca riscaldata. Il
+        <strong style="color:#fff;font-weight:600">canone annuo</strong> paga soltanto i servizi di
+        Croce Rossa &mdash; telecontrollo, verifiche e manutenzione. Filiera interna del Capitolo,
+        senza agenzie n&eacute; intermediari.
+      </p>
+    </div>
+
+    <div class="eq reveal" data-d="1">
+      <div class="eq-item adott">
+        <small>Bronze</small><b class="mono">2 anni</b>
+        <span>€&nbsp;2.600 alla firma, in un unico versamento &mdash; nessun canone. Postazione condivisa fra 4 aziende.</span>
+      </div>
+      <div class="eq-item adott">
+        <small>Silver</small><b class="mono">4 anni</b>
+        <span>€&nbsp;3.250 alla firma + €&nbsp;85 l&rsquo;anno di servizi. Postazione condivisa fra 3 aziende.</span>
+      </div>
+      <div class="eq-item adott">
+        <small>Gold</small><b class="mono">8 anni</b>
+        <span>€&nbsp;10.250 alla firma + €&nbsp;320 l&rsquo;anno di servizi. La postazione è solo tua, con la colonnina interamente brandizzata.</span>
+      </div>
+      <div class="eq-item res">
+        <b class="mono">+1</b>
+        <span>La quota si versa una volta sola: chi prosegue paga solo il canone. Chi subentra a una postazione già costruita, con la sua quota ne finanzia una nuova. Ogni adesione fa crescere la rete.</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════ ALLE IMPRESE ═══════════════ -->
+<section id="imprese" class="dark">
+  <div class="topo" aria-hidden="true"></div>
+  <div class="wrap">
+    <div class="split" style="align-items:end; margin-bottom:clamp(36px,5vw,58px)">
+      <div class="reveal">
+        <p class="eyebrow">Alle imprese del territorio</p>
+        <h2 class="t">Perché la tua<br>impresa dovrebbe<br>esserci.</h2>
+      </div>
+      <p class="lead reveal" data-d="1" style="margin-bottom:0">
+        Non una sponsorizzazione che dura una campagna: un presidio salvavita che porta il nome
+        della tua azienda per <strong style="color:#fff;font-weight:600">tutti gli anni dell&rsquo;adozione</strong>,
+        nel punto in cui il territorio passa ogni giorno.
+      </p>
+    </div>
+
+    <div class="feat">
+      <div class="reveal">
+        <h3>Visibilità che non scade</h3>
+        <p>Una <strong>targa dedicata</strong> sul percorso più frequentato della provincia:
+        <strong>migliaia di passaggi a settimana</strong>, dodici mesi l&rsquo;anno, per tutta la durata
+        dell&rsquo;adozione. Una pagina pubblicitaria dura un giorno.</p>
+      </div>
+      <div class="reveal" data-d="1">
+        <h3>Ogni euro si vede</h3>
+        <p>Filiera interna del Capitolo: <strong>niente agenzie, niente intermediari</strong>.
+        La tua quota diventa colonnina, DAE e manutenzione &mdash; e le adesioni successive
+        <strong>costruiscono nuove postazioni</strong>. Un caso concreto per il tuo
+        <strong>bilancio sociale</strong>.</p>
+      </div>
+      <div class="reveal" data-d="2">
+        <h3>Sicurezza per chi ti sta a cuore</h3>
+        <p><strong>Dipendenti, clienti e le loro famiglie</strong> vivono il sentiero ogni settimana:
+        il DAE che adotti protegge prima di tutto le tue persone. E con il piano Gold la
+        <strong>colonnina porta interamente la tua immagine</strong>.</p>
+      </div>
+      <div class="reveal" data-d="3">
+        <h3>Partner che danno garanzie</h3>
+        <p>Al tuo fianco <strong>Croce Rossa Italiana, Comunità Montana e AREU 118</strong>, insieme
+        alle <strong>29 imprese del Capitolo</strong>: ruoli scritti, responsabilità chiare, un
+        progetto già in cammino.</p>
+      </div>
+    </div>
+
+    <div class="cta-row reveal">
+      <a class="btn btn-primary" href="#adotta">Adotta 1 DAE <span class="ar">&rarr;</span></a>
+      <a class="btn btn-ghost" href="#sponsor">Confronta i piani</a>
+      <a class="btn btn-ghost" href="#modello">Chi c&rsquo;è dietro</a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════ SPONSOR ═══════════════ -->
+<section id="sponsor">
+  <div class="topo" aria-hidden="true"></div>
+  <div class="wrap">
+    <div class="split" style="align-items:end">
+      <div class="reveal">
+        <p class="eyebrow">Adotta 1 DAE</p>
+        <h2 class="t">Diventa<br>protagonista.</h2>
+      </div>
+      <p class="lead reveal" data-d="1" style="margin-bottom:0">
+        Cinque postazioni, tre modi di adottarle. Ogni adozione è tutto compreso &mdash; DAE,
+        colonnina, posa, energia, monitoraggio e manutenzione &mdash; e i benefici sono
+        <strong>identici per tutti</strong>: cambiano solo durata e condivisione. Chi subentra a
+        una postazione già costruita, con la sua quota <strong>ne finanzia una nuova</strong>.
+      </p>
+    </div>
+
+    <div class="tiers">
+      <article class="tier tier--bronze reveal">
+        <span class="accent" aria-hidden="true"></span>
+        <h3>Bronze</h3>
+        <div class="price mono">€ 2.600</div>
+        <div class="price-sub">un unico versamento alla firma &middot; nessun canone</div>
+        <ul>
+          <li class="inh">La postazione è tua per 2 anni</li>
+          <li>Condivisa con altre 3 aziende del territorio</li>
+          <li>Tutto compreso: DAE, colonnina, posa, energia e manutenzione</li>
+          <li>Targa personalizzata, mappa ed elenco sponsor</li>
+        </ul>
+        <a class="btn btn-ghost" href="#adotta" data-tier="Bronze">Scegli Bronze</a>
+      </article>
+
+      <article class="tier tier--silver reveal" data-d="1">
+        <span class="accent" aria-hidden="true"></span>
+        <span class="tag">Più scelto</span>
+        <h3>Silver</h3>
+        <div class="price mono">€ 3.250</div>
+        <div class="price-sub">alla firma + € 85 l&rsquo;anno di servizi</div>
+        <ul>
+          <li class="inh">La postazione è tua per 4 anni</li>
+          <li>Condivisa con altre 2 aziende del territorio</li>
+          <li>Tutto compreso: DAE, colonnina, posa, energia e manutenzione</li>
+          <li>Targa personalizzata, mappa ed elenco sponsor</li>
+        </ul>
+        <a class="btn btn-primary" href="#adotta" data-tier="Silver">Scegli Silver <span class="ar">&rarr;</span></a>
+      </article>
+
+      <article class="tier tier--gold reveal" data-d="2">
+        <span class="accent" aria-hidden="true"></span>
+        <h3>Gold</h3>
+        <div class="price mono">€ 10.250</div>
+        <div class="price-sub">alla firma + € 320 l&rsquo;anno di servizi</div>
+        <ul>
+          <li class="inh">La postazione è solo tua, per 8 anni</li>
+          <li><strong>Brandizzazione totale della colonnina</strong>, personalizzazione custom inclusa</li>
+          <li>Tutto compreso: DAE, colonnina, posa, energia e manutenzione</li>
+          <li>Targa personalizzata, mappa ed elenco sponsor</li>
+        </ul>
+        <a class="btn btn-ghost" href="#adotta" data-tier="Gold">Scegli Gold</a>
+      </article>
+    </div>
+
+    <!-- Tabella comparativa -->
+    <div class="table-scroll reveal">
+      <table role="table">
+        <caption>Confronto dei livelli di adozione</caption>
+        <thead role="rowgroup">
+          <tr role="row">
+            <th role="columnheader" scope="col">Cosa comprende</th>
+            <th role="columnheader" scope="col">Bronze · 2 anni</th>
+            <th role="columnheader" scope="col">Silver · 4 anni</th>
+            <th role="columnheader" scope="col">Gold · 8 anni</th>
+          </tr>
+        </thead>
+        <tbody role="rowgroup">
+          <tr role="row"><th role="rowheader" scope="row">Aziende per postazione</th><td role="cell" data-l="Bronze"><b>4</b></td><td role="cell" data-l="Silver"><b>3</b></td><td role="cell" data-l="Gold"><b>1 &mdash; solo la tua</b></td></tr>
+          <tr role="row"><th role="rowheader" scope="row">Alla firma</th><td role="cell" data-l="Bronze">€ 2.600</td><td role="cell" data-l="Silver">€ 3.250</td><td role="cell" data-l="Gold">€ 10.250</td></tr>
+          <tr role="row"><th role="rowheader" scope="row">Canone annuo di servizi</th><td role="cell" data-l="Bronze">nessuno</td><td role="cell" data-l="Silver">€ 85</td><td role="cell" data-l="Gold">€ 320</td></tr>
+          <tr role="row"><th role="rowheader" scope="row">DAE, colonnina, posa, energia e manutenzione inclusi</th><td role="cell" data-l="Bronze" class="y">✓</td><td role="cell" data-l="Silver" class="y">✓</td><td role="cell" data-l="Gold" class="y">✓</td></tr>
+          <tr role="row"><th role="rowheader" scope="row">Targa personalizzata sulla postazione</th><td role="cell" data-l="Bronze" class="y">✓</td><td role="cell" data-l="Silver" class="y">✓</td><td role="cell" data-l="Gold" class="y">✓</td></tr>
+          <tr role="row"><th role="rowheader" scope="row">Inserimento in mappa ed elenco sponsor</th><td role="cell" data-l="Bronze" class="y">✓</td><td role="cell" data-l="Silver" class="y">✓</td><td role="cell" data-l="Gold" class="y">✓</td></tr>
+          <tr role="row"><th role="rowheader" scope="row">Registrazione AREU 118 e telecontrollo</th><td role="cell" data-l="Bronze" class="y">✓</td><td role="cell" data-l="Silver" class="y">✓</td><td role="cell" data-l="Gold" class="y">✓</td></tr>
+          <tr role="row"><th role="rowheader" scope="row">Brandizzazione totale della colonnina</th><td role="cell" data-l="Bronze" class="n">—</td><td role="cell" data-l="Silver" class="n">—</td><td role="cell" data-l="Gold" class="y">✓</td></tr>
+          <tr role="row"><th role="rowheader" scope="row">Rinnovo alla scadenza pagando solo i servizi</th><td role="cell" data-l="Bronze" class="y">✓</td><td role="cell" data-l="Silver" class="y">✓</td><td role="cell" data-l="Gold" class="y">✓</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════ ROADMAP ═══════════════ -->
+<section id="roadmap" class="dark">
+  <div class="topo" aria-hidden="true"></div>
+  <div class="wrap">
+    <div class="reveal">
+      <p class="eyebrow">Roadmap</p>
+      <h2 class="t">Dal progetto<br>alla rete attiva.</h2>
+    </div>
+
+    <div class="road">
+      <div class="road-grid">
+        <div class="step done reveal">
+          <time datetime="2026-02">Febbraio 2026</time>
+          <h3>Nasce l&rsquo;idea</h3>
+          <p>Il Capitolo sceglie il regalo per i suoi 10 anni: <strong>una rete salvavita</strong>
+          per il sentiero di tutti, non una celebrazione.</p>
+          <a class="step-link" href="#perche">Perch&eacute; proprio questo</a>
+        </div>
+        <div class="step done reveal" data-d="1">
+          <time datetime="2026-04">Aprile 2026</time>
+          <h3>Accordi e definizione</h3>
+          <p><strong>Accordi con gli enti</strong>, assegnazione dei <strong>5 slot sponsor</strong>
+          e definizione tecnica del progetto con i partner.</p>
+          <a class="step-link" href="#modello">Chi fa che cosa</a>
+        </div>
+        <div class="step reveal" data-d="2">
+          <time datetime="2026-10-29">Ottobre 2026</time>
+          <h3>Presentazione al pubblico</h3>
+          <p>Il <strong>29 ottobre a Morbegno</strong> il progetto si presenta al territorio,
+          con la consegna delle targhe alle aziende sponsor.</p>
+          <a class="step-link" href="#evento">Dettagli dell&rsquo;evento</a>
+        </div>
+        <div class="step reveal" data-d="3">
+          <time datetime="2026-11">Novembre 2026</time>
+          <h3>Prima realizzazione</h3>
+          <p><strong>Posa della prima postazione</strong>: la rete comincia a esistere
+          sul sentiero, tappa dopo tappa.</p>
+          <a class="step-link" href="#rete">Dove sorgeranno</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- ▸ SVILUPPATORE: sostituire i due riquadri con gli <iframe> dei video
+         "Un Sentiero, Una Missione" e "Sentiero Cardioprotetto" (YouTube/Vimeo),
+         oppure con <video src="assets/...mp4" controls poster="..."></video>. -->
+    <div class="videos">
+      <div class="vframe reveal">
+        <span class="play" aria-hidden="true"><svg width="18" height="20" viewBox="0 0 18 20"><path d="M2 2l14 8-14 8z" fill="currentColor"/></svg></span>
+        <b>Un Sentiero, Una Missione</b>
+        <small>Video · in arrivo</small>
+      </div>
+      <div class="vframe reveal" data-d="1">
+        <span class="play" aria-hidden="true"><svg width="18" height="20" viewBox="0 0 18 20"><path d="M2 2l14 8-14 8z" fill="currentColor"/></svg></span>
+        <b>Sentiero Cardioprotetto</b>
+        <small>Video · in arrivo</small>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════ I SOCI DEL CAPITOLO ═══════════════ -->
+<section id="soci" class="dark">
+  <div class="topo" aria-hidden="true"></div>
+  <div class="wrap">
+    <div class="split" style="align-items:end; margin-bottom:clamp(30px,4vw,48px)">
+      <div class="reveal">
+        <p class="eyebrow">Il capitolo</p>
+        <h2 class="t">29 imprese.<br>Una filiera.</h2>
+      </div>
+      <p class="lead reveal" data-d="1" style="margin-bottom:0">
+        Progettazione, permessi, costruzione, posa, governance e sicurezza: ogni anello
+        della catena è un socio del Capitolo. È questo che rende possibile un presidio
+        salvavita <strong style="color:#fff;font-weight:600">senza agenzie né intermediari</strong>.
+        <span class="soci-legenda"><i aria-hidden="true"></i> nella filiera del progetto</span>
+      </p>
+    </div>
+  </div>
+
+  <!-- ▸ SVILUPPATORE: per mostrare il logo di un socio basta aggiungere il file in
+       assets/loghi/ e indicarne il nome nel campo `logo` dell'array SOCI (in fondo).
+       Senza logo viene mostrata la sigla dell'azienda: la vetrina resta coerente. -->
+  <div class="soci" id="soci-slider">
+    <div class="soci-riga" data-dir="1"><div class="soci-track"></div></div>
+    <div class="soci-riga" data-dir="-1"><div class="soci-track"></div></div>
+  </div>
+
+  <div class="wrap" style="margin-top:clamp(28px,4vw,42px)">
+    <p class="soci-nota reveal">
+      Elenco dei soci del Capitolo BNI Valtellina aggiornato a luglio 2026.
+      <a href="https://bni-lombardianord.it/26-lombardia-nord-bni-valtellina/it/memberlist" target="_blank" rel="noopener">Scheda ufficiale del capitolo &nearr;</a>
+    </p>
+  </div>
+</section>
+
+<!-- ═══════════════ EVENTO ═══════════════ -->
+<section id="evento">
+  <div class="topo" aria-hidden="true"></div>
+  <div class="wrap event">
+    <div class="reveal">
+      <p class="eyebrow">L&rsquo;evento</p>
+      <h2 class="t">29 ottobre 2026<br>Morbegno.</h2>
+      <p class="lead">
+        La rete viene presentata al territorio nel giorno del decimo anniversario del Capitolo.
+        Presentazione in teatro, consegna delle targhe agli sponsor, serata conviviale nel chiostro.
+      </p>
+      <a class="btn btn-primary" href="#adotta">Voglio esserci come sponsor <span class="ar">&rarr;</span></a>
+    </div>
+
+    <div class="reveal" data-d="1">
+      <img class="sigillo-10" src="assets/bni-10-valtellina.png" alt="BNI Valtellina — 10 anni" width="936" height="361" loading="lazy">
+      <ul class="event-meta">
+        <li><b>Data</b><span>Giovedì 29 ottobre 2026</span></li>
+        <li><b>Luogo</b><span><a class="ln" href="https://maps.google.com/?q=Piazza+Sant%27Antonio,+Morbegno+SO" target="_blank" rel="noopener">Chiostro della chiesa di Sant&rsquo;Antonio<br>Piazza Sant&rsquo;Antonio, Morbegno (SO)</a></span></li>
+        <li><b>Presentazione</b><span>Teatro da 220 posti</span></li>
+        <li><b>Serata</b><span>Conviviale nel chiostro</span></li>
+        <li><b>Media partner</b><span>Tele Sondrio News (TSN) · <a class="ln" href="https://www.teleunica.tv/" target="_blank" rel="noopener">Teleunica</a></span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════ CTA / FORM ═══════════════ -->
+<section id="adotta" class="dark" style="background:var(--ecg)">
+  <div class="wrap">
+    <div class="split" style="align-items:start">
+      <div class="reveal">
+        <p class="eyebrow" style="color:#fff">L&rsquo;impatto inizia ora</p>
+        <h2 class="t" style="color:#fff">Un gesto concreto oggi.<br>Una vita salvata<br>domani.</h2>
+        <p class="lead" style="color:rgba(255,255,255,.92)">
+          Solo cinque slot sulla tratta Morbegno&ndash;Sondrio. Ogni slot è geografico:
+          l&rsquo;azienda è associata alla sua colonnina per <strong style="color:#fff">tutto il periodo dell&rsquo;adozione</strong>.
+        </p>
+        <ol style="list-style:none;padding:0;margin:clamp(24px,3vw,34px) 0 0;color:#fff">
+          <li style="display:flex;gap:16px;margin-bottom:18px"><b class="display" style="font-size:1.5rem;opacity:.55">1</b><span>Compila la richiesta o contatta direttamente la segreteria del progetto.</span></li>
+          <li style="display:flex;gap:16px;margin-bottom:18px"><b class="display" style="font-size:1.5rem;opacity:.55">2</b><span>Scegli il livello di adozione e prenota lo slot geografico.</span></li>
+          <li style="display:flex;gap:16px"><b class="display" style="font-size:1.5rem;opacity:.55">3</b><span>Firma l&rsquo;accordo e unisciti alla rete salvavita della Valtellina.</span></li>
+        </ol>
+      </div>
+
+      <div class="form-card reveal" data-d="1">
+        <div class="form-head">
+          <span class="kicker">Richiesta di adozione</span>
+          <h3>Bastano due minuti.</h3>
+          <p>Nessun impegno: è l&rsquo;inizio di una conversazione con la segreteria del progetto.</p>
+        </div>
+
+        <form id="form-adozione" novalidate>
+          <div class="fg">
+            <div class="f full"><label for="azienda">Azienda *</label><input id="azienda" required autocomplete="organization" placeholder="Il nome della tua azienda">
+              <span class="f-msg" id="err-azienda">Indica il nome dell&rsquo;azienda.</span></div>
+            <div class="f"><label for="referente">Referente *</label><input id="referente" required autocomplete="name" placeholder="Nome e cognome">
+              <span class="f-msg" id="err-referente">Indica nome e cognome del referente.</span></div>
+            <div class="f"><label for="email">Email *</label><input id="email" type="email" required autocomplete="email" placeholder="nome@azienda.it">
+              <span class="f-msg" id="err-email">Controlla l&rsquo;indirizzo: manca la chiocciola o il dominio.</span></div>
+            <div class="f full"><label for="tel">Telefono <em>&mdash; facoltativo</em></label>
+              <input id="tel" type="tel" inputmode="tel" autocomplete="tel" maxlength="24" placeholder="+39 0342 218069">
+              <span class="f-msg" id="err-tel">Numero non valido: da 8 a 15 cifre, con eventuale prefisso internazionale (+39&hellip;).</span></div>
+
+            <div class="f full"><span class="label">Livello di adozione</span>
+              <div class="chips" role="radiogroup" aria-label="Livello di adozione">
+                <input type="radio" name="livello" id="lv0" value="Da valutare insieme" checked><label class="chip" for="lv0">Da valutare insieme</label>
+                <input type="radio" name="livello" id="lv1" value="Bronze · 2 anni · € 2.600"><label class="chip" for="lv1">Bronze &middot; 2 anni</label>
+                <input type="radio" name="livello" id="lv2" value="Silver · 4 anni · € 3.250"><label class="chip" for="lv2">Silver &middot; 4 anni</label>
+                <input type="radio" name="livello" id="lv3" value="Gold · 8 anni · € 10.250"><label class="chip" for="lv3">Gold &middot; 8 anni</label>
+              </div>
+            </div>
+
+            <div class="f full"><label for="slot">Postazione preferita</label>
+              <select id="slot">
+                <option>Nessuna preferenza</option>
+                <option>Morbegno · km 0</option>
+                <option>Talamona · km 6</option>
+                <option>Ardenno · km 12</option>
+                <option>Colorina · km 19</option>
+                <option>Sondrio · km 26</option>
+              </select>
+            </div>
+
+            <div class="f full"><label for="note">Vuoi dirci qualcosa? <em>&mdash; facoltativo</em></label><textarea id="note" rows="1" placeholder="Domande, esigenze di visibilità, tempistiche&hellip;"></textarea></div>
+
+            <div class="hp" aria-hidden="true"><label for="sito">Sito web</label><input id="sito" tabindex="-1" autocomplete="off"></div>
+
+            <div class="f full">
+              <label class="f-consent">
+                <input type="checkbox" id="consenso" required aria-describedby="err-consenso">
+                <span>Ho letto l&rsquo;<a href="#privacy-policy" data-doc="privacy-policy">informativa sulla privacy</a> e acconsento al trattamento dei dati per essere ricontattato. I dati vengono cancellati automaticamente dopo 30 giorni. *</span>
+              </label>
+              <span class="f-msg" id="err-consenso">Per inviare la richiesta serve il consenso al trattamento dei dati.</span>
+            </div>
+          </div>
+          <div class="form-foot">
+            <button class="btn btn-primary" type="submit" id="invia">Invia la richiesta <span class="ar">&rarr;</span></button>
+            <small>Risponde la segreteria del progetto, presso Ufficio Service, entro 2 giorni lavorativi.</small>
+          </div>
+          <p class="form-err" id="form-err" hidden>Non siamo riusciti a inviare la richiesta. Riprova fra qualche istante, oppure scrivici a <a href="mailto:info@ufficioservice.it">info@ufficioservice.it</a>.</p>
+        </form>
+
+        <div class="form-ok" id="form-ok" hidden>
+          <svg viewBox="0 0 64 40" aria-hidden="true"><path d="M2 24h12l4-3 5-13 7 26 6-16 3 6h23"/></svg>
+          <h3>Richiesta inviata. Grazie!</h3>
+          <p>La segreteria del progetto ti ricontatta all&rsquo;indirizzo indicato entro 2 giorni lavorativi.</p>
+          <p class="ok-ret">I tuoi dati restano nel nostro archivio contatti per un massimo di 30 giorni: alla scadenza vengono cancellati automaticamente e riceverai un&rsquo;email di conferma dell&rsquo;avvenuta cancellazione.</p>
+        </div>
+
+        <details class="privacy" id="privacy">
+          <summary>Informativa sul trattamento dei dati &mdash; art. 13 GDPR</summary>
+          <div class="pv">
+            <p><b>Titolare del trattamento:</b> costituenda associazione &ldquo;Capitolo Valtellina&rdquo;, con sede presso Ufficio Service Srl Società Benefit, Via Giuseppe Piazzi 14, 23100 Sondrio &mdash; <b>info@ufficioservice.it</b>.</p>
+            <p><b>Finalità e base giuridica:</b> i dati inviati con questo modulo servono esclusivamente a ricontattarti in merito all&rsquo;adozione di un DAE (misure precontrattuali su tua richiesta, art. 6.1.b, e consenso, art. 6.1.a). Nessun marketing, nessuna profilazione, nessuna cessione a terzi.</p>
+            <p><b>Conservazione:</b> massimo <b>30 giorni</b> dall&rsquo;invio. Alla scadenza i dati vengono cancellati automaticamente dal nostro archivio e ricevi un&rsquo;email che conferma l&rsquo;avvenuta cancellazione. L&rsquo;eventuale corrispondenza nel frattempo avviata prosegue sui canali ordinari.</p>
+            <p><b>Modalità:</b> la richiesta è registrata in un archivio contatti riservato alla segreteria del progetto e notificata a info@ufficioservice.it. L&rsquo;archivio è ospitato su Airtable, che opera come fornitore del servizio.</p>
+            <p><b>I tuoi diritti:</b> accesso, rettifica, cancellazione anticipata, limitazione, opposizione e portabilità scrivendo a info@ufficioservice.it; puoi inoltre proporre reclamo al Garante per la protezione dei dati personali.</p>
+            <p><b>Cookie:</b> questo sito non installa cookie e non utilizza alcuno strumento di tracciamento o analisi delle attività. Nell&rsquo;anteprima riservata resta nella memoria di sessione del browser la sola password d&rsquo;accesso, che sparisce chiudendo la scheda.</p>
+            <p class="pv-more">
+              <a href="#privacy-policy" data-doc="privacy-policy">Informativa privacy completa</a>
+              <a href="#cookie-policy" data-doc="cookie-policy">Cookie policy</a>
+            </p>
+          </div>
+        </details>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<!-- ═══════════════ FOOTER ═══════════════ -->
+<footer>
+  <div class="wrap">
+    <div class="f-grid">
+      <div>
+        <a class="brand" href="#top" style="margin-bottom:18px">
+          <svg viewBox="0 0 60 24" aria-hidden="true" style="width:44px;height:22px"><path d="M0 15h9l3.5-1 2.5-7.5 3.5 14 3-9 2.5 3.5h7l3-1 2.5-6 3 10.5 2.5-7.5 2 4h16" fill="none" stroke="#e11d2a" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <span style="display:block"><b style="color:var(--paper)">Sentiero Cardio-Protetto</b><span>Tratta Morbegno–Sondrio</span></span>
+        </a>
+        <p style="max-width:44ch;margin:0 0 26px">
+          Progetto promosso dal <strong style="color:#cfd7dd">Capitolo BNI Valtellina</strong> in occasione
+          del 10° anniversario dalla fondazione, in partnership con Croce Rossa Italiana,
+          Comunità Montana e AREU Lombardia.
+        </p>
+        <a class="bni-lock" href="https://bni-lombardianord.it/26-lombardia-nord-bni-valtellina/it/index" target="_blank" rel="noopener">
+          <span class="bni-plate"><img src="assets/bni-10-valtellina.png" alt="BNI Valtellina — 10 anni" width="936" height="361"></span>
+          <span class="bni-txt"><b>10° anniversario</b><span>Capitolo Valtellina · 2016&ndash;2026</span></span>
+        </a>
+      </div>
+      <div>
+        <h4>Progetto</h4>
+        <ul>
+          <li><a href="#perche">Perch&eacute; conta</a></li>
+          <li><a href="#progetto">Il progetto</a></li>
+          <li><a href="#rete">La rete</a></li>
+          <li><a href="#postazione">La postazione</a></li>
+          <li><a href="#modello">Modello operativo</a></li>
+          <li><a href="#imprese">Alle imprese</a></li>
+          <li><a href="#sponsor">Piani di adozione</a></li>
+          <li><a href="#soci">I soci del capitolo</a></li>
+          <li><a href="#evento">Evento 29.10.2026</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contatti</h4>
+        <ul>
+          <li>
+            Segreteria del progetto<br>
+            <span style="color:#7d878f">presso Ufficio Service Srl SB<br>
+            Via Giuseppe Piazzi 14 &mdash; 23100 Sondrio</span>
+          </li>
+          <li><a href="tel:+390342218069">+39 0342 218069</a></li>
+          <li><a href="mailto:info@ufficioservice.it">info@ufficioservice.it</a></li>
+        </ul>
+        <a class="us-mini" href="https://ufficioservice.it/" target="_blank" rel="noopener" aria-label="Ufficio Service — visita il sito">
+          <img src="assets/ufficio-service-bianco.png" alt="Ufficio Service" width="217" height="96">
+        </a>
+        <h4 style="margin-top:26px">Media partner</h4>
+        <ul><li>Tele Sondrio News · <a class="ln" href="https://www.teleunica.tv/" target="_blank" rel="noopener">Teleunica</a></li></ul>
+      </div>
+    </div>
+    <div class="f-bottom">
+      <span>© 2026 Capitolo BNI Valtellina · Tutti i diritti riservati</span>
+      <span>Sito senza cookie né tracciamento ·
+        <a href="#privacy-policy" data-doc="privacy-policy">Privacy policy</a> ·
+        <a href="#cookie-policy" data-doc="cookie-policy">Cookie policy</a></span>
+      <span>Gestione tecnica a cura di Croce Rossa Italiana</span>
+      <span>Realizzazione sito internet <a href="https://usolve.it/" target="_blank" rel="noopener">Usolve</a></span>
+    </div>
+  </div>
+</footer>
+
+<!-- ═══════════════ DOCUMENTI LEGALI ═══════════════
+     Il sito è distribuito come file unico (bundle cifrato): niente pagine
+     separate, quindi le informative vivono qui come schede a tutta pagina
+     richiamate dal footer e dal form. Indicizzabili, stampabili, linkabili
+     con #privacy-policy e #cookie-policy.                                -->
+<div class="doc" id="privacy-policy" role="dialog" aria-modal="true" aria-labelledby="privacy-policy-t" hidden>
+  <div class="doc-in" role="document">
+    <button class="doc-x" type="button" aria-label="Chiudi il documento">&times;</button>
+    <p class="eyebrow">Documento legale</p>
+    <h2 class="t" id="privacy-policy-t">Informativa<br>sulla privacy</h2>
+    <p class="doc-date">Ai sensi degli artt. 13 e 14 del Regolamento (UE) 2016/679 &mdash; ultimo aggiornamento: 2 agosto 2026</p>
+
+    <h3>1. Titolare del trattamento</h3>
+    <p>Costituenda associazione <b>&ldquo;Capitolo Valtellina&rdquo;</b>, con sede presso Ufficio Service Srl Società Benefit,
+      Via Giuseppe Piazzi 14, 23100 Sondrio (SO). Contatto per ogni questione relativa ai dati personali:
+      <a class="ln" href="mailto:info@ufficioservice.it">info@ufficioservice.it</a> &mdash; tel. <a class="ln" href="tel:+390342218069">+39 0342 218069</a>.
+      Non è nominato un Responsabile della protezione dei dati (DPO), non ricorrendone i presupposti dell&rsquo;art. 37 GDPR.</p>
+
+    <h3>2. Quali dati raccogliamo</h3>
+    <p>Questo sito raccoglie dati personali <b>solo se sei tu a inviarli</b> con il modulo &ldquo;Richiesta di adozione&rdquo;.
+      I campi sono: <b>nome dell&rsquo;azienda</b>, <b>nome e cognome del referente</b>, <b>indirizzo email</b>,
+      <b>numero di telefono</b> (facoltativo), <b>livello di adozione</b> e <b>postazione</b> di interesse,
+      più l&rsquo;eventuale <b>testo libero</b> che scrivi nelle note. Vengono registrati anche la data e l&rsquo;ora dell&rsquo;invio
+      e il nome del sito di provenienza.</p>
+    <p>Non raccogliamo categorie particolari di dati (art. 9 GDPR). Ti chiediamo di non inserire nel campo note
+      informazioni sulla salute o altri dati sensibili: non ci servono.</p>
+    <p><b>Dati di navigazione.</b> Il server che ospita queste pagine registra, per il tempo tecnico necessario alla
+      sicurezza e al funzionamento del servizio, gli accessi ricevuti (indirizzo IP, data e ora, risorsa richiesta).
+      Sono log tecnici dell&rsquo;infrastruttura, non usati per profilare né per ricondurre le visite a singole persone.</p>
+
+    <h3>3. Perché li trattiamo, e su quale base</h3>
+    <ul class="doc-ul">
+      <li><b>Ricontattarti in merito all&rsquo;adozione di un DAE</b> e gestire la trattativa che ne può nascere &mdash;
+        base giuridica: misure precontrattuali adottate su tua richiesta, <b>art. 6.1.b</b> GDPR, e il <b>consenso</b>
+        che presti spuntando la casella, <b>art. 6.1.a</b>.</li>
+      <li><b>Sicurezza e corretto funzionamento del sito</b> (log tecnici) &mdash; legittimo interesse, <b>art. 6.1.f</b>.</li>
+      <li><b>Adempimenti di legge</b>, se dalla richiesta nasce un rapporto contrattuale &mdash; <b>art. 6.1.c</b>.</li>
+    </ul>
+    <p>Non facciamo <b>marketing</b>, non facciamo <b>profilazione</b>, non prendiamo <b>decisioni automatizzate</b>
+      e non <b>cediamo né vendiamo</b> i tuoi dati a nessuno.</p>
+
+    <h3>4. Per quanto tempo li teniamo</h3>
+    <p><b>Massimo 30 giorni</b> dall&rsquo;invio del modulo. Alla scadenza la richiesta viene cancellata automaticamente
+      dal nostro archivio contatti e tu ricevi un&rsquo;email che conferma l&rsquo;avvenuta cancellazione.
+      Se nel frattempo si è aperta una corrispondenza, quella prosegue sui canali ordinari (email, telefono) e
+      segue i tempi di conservazione propri della documentazione aziendale e, se si arriva a un accordo,
+      i termini di legge (10 anni per le scritture contabili, art. 2220 c.c.).</p>
+
+    <h3>5. Chi può vedere i dati</h3>
+    <p>Accedono alla richiesta soltanto le persone della <b>segreteria del progetto presso Ufficio Service Srl SB</b>,
+      autorizzate al trattamento. I dati possono essere condivisi con i partner istituzionali del progetto
+      (Croce Rossa Italiana, Comunità Montana, AREU Lombardia) <b>solo</b> se necessario a dar seguito alla tua richiesta.</p>
+    <p><b>Fornitori che trattano dati per nostro conto</b> (responsabili del trattamento, art. 28 GDPR):</p>
+    <ul class="doc-ul">
+      <li><b>Airtable Inc.</b> (Stati Uniti) &mdash; archivio contatti e automazioni. Il trasferimento fuori dallo
+        Spazio Economico Europeo avviene sulla base delle <b>Clausole Contrattuali Standard</b> approvate dalla
+        Commissione europea e, ove applicabile, del <i>EU&ndash;US Data Privacy Framework</i>.</li>
+      <li><b>Fornitore di hosting</b> della pagina, limitatamente ai log tecnici di cui al punto 2.</li>
+    </ul>
+
+    <h3>6. Mappa interattiva</h3>
+    <p>La mappa nella sezione &ldquo;La rete&rdquo; <b>non si carica da sola</b>: parte solo se premi il pulsante di attivazione.
+      Da quel momento il tuo browser richiede le immagini della mappa ai server di <b>OpenStreetMap Foundation</b>,
+      che per forza di cose ricevono il tuo <b>indirizzo IP</b> e i dati tecnici della richiesta. Il servizio
+      <b>non installa cookie</b> sul sito. Dettagli nella <a href="#cookie-policy" data-doc="cookie-policy">cookie policy</a>
+      e nella <a class="ln" href="https://osmfoundation.org/wiki/Privacy_Policy" target="_blank" rel="noopener">privacy policy di OSMF</a>.
+      Se non attivi la mappa, nessuna richiesta parte verso l&rsquo;esterno.</p>
+
+    <h3>7. I tuoi diritti</h3>
+    <p>Puoi in ogni momento chiedere <b>accesso</b> ai tuoi dati, <b>rettifica</b>, <b>cancellazione</b> anticipata,
+      <b>limitazione</b> del trattamento, <b>portabilità</b>, e <b>opporti</b> al trattamento fondato sul legittimo interesse.
+      Puoi inoltre <b>revocare il consenso</b> in qualsiasi momento, senza che ciò pregiudichi la liceità del trattamento
+      svolto prima della revoca. Basta scrivere a <a class="ln" href="mailto:info@ufficioservice.it">info@ufficioservice.it</a>:
+      rispondiamo entro un mese.</p>
+    <p>Se ritieni che il trattamento violi il Regolamento, puoi proporre <b>reclamo al Garante per la protezione dei dati
+      personali</b> (Piazza Venezia 11, 00187 Roma &mdash;
+      <a class="ln" href="https://www.garanteprivacy.it/" target="_blank" rel="noopener">garanteprivacy.it</a>)
+      o ricorso all&rsquo;autorità giudiziaria.</p>
+
+    <h3>8. Obbligatorietà del conferimento</h3>
+    <p>Azienda, referente, email e consenso sono <b>necessari</b>: senza, non possiamo ricontattarti e il modulo non parte.
+      Telefono, note, livello e postazione sono <b>facoltativi</b> e servono solo a preparare meglio la risposta.</p>
+
+    <h3>9. Sicurezza</h3>
+    <p>L&rsquo;anteprima riservata di questo sito è protetta da <b>cifratura AES-256-GCM</b>. Le richieste inviate dal modulo
+      viaggiano su <b>connessione cifrata (HTTPS)</b>. L&rsquo;archivio contatti è accessibile solo alle persone autorizzate,
+      con credenziali individuali.</p>
+    <p>Per non richiederti la password a ogni pagina, l&rsquo;anteprima la conserva nella <b>memoria di sessione</b>
+      del tuo browser: resta sul tuo dispositivo, non viene trasmessa a nessuno e <b>sparisce chiudendo la scheda</b>.
+      Nessun cookie viene installato. Dettagli nella
+      <a href="#cookie-policy" data-doc="cookie-policy">cookie policy</a>.</p>
+
+    <h3>10. Modifiche</h3>
+    <p>Questa informativa può essere aggiornata: la data in testa indica sempre l&rsquo;ultima versione in vigore.</p>
+
+    <p class="doc-foot">Documento in corso di revisione legale: eventuali aggiornamenti saranno pubblicati su questa pagina.</p>
+  </div>
+</div>
+
+<div class="doc" id="cookie-policy" role="dialog" aria-modal="true" aria-labelledby="cookie-policy-t" hidden>
+  <div class="doc-in" role="document">
+    <button class="doc-x" type="button" aria-label="Chiudi il documento">&times;</button>
+    <p class="eyebrow">Documento legale</p>
+    <h2 class="t" id="cookie-policy-t">Cookie<br>policy</h2>
+    <p class="doc-date">Provvedimento del Garante privacy n. 231 del 10 giugno 2021 &mdash; ultimo aggiornamento: 2 agosto 2026</p>
+
+    <h3>In breve</h3>
+    <p class="doc-key">Questo sito <b>non installa cookie</b>: né tecnici, né analitici, né di profilazione.
+      Non usa <b>localStorage</b>, <i>fingerprinting</i> o altri identificatori persistenti, e non ti segue
+      da una visita all&rsquo;altra. L&rsquo;unica cosa che viene scritta sul tuo dispositivo è, nell&rsquo;anteprima
+      riservata, la <b>password d&rsquo;accesso</b> che hai appena digitato: serve a non richiedertela a ogni
+      pagina e sparisce chiudendo la scheda. È una misura strettamente tecnica, e per questo
+      <b>non trovi un banner di consenso</b>: non c&rsquo;è nulla di facoltativo da accettare o rifiutare.</p>
+
+    <h3>Cosa sono i cookie</h3>
+    <p>I cookie sono piccoli file che un sito salva sul tuo dispositivo per riconoscerlo alle visite successive.
+      Si distinguono in <b>tecnici</b> (necessari al funzionamento, non richiedono consenso) e
+      <b>di profilazione</b> (analisi dei comportamenti a fini pubblicitari, richiedono consenso preventivo).
+      Sono equiparati ai cookie tutti gli strumenti che memorizzano o leggono informazioni sul terminale dell&rsquo;utente.</p>
+
+    <h3>L&rsquo;unica cosa memorizzata: la password dell&rsquo;anteprima</h3>
+    <p>Finché il progetto resta in <b>anteprima riservata</b>, le pagine sono protette da password.
+      Quando la inserisci, viene conservata nella <b>memoria di sessione</b> del browser
+      (<i>sessionStorage</i>, chiave <code>scp</code>) per non richiedertela a ogni ricaricamento.</p>
+    <ul class="doc-ul">
+      <li><b>Che cos&rsquo;è:</b> uno spazio del browser legato a questa singola scheda. Non è un cookie:
+        non viaggia in rete, non viene inviato a nessun server, nessuno all&rsquo;infuori di questo sito può leggerlo.</li>
+      <li><b>Quanto dura:</b> il tempo della scheda. <b>Chiudendola sparisce</b>, e alla visita successiva
+        la password viene richiesta di nuovo. Non resta traccia sul dispositivo.</li>
+      <li><b>Perché non serve il tuo consenso:</b> è una misura <b>strettamente necessaria</b> a fornirti
+        il servizio che hai appena richiesto, cioè l&rsquo;accesso alla pagina protetta &mdash; come lo è il
+        meccanismo che tiene aperta una sessione dopo il login. Non profila, non misura, non traccia.</li>
+      <li><b>Come cancellarla subito:</b> chiudi la scheda, oppure svuota i dati del sito dalle
+        impostazioni del browser.</li>
+    </ul>
+    <p>Quando il sito diverrà pubblico e la protezione verrà rimossa, <b>non verrà scritto più nulla</b>
+      sul tuo dispositivo.</p>
+
+    <h3>Cosa abbiamo scelto di non usare</h3>
+    <ul class="doc-ul">
+      <li><b>Nessun analytics.</b> Non c&rsquo;è Google Analytics né alcun sostituto: non contiamo le visite, non tracciamo i percorsi.</li>
+      <li><b>Nessun pixel social.</b> Niente Meta Pixel, LinkedIn Insight o simili.</li>
+      <li><b>Font locali.</b> I caratteri tipografici (Anton, Archivo, Newsreader) sono ospitati su questo sito:
+        il tuo indirizzo IP non viene comunicato a Google Fonts né ad altri servizi esterni.</li>
+      <li><b>Immagini e loghi locali.</b> Ogni immagine è incorporata nella pagina, nessuna arriva da server terzi.</li>
+      <li><b>Nessun video incorporato attivo.</b> Se in futuro verranno inseriti video, saranno caricati solo dopo un
+        tuo clic esplicito, con la stessa logica della mappa.</li>
+      <li><b>Nessun cookie dall&rsquo;invio del modulo.</b> Il servizio che riceve la richiesta di adozione
+        proverebbe a impostare dei propri cookie: la chiamata parte con le credenziali disattivate, quindi
+        quei cookie <b>vengono scartati dal browser</b> e non finiscono mai sul tuo dispositivo. Verificato
+        a ogni rilascio.</li>
+    </ul>
+
+    <h3>L&rsquo;unica eccezione: la mappa interattiva</h3>
+    <p>Nella sezione <b>&ldquo;La rete&rdquo;</b> c&rsquo;è una mappa che mostra dove sorgeranno le cinque postazioni.
+      È <b>disattivata di default</b> e mostra un&rsquo;anteprima disegnata da noi, senza alcuna richiesta esterna.
+      Solo se premi <b>&ldquo;Attiva la mappa interattiva&rdquo;</b> il tuo browser scarica le immagini cartografiche dai server di
+      <b>OpenStreetMap Foundation</b>.</p>
+    <ul class="doc-ul">
+      <li><b>Cosa viene trasmesso:</b> il tuo indirizzo IP, il tipo di browser e l&rsquo;indirizzo della pagina da cui parte
+        la richiesta &mdash; il minimo tecnico per consegnare le immagini.</li>
+      <li><b>Cookie installati:</b> nessuno. Il servizio di tile di OpenStreetMap non imposta cookie sul tuo dispositivo.</li>
+      <li><b>Durata del consenso:</b> nessuna. La scelta <b>non viene memorizzata</b> da nessuna parte: ricaricando la
+        pagina la mappa torna disattivata.</li>
+      <li><b>Come tornare indietro:</b> premi &ldquo;Disattiva&rdquo; sulla mappa, oppure ricarica la pagina.</li>
+      <li><b>Titolare del servizio:</b> OpenStreetMap Foundation &mdash;
+        <a class="ln" href="https://osmfoundation.org/wiki/Privacy_Policy" target="_blank" rel="noopener">privacy policy</a>.</li>
+    </ul>
+
+    <h3>Perché non c&rsquo;è un banner</h3>
+    <p>L&rsquo;art. 122 del Codice privacy chiede il consenso preventivo per archiviare informazioni sul
+      dispositivo dell&rsquo;utente, e il Garante (provv. n. 231 del 10 giugno 2021) estende la regola a
+      <i>localStorage</i>, <i>sessionStorage</i> e a ogni tecnica equivalente. La stessa norma <b>esclude</b>
+      dal consenso ciò che è <b>strettamente necessario</b> a fornire un servizio esplicitamente richiesto
+      dall&rsquo;utente.</p>
+    <p>Qui non ci sono cookie di alcun tipo, e l&rsquo;unica informazione archiviata &mdash; la password
+      dell&rsquo;anteprima, per la durata della scheda &mdash; ricade in quella esclusione. Un banner che
+      chieda di accettare o rifiutare non avrebbe nulla da offrire: rifiutare significherebbe non poter
+      accedere alla pagina che si è appena chiesto di aprire. Per questo trovi <b>un&rsquo;informativa</b>,
+      che è dovuta, e <b>non un banner di consenso</b>, che non lo è.</p>
+
+    <h3>Come gestire i cookie nel browser</h3>
+    <p>Anche se qui non ce ne sono, puoi sempre bloccare o cancellare i cookie dalle impostazioni del tuo browser
+      (sezione <i>Privacy e sicurezza</i> in Chrome, Firefox, Safari ed Edge). Ricorda che bloccare i cookie tecnici
+      su altri siti può impedirne il corretto funzionamento.</p>
+
+    <h3>Titolare e contatti</h3>
+    <p>Costituenda associazione &ldquo;Capitolo Valtellina&rdquo;, presso Ufficio Service Srl SB, Via Giuseppe Piazzi 14,
+      23100 Sondrio &mdash; <a class="ln" href="mailto:info@ufficioservice.it">info@ufficioservice.it</a>.
+      Per tutto il resto vale l&rsquo;<a href="#privacy-policy" data-doc="privacy-policy">informativa sulla privacy</a>.</p>
+
+    <p class="doc-foot">Documento in corso di revisione legale: eventuali aggiornamenti saranno pubblicati su questa pagina.</p>
+  </div>
+</div>
+
+<button class="totop" type="button" aria-label="Torna all'inizio">
+  <svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 14V3M3 8l5-5 5 5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+</button>
+
+<script>
+(function(){
+  'use strict';
+  var reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* ── 1. Countdown ───────────────────────────────────────────
+     ▸ SVILUPPATORE: una sola costante da aggiornare se cambia data/ora.
+     NB: il deck interno riporta "8 ottobre 2026"; qui è impostata la
+     data del master document (29 ottobre 2026, ore 18:00).            */
+  var EVENT_ISO = '2026-10-29T18:00:00+01:00';
+  var target = new Date(EVENT_ISO).getTime();
+  var cd = document.getElementById('countdown');
+  var f = {};
+  ['d','h','m','s'].forEach(function(k){ f[k] = cd.querySelector('[data-cd="'+k+'"]'); });
+
+  function pad(n){ return n < 10 ? '0'+n : ''+n; }
+  function tick(){
+    var diff = target - Date.now();
+    if (diff <= 0){
+      cd.querySelector('h4').textContent = 'La rete è attiva';
+      ['d','h','m','s'].forEach(function(k){ f[k].textContent = '00'; });
+      clearInterval(timer);
+      return;
+    }
+    var s = Math.floor(diff/1000);
+    f.d.textContent = Math.floor(s/86400);
+    f.h.textContent = pad(Math.floor(s/3600) % 24);
+    f.m.textContent = pad(Math.floor(s/60) % 60);
+    f.s.textContent = pad(s % 60);
+  }
+  tick();
+  var timer = setInterval(tick, 1000);
+
+  /* ── 1b. Monitor cardiaco: spazzata luminosa lungo il tracciato ──
+     La coda luminosa insegue il cursore. Il cursore parte 0,6 s avanti
+     (begin negativo sull'animateMotion), così la coda gli resta dietro. */
+  if (!reduce){
+    var linea = document.getElementById('ecg-line');
+    var sweep = document.getElementById('ecg-sweep');
+    var L = linea.getTotalLength();
+    var coda = L * 0.12;
+    sweep.style.strokeDasharray = coda + ' ' + L;
+    sweep.style.opacity = 1;
+    sweep.animate(
+      [{strokeDashoffset: 0}, {strokeDashoffset: -L}],
+      {duration: 7150, iterations: Infinity, easing: 'linear'}
+    );
+    document.querySelector('.ecg-cursor').style.opacity = 1;
+  }
+
+  /* ── 1c. Il cuore matematico, ovunque nella pagina ───────────
+     Geometria: superficie implicita di Taubin
+       (x² + 9/4·y² + z² − 1)³ − (x² + 9/80·y²)·z³ = 0,
+     660 raggi lungo la spirale aurea di Fibonacci, raggio per
+     bisezione, ogni punto legato ai 3 vicini più prossimi.
+
+     Dinamica: il canvas è fisso. Nelle sezioni con spazio (hero,
+     adozione, imprese) il cuore è COMPOSTO; scorrendo via si SFALDA
+     — non svanisce: i frammenti restano legati dalle linee del
+     reticolo, si allargano e vengono trascinati nella direzione
+     dello scroll, come un cuore stirato. Il progresso della rottura
+     è GUIDATO DALLA POSIZIONE DI SCROLL: scrolli piano, si sfalda
+     piano; ti fermi a metà, resta a metà. Il puntatore (mouse o
+     dito) respinge i punti da composto e li attira da sfaldato;
+     il click/tap lo attraversa con un lampo. 60 bpm da composto.
+     Seme fisso 20261029: stesso cuore per tutti.                  */
+  var telaCuore = document.getElementById('cuore');
+  if (telaCuore && telaCuore.getContext) (function(){
+    var cg = telaCuore.getContext('2d');
+
+    var seme = 20261029;
+    function rnd(){ seme|=0; seme = seme + 0x6D2B79F5|0; var t=Math.imul(seme^seme>>>15,1|seme); t=t+Math.imul(t^t>>>7,61|t)^t; return ((t^t>>>14)>>>0)/4294967296; }
+    function taubin(x,y,z){ var a=x*x+2.25*y*y+z*z-1; return a*a*a-(x*x+0.1125*y*y)*z*z*z; }
+
+    var P=[], N=660, AUREO=Math.PI*(3-Math.sqrt(5));
+    for (var i=0;i<N;i++){
+      var vz=1-2*(i+0.5)/N, vr=Math.sqrt(1-vz*vz), va=AUREO*i;
+      var dx=vr*Math.cos(va), dy=vr*Math.sin(va), dz=vz;
+      var t0=0.05, f0=taubin(dx*t0,dy*t0,dz*t0), t1=0, ok=false;
+      for (var t=0.12;t<=1.7;t+=0.06){
+        var fv=taubin(dx*t,dy*t,dz*t);
+        if (f0<0 && fv>=0){ t1=t; ok=true; break; }
+        f0=fv; t0=t;
+      }
+      if (!ok) continue;
+      for (var b=0;b<22;b++){ var tm=(t0+t1)/2; if (taubin(dx*tm,dy*tm,dz*tm)<0) t0=tm; else t1=tm; }
+      var r=(t0+t1)/2;
+      P.push({
+        x:dx*r, y:dy*r, z:dz*r,
+        fase:rnd()*6.283, dim:0.75+rnd()*0.7, chiaro:rnd()<0.12,
+        ord:rnd(),                             /* ritardo individuale nella metamorfosi */
+        esp:1.35+rnd()*0.85,                     /* quanto lontano vola questo frammento */
+        rotE:(rnd()-0.5)*1.4,                  /* deriva angolare del frammento */
+        velT:0.5+rnd()*0.9,                    /* quanto si fa trascinare dallo scroll */
+        segue:rnd()<0.28, orb:rnd()*6.283, om:(rnd()<0.5?-1:1)*(0.6+rnd()*1.3), rag:26+rnd()*92,
+        fx:0, fy:0, lag:0, rx:0, ry:0
+      });
+    }
+
+    var E=[];
+    for (i=0;i<P.length;i++){
+      var vicini=[];
+      for (var j=i+1;j<P.length;j++){
+        var ax=P[i].x-P[j].x, ay=P[i].y-P[j].y, az=P[i].z-P[j].z;
+        var d2=ax*ax+ay*ay+az*az;
+        if (d2<0.06) vicini.push([d2,j]);
+      }
+      vicini.sort(function(a,b){return a[0]-b[0]});
+      for (j=0;j<Math.min(3,vicini.length);j++) E.push([i,vicini[j][1]]);
+    }
+    /* lista di adiacenza: serve alla scarica elettrica per correre lungo i legamenti */
+    var adia=[]; for (i=0;i<P.length;i++) adia.push([]);
+    for (i=0;i<E.length;i++){ adia[E[i][0]].push(E[i][1]); adia[E[i][1]].push(E[i][0]); }
+    var salto=new Float32Array(P.length);
+
+    /* Ingombro reale del cuore composto, in unità di S — misurato sui punti
+       e non stimato a occhio, campionando tutta l'oscillazione della posa.
+       Serve a tenerlo DENTRO la sua sezione: prima il margine era fissato a
+       0,9·S e il cuore sbordava sistematicamente sul confine con la sezione
+       precedente o successiva. */
+    var EXT_X=0, EXT_Y=0;
+    (function(){
+      var cf=Math.cos(0.14), sf=Math.sin(0.14);
+      for (var s=0;s<=6;s++){
+        var th=-0.12+0.38*(s/3-1), ct=Math.cos(th), st=Math.sin(th);
+        for (var i=0;i<P.length;i++){
+          var q=P[i];
+          var rx=q.x*ct-q.y*st, ry=q.x*st+q.y*ct;
+          var alt=ry*sf+q.z*cf;
+          if (Math.abs(rx)>EXT_X) EXT_X=Math.abs(rx);
+          if (Math.abs(alt)>EXT_Y) EXT_Y=Math.abs(alt);
+        }
+      }
+      EXT_X*=1.06; EXT_Y*=1.06;   /* un filo di respiro per battito e torsione */
+    })();
+
+    var W=0,H=0;
+    function misura(){
+      var dpr=Math.min(devicePixelRatio||1,2);
+      W=innerWidth; H=innerHeight;
+      telaCuore.width=W*dpr; telaCuore.height=H*dpr;
+      cg.setTransform(dpr,0,0,dpr,0,0);
+    }
+    misura();
+
+    var tane=[];
+    function trovaTane(){
+      tane=[];
+      /* [sezione, cx, cy relativa, scala, tono, cx mobile, cy mobile, scala mobile]
+         Un posatoio per OGNI sezione, dimensionato sullo spazio libero del
+         suo layout. `tono` dice su che fondo si posa il cuore, così i suoi
+         colori nascono dalla sezione invece di restarci sopra come un corpo
+         estraneo: 0 = sezione scura (rosso incandescente), 1 = sezione
+         chiara (rosso profondo e accenti d'inchiostro sulla carta),
+         2 = sezione rossa (avorio in negativo).
+         Le tre colonne mobile esistono perché a una colonna lo spazio
+         libero non sta più a lato ma sopra e sotto il blocco di testo.   */
+      /* Due famiglie di posatoi.
+         · Dove la sezione è fatta di CARTE opache (piani, schede, slider dei
+           loghi, tabelle) il cuore va grande e centrato DIETRO: le carte lo
+           ritagliano e lui riempie il fondo — è lì che regge la scala.
+         · Dove invece la sezione è due colonne di testo, resta di lato, nel
+           vuoto del layout, più piccolo.                                    */
+      [['top',       0.74, 0.42, 1.08, 0, 0.50, 0.34, 1.00],
+       ['perche',    0.25, 0.64, 0.64, 1, 0.50, 0.20, 0.66],
+       ['progetto',  0.25, 0.60, 0.64, 1, 0.50, 0.20, 0.64],
+       ['rete',      0.50, 0.46, 1.15, 0, 0.50, 0.16, 0.70],
+       /* #postazione non ha posatoio: lì la scena è del modello 3D del totem
+          e il cuore si ritira del tutto (vedi "velo" nel quadro). */
+       ['modello',   0.50, 0.52, 1.10, 0, 0.50, 0.16, 0.68],
+       ['costi',     0.50, 0.50, 1.25, 0, 0.50, 0.30, 0.90],
+       ['sponsor',   0.50, 0.54, 1.35, 1, 0.50, 0.14, 0.64],
+       ['roadmap',   0.50, 0.50, 1.20, 0, 0.50, 0.18, 0.76],
+       ['imprese',   0.50, 0.52, 1.25, 0, 0.50, 0.30, 0.90],
+       ['soci',      0.50, 0.52, 1.20, 0, 0.50, 0.16, 0.66],
+       ['evento',    0.26, 0.84, 0.64, 1, 0.50, 0.84, 0.64],
+       ['adotta',    0.24, 0.86, 0.82, 2, 0.50, 0.16, 0.70],
+       /* il footer non aveva posatoio: il cuore ci arrivava sfaldato e non si
+          ricomponeva più, restando pulviscolo fino in fondo alla pagina */
+       ['chiusa',    0.50, 0.50, 0.72, 0, 0.50, 0.50, 0.66]].forEach(function(cfg){
+        var el = cfg[0]==='top'    ? document.querySelector('.hero')
+               : cfg[0]==='chiusa' ? document.querySelector('footer')
+               : document.getElementById(cfg[0]);
+        if (el) tane.push({el:el, cx:cfg[1], cy:cfg[2], scala:cfg[3], tono:cfg[4],
+                           mcx:cfg[5], mcy:cfg[6], mscala:cfg[7], ultima:cfg[0]==='chiusa'});
+      });
+    }
+    trovaTane();
+
+    /* puntatore: mouse E dito (pointermove copre entrambi) */
+    var mx=-9e3, my=-9e3;
+    addEventListener('pointermove', function(e){ mx=e.clientX; my=e.clientY; }, {passive:true});
+    addEventListener('pointerleave', function(){ mx=my=-9e3; }, {passive:true});
+    addEventListener('pointercancel', function(){ mx=my=-9e3; }, {passive:true});
+
+    /* la scarica: parte dal punto più vicino al click e si propaga di
+       legamento in legamento (BFS sul reticolo), spegnendosi col percorso.
+       Non sposta il cuore: lo percorre, come un fascio elettrico.        */
+    var lampoT=-9e9, PASSO_MS=42, SALTI_MAX=16;
+    addEventListener('click', function(e){
+      if (e.target.closest('a,button,input,select,textarea,label,summary')) return;
+      var vicino=-1, bd=1e18;
+      for (var k=0;k<P.length;k++){
+        var ax=pr[k].x-e.clientX, ay=pr[k].y-e.clientY, dd=ax*ax+ay*ay;
+        if (dd<bd){ bd=dd; vicino=k; }
+      }
+      if (vicino<0 || bd>260*260) return;   /* click nel vuoto: nessuna scarica */
+      for (k=0;k<P.length;k++) salto[k]=1e9;
+      salto[vicino]=0;
+      var coda=[vicino], testa=0;
+      while (testa<coda.length){
+        var u=coda[testa++];
+        if (salto[u]>=SALTI_MAX) continue;
+        var vs=adia[u];
+        for (var v=0;v<vs.length;v++){
+          if (salto[vs[v]]>1e8){ salto[vs[v]]=salto[u]+1; coda.push(vs[v]); }
+        }
+      }
+      lampoT=performance.now();
+    });
+
+    function battito(p){
+      if (p<0.14) return Math.sin(Math.PI*p/0.14);
+      if (p>0.20 && p<0.34) return 0.45*Math.sin(Math.PI*(p-0.20)/0.14);
+      return 0;
+    }
+    function morbida(t){ return t*t*(3-2*t); }
+
+    /* asm segue lo SCROLL, non il tempo: per la tana migliore misuriamo
+       quanta parte della fascia centrale dello schermo occupa. Rompersi
+       e ricomporsi vanno quindi alla velocità con cui l'utente scorre. */
+    function coperturaTana(){
+      /* pieno per TUTTO il tempo in cui l'utente è nella sezione: la
+         copertura misura la distanza del centro-schermo dai CONFINI della
+         sezione, non dal punto di posa. Il cuore ti segue (il centro è
+         agganciato alla fascia visibile) e si sfalda solo quando stai
+         per lasciare la sezione — un congedo, non una fuga.             */
+      var migliore=0, quale=null;
+      for (var k=0;k<tane.length;k++){
+        var t=tane[k], r=t.el.getBoundingClientRect();
+        var M=Math.min(H*0.32, r.height*0.45);   /* corsa di dissolvenza ai bordi */
+        var entra=(H*0.5 - r.top)/M;
+        var esce =(r.bottom - H*0.5)/M;
+        var c=Math.max(0, Math.min(1, Math.min(entra, esce)));
+        /* Il footer è l'ultima cosa della pagina e più corto di uno schermo:
+           il centro-schermo non ci arriva mai dentro davvero, e con la sola
+           misura della distanza il cuore restava pulviscolo fino in fondo.
+           Lì conta quanto footer si vede, non quanto è lontano il centro. */
+        if (t.ultima){
+          var visibile = Math.min(r.bottom, H) - Math.max(r.top, 0);
+          var perVista = (visibile - 30) / Math.min(r.height, H*0.62);
+          c = Math.max(c, Math.max(0, Math.min(1, perVista)));
+        }
+        if (c>migliore){ migliore=c; quale=t; }
+      }
+      return {c:migliore, tana:quale};
+    }
+
+    var asm=0, scrollPrec=scrollY, scia=0, scalaTana=1, scalaLisc=1, negT=0, negLisc=0, luceT=0, luceLisc=0;
+    var cartaForm=null;   /* la card del form: zona franca, mai disegnarci sopra */
+    var sezTotem=null;    /* #postazione: lì la scena è del modello 3D, il cuore si ritira */
+    var CX=0, CY=0, inizializzato=false;
+    var pr=new Array(P.length);
+    for (i=0;i<P.length;i++) pr[i]={x:0,y:0,d:0,a:0,e:0};
+
+    function quadro(now, statico){
+      var cop=coperturaTana();
+      var compatto = W<900;
+      /* progresso legato allo scroll; lisciatura corta solo anti-scatti */
+      asm += (morbida(cop.c)-asm) * (statico ? 1 : 0.35);
+
+      var delta = scrollY - scrollPrec; scrollPrec = scrollY;
+      scia = scia*0.90 + delta*0.10;
+
+      /* centro: verso la tana attiva; se non c'è, resta dov'era e viene
+         trascinato dallo scroll, rientrando pigramente verso lo schermo */
+      var UNITA = Math.min(W,H)*(compatto?0.40:0.42)/1.32;
+      if (cop.tana){
+        var rq = cop.tana.el.getBoundingClientRect();
+        var voluta = compatto ? cop.tana.mscala : cop.tana.scala;
+        /* se alla scala voluta il cuore non ci sta dentro la sezione,
+           rimpicciolisce quanto basta: mai a cavallo di due sezioni */
+        var altezzaMax = (rq.height/2 - 10) / EXT_Y;
+        if (UNITA*voluta > altezzaMax) voluta = Math.max(0.16, altezzaMax/UNITA);
+        scalaTana = voluta;
+        negT  = cop.tana.tono===2 ? 1 : 0;
+        luceT = cop.tana.tono===1 ? 1 : 0;
+      }
+      negLisc  += (negT-negLisc)   * (statico ? 1 : 0.08);
+      luceLisc += (luceT-luceLisc) * (statico ? 1 : 0.08);
+      scalaLisc += (scalaTana-scalaLisc) * (statico ? 1 : 0.08);
+      var S=UNITA*scalaLisc;
+      var tgx=CX, tgy=CY;
+      if (cop.tana){
+        var tr=cop.tana.el.getBoundingClientRect();
+        tgx = W * (compatto ? cop.tana.mcx : cop.tana.cx);
+        tgy = Math.max(H*0.20, Math.min(H*0.82, tr.top + tr.height*(compatto ? cop.tana.mcy : cop.tana.cy)));
+        /* il cuore resta DENTRO la sua sezione (mai a cavallo del confine
+           con la sezione precedente/successiva) e dentro lo schermo */
+        /* margine verticale = mezzo cuore vero: il confine fra due sezioni
+           è una linea netta nel disegno della pagina e non va scavalcata */
+        var mg = EXT_Y*S + 6;
+        tgy = tr.height > mg*2
+            ? Math.max(tr.top + mg, Math.min(tr.bottom - mg, tgy))
+            : tr.top + tr.height/2;
+        /* in orizzontale invece può sfiorare i bordi dello schermo: lì non
+           c'è nessun confine da rispettare, solo il vetro */
+        tgx = Math.max(EXT_X*S*0.72, Math.min(W - EXT_X*S*0.72, tgx));
+      } else {
+        tgy = CY - scia*0.9;                      /* i frammenti scivolano con la pagina */
+        tgy += (H*0.5 - tgy)*0.004;               /* ...e rientrano piano verso il centro */
+        tgx = CX + (W*(compatto?0.5:0.72) - CX)*0.004;
+      }
+      if (!inizializzato){ CX=tgx||W*0.72; CY=tgy||H*0.45; inizializzato=true; }
+      CX += (tgx-CX)*(cop.tana?0.10:1);
+      CY += (tgy-CY)*(cop.tana?0.10:1);
+
+      var bt = statico ? 0 : battito((now/1430)%1) * asm;   /* ≈42 bpm: -30% come richiesto */
+      var scala = 1 + 0.012*bt;   /* zoom d'ambiente minimo: il battito vero è regionale */
+      var th = statico ? -0.12 : -0.12 + 0.38*Math.sin(now*0.00007);
+      var ct=Math.cos(th), st=Math.sin(th);
+      var cf=Math.cos(0.14), sf=Math.sin(0.14);
+
+      cg.clearRect(0,0,W,H);
+
+      /* #postazione ospita il modello 3D del totem, che è già una scena con
+         le sue luci e i suoi comandi: due animazioni sovrapposte si
+         disturberebbero. Il cuore quindi si congeda avvicinandosi alla
+         sezione e torna uscendone — proporzionale allo scroll, come tutto
+         il resto, non a scatto. */
+      if (!sezTotem) sezTotem=document.getElementById('postazione');
+      var velo=1;
+      if (sezTotem){
+        var tr=sezTotem.getBoundingClientRect();
+        var quota=(Math.min(tr.bottom,H)-Math.max(tr.top,0)) / Math.min(H, tr.height||1);
+        velo=1-Math.max(0, Math.min(1, quota/0.45));   /* mezzo schermo di sezione = sparito */
+      }
+      if (velo<=0.004) return;                         /* nulla da disegnare: niente scarica, niente pulviscolo */
+      cg.globalAlpha=velo;
+
+      /* la card del form è off-limits: nulla le passa sopra */
+      if (!cartaForm) cartaForm=document.querySelector('.form-card');
+      cg.save();
+      if (cartaForm){
+        var fc=cartaForm.getBoundingClientRect();
+        if (fc.bottom>0 && fc.top<H && fc.right>0 && fc.left<W){
+          cg.beginPath();
+          cg.rect(0,0,W,H);
+          cg.rect(fc.left-8, fc.top-8, fc.width+16, fc.height+16);
+          cg.clip('evenodd');
+        }
+      }
+
+      var etaLampo=now-lampoT;
+      var durataLampo=SALTI_MAX*PASSO_MS+320;
+      var vivoLampo=etaLampo>=0 && etaLampo<durataLampo;
+      var fronte=etaLampo/PASSO_MS;
+      var codaLampo=vivoLampo ? 1-etaLampo/durataLampo : 0;
+
+      /* palette: nasce dal fondo della sezione, con miscele continue e
+         mai a scatto — rosso incandescente sulle sezioni scure, rosso
+         profondo sulla carta, avorio in negativo sul rosso del form.  */
+      function misc(scuro, chiaro, rosso){
+        return Math.round(scuro + (chiaro-scuro)*luceLisc + (rosso-scuro)*negLisc);
+      }
+      var lnR=misc(225,150,243), lnG=misc(29,26,240), lnB=misc(42,38,233);
+      if (asm>0.15){
+        /* sulla carta l'alone si fa appena percettibile: un velo rosato
+           che scalda il fondo, non una macchia che ci si siede sopra */
+        var forza=(0.09+0.15*bt)*asm*(1-0.35*negLisc)*(1-0.55*luceLisc);
+        var alone=cg.createRadialGradient(CX,CY,0,CX,CY,S*2.1);
+        alone.addColorStop(0,'rgba('+lnR+','+lnG+','+lnB+','+forza+')');
+        alone.addColorStop(1,'rgba('+lnR+','+lnG+','+lnB+',0)');
+        cg.fillStyle=alone; cg.fillRect(CX-S*2.2,CY-S*2.2,S*4.4,S*4.4);
+      }
+      /* i grafemi crescono col cuore: a S grande, punti da 1 px lo
+         farebbero sembrare una nuvola di polvere a bassa risoluzione */
+      var calibro=Math.max(0.9, Math.min(1.9, S/210));
+      var LMAX=170+S*0.85;   /* i legamenti troppo tesi sbiadiscono e spariscono */
+
+      var pull=Math.min(1, Math.abs(scia)*0.05);   /* quanto lo scroll sta stirando */
+
+      for (i=0;i<P.length;i++){
+        var q=P[i];
+
+        /* battito regionale, come un cuore vero: i ventricoli (z<0) si
+           contraggono più degli atri, l'apice risale verso la base, e il
+           muscolo si torce attorno al proprio asse (torsione sistolica). */
+        var vita=1+0.006*Math.sin(now*0.0012+q.fase);
+        var giu=Math.max(0,-q.z);
+        var strizza=(1-0.085*bt*(0.30+0.70*giu))*vita*scala;
+        var px3=q.x*strizza, py3=q.y*strizza;
+        var pz3=q.z*strizza + 0.06*bt*giu;
+        var tw=0.16*bt*pz3, cw=Math.cos(tw), sw=Math.sin(tw);
+        var x=px3*cw-py3*sw, y=px3*sw+py3*cw, z=pz3;
+        var rx=x*ct-y*st, ry=x*st+y*ct;
+        var prof=ry*cf-z*sf, alt=ry*sf+z*cf;
+
+        /* composto */
+        var cxP=CX+rx*S, cyP=CY-alt*S;
+
+        /* sfaldato: lo stesso frammento, espulso radialmente e ruotato un poco —
+           il cuore non svanisce, si dilata mantenendo la sua anatomia */
+        var ca=Math.cos(q.rotE), sa=Math.sin(q.rotE);
+        var ex0=rx*q.esp, ez0=alt*q.esp;
+        var exR=ex0*ca-ez0*sa, ezR=ex0*sa+ez0*ca;
+        /* trascinamento: durante lo scroll i frammenti si stirano nella sua direzione */
+        q.lag += (scia*q.velT - q.lag)*0.12;
+        var exP=CX + exR*S + Math.sin(now*0.00035+q.fase)*10;
+        var eyP=CY - ezR*S + Math.cos(now*0.0003+q.fase*1.7)*8 - q.lag*2.4;
+
+        /* inseguitori: da sfaldato, una parte dei punti va verso il dito/cursore */
+        if (q.segue && mx>-8e3){
+          /* sciame orbitante: ogni inseguitore gira attorno al puntatore con
+             la sua velocità angolare, su un raggio che respira — mai fermo */
+          var angO=q.orb+q.om*now*0.001;
+          var ragO=q.rag*(1+0.16*Math.sin(now*0.0011+q.fase*3));
+          var tgfx=mx+Math.cos(angO)*ragO, tgfy=my+Math.sin(angO)*ragO;
+          q.fx += ((tgfx-exP)-q.fx)*0.07; q.fy += ((tgfy-eyP)-q.fy)*0.07;
+          exP += q.fx*(1-asm); eyP += q.fy*(1-asm);
+        } else { q.fx*=0.94; q.fy*=0.94; }
+
+        var a = morbida(Math.max(0, Math.min(1, asm*1.25 - q.ord*0.25)));
+        var pxF = exP + (cxP-exP)*a;
+        var pyF = eyP + (cyP-eyP)*a;
+
+        /* il puntatore agisce sempre: respinge (forte da composto, lieve da sfaldato) */
+        if (mx>-8e3 && !q.segue){
+          var rpx=pxF-mx, rpy=pyF-my, rd=Math.sqrt(rpx*rpx+rpy*rpy);
+          if (rd<175 && rd>0.001){
+            var spinta=(1-rd/175)*(16+26*a);
+            q.rx += (rpx/rd*spinta - q.rx)*0.2; q.ry += (rpy/rd*spinta - q.ry)*0.2;
+          } else { q.rx*=0.90; q.ry*=0.90; }
+        } else { q.rx*=0.90; q.ry*=0.90; }
+        pxF+=q.rx; pyF+=q.ry;
+
+        var eco=0;
+        if (vivoLampo && salto[i]<1e8){
+          var df=salto[i]-fronte;
+          /* il fronte arriva netto e si spegne come brace: salita ripida,
+             coda lunga — e frigge ad alta frequenza mentre passa */
+          var onda = df>0 ? Math.exp(-df*df*2.4) : Math.exp(-df*df*0.16);
+          eco=onda*Math.exp(-salto[i]*0.075)*codaLampo;
+          eco*=0.78+0.22*Math.sin(now*0.11+q.fase*17);
+          if (eco>0.02){
+            pxF+=Math.sin(now*0.05+q.fase*9)*eco*5;    /* frigge, non viene spinto */
+            pyF+=Math.cos(now*0.06+q.fase*7)*eco*5;
+          }
+        }
+
+        var o=pr[i]; o.x=pxF; o.y=pyF; o.d=prof; o.a=a; o.e=eco;
+      }
+
+      /* linee: SEMPRE presenti — il cuore sfaldato resta un reticolo stirato.
+         L'alpha dipende dalla lunghezza a schermo (i legamenti troppo tesi
+         sbiadiscono) e cresce col grado di composizione e col lampo. */
+      var bins=[[],[],[],[],[],[]], vivi=[];
+      for (i=0;i<E.length;i++){
+        var A=pr[E[i][0]], B=pr[E[i][1]];
+        var ddx=A.x-B.x, ddy=A.y-B.y;
+        var lun=Math.sqrt(ddx*ddx+ddy*ddy);
+        if (lun>LMAX) continue;
+        var leg=(A.a+B.a)/2, ecoL=Math.max(A.e,B.e);
+        if (ecoL>0.05) vivi.push(A.x,A.y,B.x,B.y,ecoL);
+        var alfa=(0.05+0.13*leg+0.08*bt)*(1-lun/LMAX);
+        alfa=Math.max(alfa, 0.075*(1-lun/LMAX));           /* i legamenti della polvere */
+        /* sulla carta il reticolo sfaldato passa sopra a testi lunghi:
+           lì si fa velo, mentre il cuore composto resta pieno */
+        alfa*=1-0.50*luceLisc*(1-leg);
+        var bin=Math.max(0,Math.min(5,Math.floor(alfa/0.035)));
+        bins[bin].push(A.x,A.y,B.x,B.y);
+      }
+      for (var l2=0;l2<6;l2++){
+        var arr=bins[l2]; if(!arr.length) continue;
+        cg.beginPath();
+        for (j=0;j<arr.length;j+=4){ cg.moveTo(arr[j],arr[j+1]); cg.lineTo(arr[j+2],arr[j+3]); }
+        cg.lineWidth=(0.7+l2*0.1)*Math.min(1.5,calibro);
+        cg.strokeStyle='rgba('+lnR+','+lnG+','+lnB+','+((0.03+l2*0.035)*(1+0.5*negLisc)*(1+0.85*luceLisc))+')';
+        cg.stroke();
+      }
+      /* la corrente sui legamenti: alone caldo sotto, filo incandescente
+         sopra, colore che scala rosso→arancio→bianco con l'intensità —
+         nessun gradino, la luce sale e scende con continuità */
+      for (j=0;j<vivi.length;j+=5){
+        var e2=Math.min(1, vivi[j+4]*1.5) * (0.75+0.25*Math.sin(now*0.13+j));
+        cg.beginPath(); cg.moveTo(vivi[j],vivi[j+1]); cg.lineTo(vivi[j+2],vivi[j+3]);
+        cg.lineWidth=2.6+2.8*e2;
+        cg.strokeStyle='rgba(255,120,90,'+(0.11*e2)+')';
+        cg.stroke();
+        cg.beginPath(); cg.moveTo(vivi[j],vivi[j+1]); cg.lineTo(vivi[j+2],vivi[j+3]);
+        cg.lineWidth=0.9+0.8*e2;
+        cg.strokeStyle='rgba('+Math.round(225+30*e2)+','+Math.round(29+215*e2)+','+Math.round(42+193*e2)+','+(0.22+0.62*e2)+')';
+        cg.stroke();
+      }
+
+      for (i=0;i<P.length;i++){
+        var q2=P[i], o2=pr[i];
+        var vic=(o2.d+1.3)/2.6;
+        var dim=((0.9+vic*2.1)*o2.a + 1.15*(1-o2.a))*q2.dim*(1+1.2*o2.e)*calibro;
+        var al=(0.25+vic*0.65)*o2.a + 0.50*(1-o2.a);
+        al*=1-0.50*luceLisc*(1-o2.a);        /* frammenti liberi: velo sulla carta */
+        al=Math.min(1, al + o2.e*0.75);
+        var rr,gg,bb;
+        if (q2.chiaro){
+          /* gli accenti si invertono col fondo: avorio sullo scuro,
+             inchiostro sulla carta, rosso sul negativo del form */
+          rr=misc(243,20,225); gg=misc(240,26,29); bb=misc(233,32,42);
+        } else {
+          rr=misc(140+Math.round(115*vic), 118+Math.round(60*vic), 200+Math.round(55*vic));
+          gg=misc(20 +Math.round(50 *vic), 18 +Math.round(24*vic), 196+Math.round(52*vic));
+          bb=misc(35 +Math.round(35 *vic), 30 +Math.round(26*vic), 190+Math.round(48*vic));
+        }
+        var m2=Math.min(1, o2.e*1.6);      /* la corrente scalda il colore, con continuità */
+        rr+=Math.round((255-rr)*m2); gg+=Math.round((246-gg)*m2); bb+=Math.round((238-bb)*m2);
+        cg.fillStyle='rgba('+rr+','+gg+','+bb+','+al+')';
+        cg.fillRect(o2.x-dim/2, o2.y-dim/2, dim, dim);
+      }
+      cg.restore();   /* fine zona franca */
+    }
+
+    addEventListener('resize', function(){ misura(); trovaTane(); quadro(performance.now()||300, reduce); }, {passive:true});
+
+    if (reduce){
+      quadro(300, true);
+      addEventListener('scroll', function(){
+        requestAnimationFrame(function(){ quadro(performance.now(), true); });
+      }, {passive:true});
+      return;
+    }
+    quadro(300, false);
+    requestAnimationFrame(function anima(now){
+      if (!document.hidden) quadro(now, false);
+      requestAnimationFrame(anima);
+    });
+  })();
+
+  /* ── 2. Mappa schematica: i 5 nodi ─────────────────────────── */
+  var NODI = [
+    {n:'Morbegno', km:0,  d:'Testa di tratta e sede dell’evento di presentazione. Qui viene posata la postazione pilota, con collaudo tecnico, verifica della fototrappola e registrazione in AREU.'},
+    {n:'Talamona', km:6,  d:'Area ad alta frequentazione nei pressi degli impianti sportivi e delle aree di sosta: punto di passaggio quotidiano per runner e ciclisti.'},
+    {n:'Ardenno',  km:12, d:'Nodo centrale della tratta. Presidio strategico nel punto più distante dai due capolinea, dove i tempi di soccorso sono più critici.'},
+    {n:'Colorina', km:19, d:'Postazione a servizio delle aree di ristoro e degli accessi viari, con riferimenti chiari da comunicare alla centrale 118.'},
+    {n:'Sondrio',  km:26, d:'Chiusura della tratta in prossimità del capoluogo, dove la ciclopedonale registra la maggiore densità di utenti.'}
+  ];
+  var g = document.getElementById('nodes');
+  var elencoTappe = document.getElementById('rete-tappe');
+  var SVGNS = 'http://www.w3.org/2000/svg';
+  var xs = [60, 280, 500, 720, 940];
+  var corrente = NODI[0];
+  var tappe = [];        /* i bottoni della versione verticale (mobile) */
+
+  function mostraNodo(nd){
+    corrente = nd;
+    document.getElementById('d-km').textContent = nd.km;
+    document.getElementById('d-name').textContent = nd.n;
+    document.getElementById('d-desc').textContent = nd.d;
+    tappe.forEach(function(b){ b.setAttribute('aria-pressed', b.dataset.n === nd.n ? 'true' : 'false'); });
+  }
+
+  NODI.forEach(function(nd, i){
+    /* — versione verticale, mobile — */
+    var li = document.createElement('li');
+    var bt = document.createElement('button');
+    bt.type = 'button';
+    bt.className = 'tappa';
+    bt.dataset.n = nd.n;
+    bt.setAttribute('aria-pressed', i === 0 ? 'true' : 'false');
+    bt.innerHTML = '<span class="tappa-km mono">km ' + nd.km + '</span>' +
+                   '<span class="tappa-n">' + nd.n + '</span>';
+    li.appendChild(bt);
+    elencoTappe.appendChild(li);
+    tappe.push(bt);
+
+    var el = document.createElementNS(SVGNS,'g');
+    el.setAttribute('class','node' + (i === 0 ? ' on' : ''));
+    el.setAttribute('tabindex','0');
+    el.setAttribute('role','button');
+    el.setAttribute('aria-label', nd.n + ', km ' + nd.km);
+    el.innerHTML =
+      '<circle class="halo" cx="'+xs[i]+'" cy="96" r="11"/>' +
+      '<circle class="core" cx="'+xs[i]+'" cy="96" r="8"/>' +
+      '<circle class="hit"  cx="'+xs[i]+'" cy="96" r="34"/>' +
+      '<text x="'+xs[i]+'" y="146">'+nd.n+'</text>' +
+      '<text x="'+xs[i]+'" y="166" style="font-size:10px;fill:#7d878f;letter-spacing:.1em">km '+nd.km+'</text>';
+    /* le due viste — schema orizzontale e elenco verticale — puntano alla
+       stessa scheda sotto: qualunque sia quella a schermo, si aggiornano
+       entrambe e restano coerenti se si ruota il telefono */
+    function select(){
+      g.querySelectorAll('.node').forEach(function(o){ o.classList.remove('on'); });
+      el.classList.add('on');
+      mostraNodo(nd);
+    }
+    el.addEventListener('click', select);
+    el.addEventListener('mouseenter', select);
+    el.addEventListener('focus', select);
+    el.addEventListener('keydown', function(e){ if (e.key === 'Enter' || e.key === ' '){ e.preventDefault(); select(); } });
+    bt.addEventListener('click', select);
+    g.appendChild(el);
+  });
+  document.getElementById('d-desc').textContent = NODI[0].d;
+
+  /* dalla mappa al form: preseleziona la postazione scelta e ci porta sopra */
+  function scegliOpzione(sel, testo){
+    for (var i = 0; i < sel.options.length; i++){
+      if (sel.options[i].text.indexOf(testo) === 0){ sel.selectedIndex = i; return true; }
+    }
+    return false;
+  }
+  function scegliLivello(testo){
+    var radios = document.querySelectorAll('input[name="livello"]');
+    for (var i = 0; i < radios.length; i++){
+      if (radios[i].value.indexOf(testo) === 0){ radios[i].checked = true; return true; }
+    }
+    return false;
+  }
+  document.getElementById('d-adopt').addEventListener('click', function(){
+    scegliOpzione(document.getElementById('slot'), corrente.n);
+    document.getElementById('adotta').scrollIntoView({behavior: reduce ? 'auto' : 'smooth'});
+    var az = document.getElementById('azienda');
+    setTimeout(function(){ az.focus({preventScroll:true}); }, reduce ? 0 : 700);
+  });
+
+  /* ── 3. Reveal allo scroll + conteggio numeri ──────────────────
+     Le animazioni si RIARMANO: uscendo dalla vista l'elemento perde la
+     classe .in, così tornando indietro (o ripassando) rientra in scena
+     e i tracciati SVG si ridisegnano. Prima l'osservatore faceva
+     `unobserve` al primo ingresso e dopo la prima passata la pagina
+     restava immobile.                                                */
+  var corse = new WeakMap();          /* token per annullare un conteggio in volo */
+  function countUp(el){
+    var end = parseInt(el.dataset.cnt, 10);
+    if (reduce){ el.textContent = end; return; }
+    var token = {};
+    corse.set(el, token);
+    var t0 = null;
+    function step(ts){
+      if (corse.get(el) !== token) return;      /* sorpassato da una nuova corsa */
+      if (!t0) t0 = ts;
+      var p = Math.min((ts - t0) / 1100, 1);
+      el.textContent = Math.round(end * (1 - Math.pow(1 - p, 3)));
+      if (p < 1) requestAnimationFrame(step);
+    }
+    requestAnimationFrame(step);
+  }
+  function riarma(el){
+    if (el.dataset.cnt){ corse.set(el, {}); el.textContent = '0'; }
+    el.querySelectorAll('[data-cnt]').forEach(function(n){ corse.set(n, {}); n.textContent = '0'; });
+  }
+
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if (e.isIntersecting){
+        if (e.target.classList.contains('in')) return;
+        e.target.classList.add('in');
+        e.target.querySelectorAll('[data-cnt]').forEach(countUp);
+        if (e.target.dataset.cnt) countUp(e.target);
+      } else if (!reduce){
+        /* fuori campo: si rimette in attesa, pronto a rigiocare */
+        e.target.classList.remove('in');
+        riarma(e.target);
+      }
+    });
+  }, {rootMargin:'0px 0px -12% 0px', threshold:.15});
+
+  document.querySelectorAll('.reveal, [data-cnt]').forEach(function(el){ io.observe(el); });
+
+  /* ── 4. I bottoni dei piani precompilano il form ───────────── */
+  document.querySelectorAll('[data-tier]').forEach(function(a){
+    a.addEventListener('click', function(){ scegliLivello(a.dataset.tier); });
+  });
+
+  /* ── 4b. Invio del form → webhook Airtable ───────────────────
+     Il POST arriva a un'automazione Airtable che registra il contatto
+     nel DB (retention 30 giorni, poi anonimizzazione automatica con
+     avviso all'interessato) e avvisa info@ufficioservice.it.
+     mode:'no-cors' + urlencoded: l'endpoint non espone header CORS,
+     quindi la risposta è opaca — l'esito si assume positivo se la
+     rete non fallisce. credentials:'omit': nessun cookie di terze
+     parti viene inviato né accettato.                              */
+  var WEBHOOK = 'https://hooks.airtable.com/workflows/v1/genericWebhook/appV442FSA7OsPZW3/wflWI6rT1lwByXSX7/wtrQRdn67OQKPQgpY';
+  var formA = document.getElementById('form-adozione');
+  var bottoneInvia = document.getElementById('invia');
+  var erroreForm = document.getElementById('form-err');
+
+  var areaNote = document.getElementById('note');
+  areaNote.addEventListener('input', function(){
+    this.style.height = 'auto'; this.style.height = this.scrollHeight + 'px';
+  });
+
+  /* ── 4a. Validazione del modulo ───────────────────────────────
+     Messaggi in italiano sotto al campo, non i fumetti nativi: il
+     form è `novalidate` proprio per poterli scrivere noi. Il telefono
+     è facoltativo, ma se lo scrivi dev'essere un numero plausibile.  */
+  var campoTel = document.getElementById('tel');
+
+  function riquadro(el){ return el.closest('.f'); }
+  function segna(el, ok){
+    var box = riquadro(el);
+    if (box) box.classList.toggle('err', !ok);
+    if (ok) el.removeAttribute('aria-invalid'); else el.setAttribute('aria-invalid','true');
+    return ok;
+  }
+  /* cifre effettive: da 8 (fisso locale) a 15 (massimo E.164), con
+     eventuale prefisso internazionale e i separatori d'uso comune */
+  function telValido(v){
+    if (!/^[+\d][\d\s.\-/()]*$/.test(v)) return false;
+    var cifre = v.replace(/\D/g, '').length;
+    return cifre >= 8 && cifre <= 15;
+  }
+  function emailValida(v){ return /^[^\s@]+@[^\s@.]+(\.[^\s@.]+)+$/.test(v); }
+
+  function verifica(mostra){
+    var esiti = [
+      segna(document.getElementById('azienda'),   document.getElementById('azienda').value.trim().length >= 2),
+      segna(document.getElementById('referente'), document.getElementById('referente').value.trim().length >= 2),
+      segna(document.getElementById('email'),     emailValida(document.getElementById('email').value.trim())),
+      segna(campoTel, campoTel.value.trim() === '' || telValido(campoTel.value.trim())),
+      segna(document.getElementById('consenso'),  document.getElementById('consenso').checked)
+    ];
+    var primo = null;
+    var campi = ['azienda','referente','email','tel','consenso'];
+    for (var i = 0; i < esiti.length; i++){ if (!esiti[i] && !primo) primo = document.getElementById(campi[i]); }
+    if (primo && mostra){
+      primo.focus({preventScroll:true});
+      primo.scrollIntoView({behavior: reduce ? 'auto' : 'smooth', block:'center'});
+    }
+    return !primo;
+  }
+
+  /* dopo il primo errore il campo si ricontrolla mentre scrivi:
+     l'avviso sparisce appena il dato diventa buono */
+  ['azienda','referente','email','tel','consenso'].forEach(function(id){
+    var el = document.getElementById(id);
+    var evento = id === 'consenso' ? 'change' : 'input';
+    el.addEventListener(evento, function(){
+      var box = riquadro(el);
+      if (!box || !box.classList.contains('err')) return;
+      if (id === 'consenso')      segna(el, el.checked);
+      else if (id === 'email')    segna(el, emailValida(el.value.trim()));
+      else if (id === 'tel')      segna(el, el.value.trim() === '' || telValido(el.value.trim()));
+      else                        segna(el, el.value.trim().length >= 2);
+    });
+  });
+  campoTel.addEventListener('blur', function(){
+    if (campoTel.value.trim() !== '') segna(campoTel, telValido(campoTel.value.trim()));
+  });
+
+  formA.addEventListener('submit', function(e){
+    e.preventDefault();
+    erroreForm.hidden = true;
+    if (!verifica(true)) return;
+
+    function successo(){
+      formA.hidden = true;
+      document.querySelector('.form-head').hidden = true;
+      var ok = document.getElementById('form-ok');
+      ok.hidden = false;
+      ok.scrollIntoView({behavior: reduce ? 'auto' : 'smooth', block:'center'});
+    }
+    /* honeypot compilato = bot: fingiamo di inviare, non parte nulla */
+    if (document.getElementById('sito').value){ successo(); return; }
+
+    bottoneInvia.disabled = true;
+    bottoneInvia.textContent = 'Invio in corso…';
+    var livelloSel = document.querySelector('input[name="livello"]:checked');
+    var dati = new URLSearchParams({
+      azienda:    document.getElementById('azienda').value.trim(),
+      referente:  document.getElementById('referente').value.trim(),
+      ruolo:      '',
+      email:      document.getElementById('email').value.trim(),
+      telefono:   document.getElementById('tel').value.trim(),
+      livello:    livelloSel ? livelloSel.value : 'Da valutare insieme',
+      postazione: document.getElementById('slot').value,
+      note:       areaNote.value.trim(),
+      consenso:   'sì',
+      dataInvio:  new Date().toISOString(),
+      paginaOrigine: location.hostname || 'locale'
+    });
+    fetch(WEBHOOK, {
+      method:'POST', mode:'no-cors', credentials:'omit',
+      headers:{'Content-Type':'application/x-www-form-urlencoded'},
+      body: dati.toString()
+    }).then(successo).catch(function(){
+      erroreForm.hidden = false;
+      bottoneInvia.disabled = false;
+      bottoneInvia.innerHTML = 'Invia la richiesta <span class="ar">&rarr;</span>';
+    });
+  });
+
+  /* ── 4b. Soci del Capitolo BNI Valtellina ───────────────────
+     Fonte: scheda ufficiale del capitolo, luglio 2026 (29 soci).
+     `pro: 1` = azienda coinvolta nella filiera del progetto.
+     `logo` = nome file in assets/loghi/ (opzionale: senza, si usa la sigla). */
+  var SOCI = [
+    {a:'Ufficio Service',        p:'Alessandro Piazza',     c:'Consulenza aziendale',       pro:1, l:'ufficio-service',      u:'https://ufficioservice.it/'},
+    {a:'Studio Pastori',         p:'Pier Luigi Pastori',    c:'Architetto',                 pro:1, l:'studio-pastori',       u:'https://studiopastori.it/'},
+    {a:'Legnotech',              p:'Luca Poncetta',         c:'Costruzioni in legno',       pro:1, l:'legnotech',            u:'https://www.legnotech.it/'},
+    {a:'CLV Costruzioni',        p:'Roberto Riboldi',       c:'Costruttore generale',       pro:1, l:'clv',                  u:'https://www.clvcostruzioni.it/'},
+    {a:'Locatelli Arturo',       p:'Michele Locatelli',     c:'Falegnameria e arredi',      pro:1, l:'locatelli'},
+    {a:'Martinalli Fabrizio',    p:'Fabrizio Martinalli',   c:'Geometra e pratiche',        pro:1, l:'martinalli-geom'},
+    {a:'Studio ing. Micheletti', p:'Giorgio Micheletti',    c:'Ingegneria e impianti',      pro:1, l:'micheletti'},
+    {a:'Vivai Giumelli',         p:'Giorgio Giumelli',      c:'Architettura del verde',     pro:1, l:'vivai-giumelli',       u:'https://www.vivai-giumelli.it/'},
+    {a:'Paolo Piazza',           p:'Paolo Piazza',          c:'Impianti elettrici',         pro:1, l:'paolo-piazza'},
+    {a:'Studio Bagassi-Scinetti',p:'Fabio Scinetti',        c:'Diritto civile',             pro:1, l:'scinetti'},
+    {a:'Studio Vitali',          p:'Arnaldo Vitali',        c:'Dottore commercialista',     pro:1, l:'studio-vitali',        u:'https://www.studiovitali.it/'},
+    {a:'Martinalli Assicurazioni',p:'Andrea Martinalli',    c:'Assicurazioni e broker',     pro:1, l:'martinalli',           u:'https://martinalli.it/'},
+    {a:'Incerto Alessandra',     p:'Alessandra Incerto',    c:'Consulenza finanziaria',     pro:1, l:'incerto'},
+    {a:'Clerici Auto',           p:'Silvia Ruffini',        c:'Auto: vendita e assistenza', pro:1, l:'clerici-auto',         u:'https://www.clericiauto.it/'},
+    {a:'Views ETS',              p:'Davide Rossatti',       c:'Associazione culturale',     pro:1, l:'views'},
+    {a:'Balatroni',              p:'Alessandra Pradella',   c:'Persiane e tende da sole',          l:'balatroni',            u:'https://www.balatroni.com/'},
+    {a:'NSC',                    p:'Alessandro Canali',     c:'Stampa e comunicazione',            l:'nsc',                  u:'https://nsc-net.it/'},
+    {a:'Le Mille e Una Casa',    p:'Barbara Gianola',       c:'Agenzia immobiliare',               l:'mille-e-una-casa',     u:'https://lemilleeunacasa.it/'},
+    {a:'Dexter Lab',             p:'Cleto Strigiotti',      c:'Falegnameria e carpenteria',        l:'dexter-lab'},
+    {a:'I.S.I.-IT',              p:'Emilio Ranzani',        c:'Consulenza informatica',            l:'isi-it',               u:'https://isi-it.eu/'},
+    {a:'Car Clinic',             p:'Francesco De Marzi',    c:'Autocarrozzeria',                   l:'car-clinic',           u:'https://www.carclinic.it/'},
+    {a:'Ingressi Automatici',    p:'Gierri Riciard Nobili', c:'Porte e automazioni',               l:'ingressi-automatici',  u:'https://gemasystem.it/'},
+    {a:'Splugacolori',           p:'Lino Tarabini',         c:'Vernici e colori',                  l:'splugacolori',         u:'https://www.splugacolori.it/'},
+    {a:'Easynet Group',          p:'Luca Saldarini',        c:'Telecomunicazioni e IT',            l:'easynet',              u:'https://www.easynet.group/'},
+    {a:'Andreani 2.0',           p:'Marco Previtali',       c:'Pavimenti e rivestimenti',          l:'andreani'},
+    {a:'Careisgold',             p:'Stefano Cestele',       c:'Finanza patrimoniale',              l:'careisgold',           u:'https://www.careisgold.it/'},
+    {a:'Idraulica Menatti',      p:'Stefano Menatti',       c:'Idraulico e lattoniere',            l:'menatti',              u:'https://www.idraulicamenatti.it/'},
+    {a:'3 Botta',                p:'Tullio Botta',          c:'Cartongesso',                       l:'tre-botta'},
+    {a:'U Project',              p:'Vera Presazzi',         c:'Risorse umane',                     l:'u-project',            u:'https://uproject.it/'}
+  ];
+
+  function tessera(s, doppione){
+    /* la seconda copia della pista è decorativa: la togliamo da tab e lettori
+       di schermo, altrimenti ogni socio verrebbe annunciato due volte */
+    var el = document.createElement(s.u ? 'a' : 'div');
+    el.className = 'soc' + (s.pro ? ' pro' : '');
+    if (s.u){
+      el.href = s.u; el.target = '_blank'; el.rel = 'noopener';
+      if (doppione) el.tabIndex = -1;
+    }
+    if (doppione) el.setAttribute('aria-hidden', 'true');
+    el.title = s.a + ' — ' + s.p + ' · ' + s.c +
+               (s.pro ? ' · nella filiera del progetto' : '') +
+               (s.u ? ' · vai al sito' : '');
+    el.innerHTML =
+      '<span class="soc-mark"><img src="assets/loghi/' + s.l + '.png" alt="' + s.a + '" loading="lazy"></span>' +
+      '<span class="soc-txt"><span class="soc-name">' + s.a + '</span>' +
+      '<span class="soc-cat">' + s.c + '</span></span>';
+    return el;
+  }
+
+  var righe = document.querySelectorAll('#soci-slider .soci-riga');
+  var meta = Math.ceil(SOCI.length / 2);
+  [SOCI.slice(0, meta), SOCI.slice(meta)].forEach(function(gruppo, i){
+    var track = righe[i].querySelector('.soci-track');
+    /* doppia copia: a -50% l'animazione riparte identica, senza salto visibile */
+    gruppo.forEach(function(s){ track.appendChild(tessera(s, false)); });
+    gruppo.forEach(function(s){ track.appendChild(tessera(s, true)); });
+    righe[i].style.setProperty('--dur', (gruppo.length * 5.2) + 's');
+  });
+
+  /* ── 4c. Schede legali (privacy / cookie) ─────────────────────
+     Il sito viaggia come file unico, quindi le informative non sono
+     pagine separate ma schede sovrapposte, comunque linkabili con
+     #privacy-policy e #cookie-policy.                              */
+  var docAperto = null, docTornaA = null;
+  function apriDoc(id){
+    var d = document.getElementById(id);
+    if (!d) return;
+    if (docAperto && docAperto !== d) docAperto.hidden = true;
+    else docTornaA = document.activeElement;
+    docAperto = d;
+    d.hidden = false;
+    d.scrollTop = 0;
+    document.body.classList.add('doc-open');
+    d.querySelector('.doc-x').focus();
+  }
+  function chiudiDoc(){
+    if (!docAperto) return;
+    docAperto.hidden = true;
+    docAperto = null;
+    document.body.classList.remove('doc-open');
+    if (location.hash === '#privacy-policy' || location.hash === '#cookie-policy'){
+      history.replaceState(null, '', location.pathname + location.search);
+    }
+    if (docTornaA && docTornaA.focus) docTornaA.focus({preventScroll:true});
+    docTornaA = null;
+  }
+  document.addEventListener('click', function(e){
+    var apri = e.target.closest('[data-doc]');
+    if (apri){ e.preventDefault(); apriDoc(apri.dataset.doc); return; }
+    if (e.target.closest('.doc-x')){ chiudiDoc(); return; }
+    /* clic sullo sfondo scuro, fuori dal foglio */
+    if (docAperto && e.target === docAperto) chiudiDoc();
+  });
+  document.addEventListener('keydown', function(e){ if (e.key === 'Escape') chiudiDoc(); });
+  /* arrivo diretto da un link esterno con l'ancora già nell'indirizzo */
+  if (location.hash === '#privacy-policy' || location.hash === '#cookie-policy') apriDoc(location.hash.slice(1));
+
+  /* ── 4d. Mappa georeferenziata, su richiesta ──────────────────
+     Visualizzatore di tile scritto qui dentro (niente librerie da CDN:
+     il bundle dev'essere autosufficiente e cifrabile). Proiezione di
+     Mercatore sferico, le stesse tile 256px di qualunque mappa web.
+     Finché l'utente non preme il pulsante NON parte alcuna richiesta.
+     ▸ SVILUPPATORE: le coordinate qui sotto sono indicative — vanno
+       sostituite con quelle confermate da Comunità Montana e AREU.  */
+  var GEO_DAE = [
+    {n:'Morbegno', km:0,  lat:46.1289, lon:9.5836},
+    {n:'Talamona', km:6,  lat:46.1362, lon:9.6285},
+    {n:'Ardenno',  km:12, lat:46.1571, lon:9.6742},
+    {n:'Colorina', km:19, lat:46.1520, lon:9.7508},
+    {n:'Sondrio',  km:26, lat:46.1633, lon:9.8593}
+  ];
+  (function(){
+    var palco = document.getElementById('geo-stage');
+    var cancello = document.getElementById('geo-gate');
+    var bottoneOn = document.getElementById('geo-on');
+    if (!palco || !bottoneOn) return;
+
+    /* Su schermo ad alta densità si scaricano le tile del livello di zoom
+       successivo e si disegnano a metà lato: stessa inquadratura, il doppio
+       dei pixel veri. È il motivo per cui la mappa sembrava sfocata su Mac. */
+    var FINE = (devicePixelRatio || 1) >= 1.5 ? 1 : 0;
+    var TILE = 256 >> FINE;          /* lato della tessera in px CSS */
+    var ZMIN = 9, ZMAX = 17 - FINE;  /* z+FINE non deve superare il 18 di OSM */
+    var mappa = null, tele = null, strato = null, pin = [], scheda = null;
+    var z = 11, cLat = 46.147, cLon = 9.722;   /* centro: metà tratta, poi ricalcolato */
+    var cache = {}, inquadrato = false;
+
+    /* larghezza del mondo in px CSS al livello zz: 2^zz · 256, comunque
+       siano tagliate le tessere (a densità doppia sono il doppio, di metà lato) */
+    function mondo(zz){ return Math.pow(2, zz + FINE) * TILE; }
+    function lon2x(lon, zz){ return (lon + 180) / 360 * mondo(zz); }
+    function lat2y(lat, zz){
+      var s = Math.sin(lat * Math.PI / 180);
+      return (0.5 - Math.log((1 + s) / (1 - s)) / (4 * Math.PI)) * mondo(zz);
+    }
+    function x2lon(x, zz){ return x / mondo(zz) * 360 - 180; }
+    function y2lat(y, zz){
+      var n = Math.PI - 2 * Math.PI * y / mondo(zz);
+      return 180 / Math.PI * Math.atan(0.5 * (Math.exp(n) - Math.exp(-n)));
+    }
+
+    function disegna(){
+      if (!mappa || !mappa.isConnected) return;   /* mappa spenta: il resize non deve inciampare */
+      var W = mappa.clientWidth, H = mappa.clientHeight;
+      if (!W || !H) return;                       /* riquadro non ancora misurato */
+      if (!inquadrato){ inquadrato = true; inquadra(); }
+      var px = lon2x(cLon, z), py = lat2y(cLat, z);
+      var x0 = px - W / 2, y0 = py - H / 2;
+      var zt = z + FINE;                      /* livello delle tessere richieste */
+      var nMax = Math.pow(2, zt);
+
+      var i0 = Math.floor(x0 / TILE), j0 = Math.floor(y0 / TILE);
+      var i1 = Math.floor((x0 + W) / TILE), j1 = Math.floor((y0 + H) / TILE);
+      var vive = {};
+      for (var i = i0; i <= i1; i++){
+        for (var j = j0; j <= j1; j++){
+          if (j < 0 || j >= nMax) continue;
+          var ix = ((i % nMax) + nMax) % nMax;
+          var k = zt + '/' + ix + '/' + j;
+          vive[k] = 1;
+          var img = cache[k];
+          if (!img){
+            img = new Image();
+            img.alt = '';
+            img.loading = 'eager';
+            img.decoding = 'async';
+            img.width = TILE; img.height = TILE;
+            img.style.width = TILE + 'px'; img.style.height = TILE + 'px';
+            img.src = 'https://tile.openstreetmap.org/' + zt + '/' + ix + '/' + j + '.png';
+            cache[k] = img;
+            tele.appendChild(img);
+          }
+          img.style.transform = 'translate3d(' + Math.round(i * TILE - x0) + 'px,' + Math.round(j * TILE - y0) + 'px,0)';
+          img.style.display = '';
+        }
+      }
+      for (var k2 in cache){
+        if (vive[k2]) continue;
+        if (k2.indexOf(zt + '/') === 0){ cache[k2].style.display = 'none'; }  /* stesso zoom: la teniamo, tornerà utile */
+        else { cache[k2].remove(); delete cache[k2]; }                        /* altro zoom: via, o la cache cresce senza fine */
+      }
+
+      /* pin e tracciato indicativo */
+      var punti = GEO_DAE.map(function(d){
+        return [lon2x(d.lon, z) - x0, lat2y(d.lat, z) - y0];
+      });
+      pin.forEach(function(b, n){
+        b.style.left = punti[n][0] + 'px';
+        b.style.top  = punti[n][1] + 'px';
+      });
+      strato.setAttribute('points', punti.map(function(p){ return p[0] + ',' + p[1]; }).join(' '));
+    }
+
+    function mostraScheda(n){
+      var d = GEO_DAE[n];
+      pin.forEach(function(b, m){ b.setAttribute('aria-pressed', m === n ? 'true' : 'false'); });
+      scheda.innerHTML = '<span>km ' + d.km + '</span><b>' + d.n + '</b>' +
+        '<p>' + d.lat.toFixed(4) + '° N, ' + d.lon.toFixed(4) + '° E &mdash; posizione indicativa, in via di conferma.</p>';
+    }
+
+    function accendi(){
+      cancello.remove();
+
+      mappa = document.createElement('div');
+      mappa.className = 'geo-map';
+      mappa.setAttribute('role', 'application');
+      mappa.setAttribute('aria-label', 'Mappa delle cinque postazioni DAE lungo la ciclopedonale Morbegno–Sondrio');
+      mappa.innerHTML =
+        '<div class="geo-tiles"></div>' +
+        '<div class="geo-over"><svg aria-hidden="true">' +
+          '<polyline fill="none" stroke="#e11d2a" stroke-width="3" stroke-linecap="round" ' +
+          'stroke-linejoin="round" stroke-dasharray="9 8" opacity=".85"/></svg></div>';
+      palco.appendChild(mappa);
+
+      tele   = mappa.querySelector('.geo-tiles');
+      strato = mappa.querySelector('polyline');
+      var over = mappa.querySelector('.geo-over');
+
+      GEO_DAE.forEach(function(d, n){
+        var b = document.createElement('button');
+        b.type = 'button';
+        b.className = 'geo-pin';
+        b.setAttribute('aria-pressed', n === 0 ? 'true' : 'false');
+        b.setAttribute('aria-label', d.n + ', km ' + d.km + ' — mostra i dettagli della postazione');
+        b.innerHTML =
+          '<svg viewBox="0 0 32 42" aria-hidden="true">' +
+            '<path class="pin-b" d="M16 1C8.8 1 3 6.8 3 14c0 9.4 13 27 13 27s13-17.6 13-27C29 6.8 23.2 1 16 1z" ' +
+            'stroke="#f3f0e9" stroke-width="2"/>' +
+            '<path d="M8 15h4l2-5 3 10 2-6 1.5 3H24" fill="none" stroke="#fff" stroke-width="2" ' +
+            'stroke-linecap="round" stroke-linejoin="round"/></svg>' +
+          '<em>' + d.n + '</em>';
+        b.addEventListener('click', function(){ mostraScheda(n); });
+        over.appendChild(b);
+        pin.push(b);
+      });
+
+      scheda = document.createElement('div');
+      scheda.className = 'geo-card';
+      scheda.setAttribute('aria-live', 'polite');
+      palco.appendChild(scheda);
+
+      var ui = document.createElement('div');
+      ui.className = 'geo-ui';
+      ui.innerHTML =
+        '<button type="button" data-z="1" aria-label="Ingrandisci">+</button>' +
+        '<button type="button" data-z="-1" aria-label="Riduci">&minus;</button>' +
+        '<button type="button" class="geo-off" aria-label="Disattiva la mappa e torna all\'anteprima">OFF</button>';
+      palco.appendChild(ui);
+
+      var avviso = document.createElement('div');
+      avviso.className = 'geo-avviso';
+      avviso.innerHTML = 'Per ingrandire tieni premuto <kbd>&#8984;</kbd> o <kbd>Ctrl</kbd> mentre giri la rotella &mdash; oppure usa <kbd>+</kbd> e <kbd>&minus;</kbd>';
+      palco.appendChild(avviso);
+
+      var attr = document.createElement('div');
+      attr.className = 'geo-attr';
+      attr.innerHTML = '&copy; <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OpenStreetMap</a> contributori';
+      palco.appendChild(attr);
+
+      ui.addEventListener('click', function(e){
+        var b = e.target.closest('button');
+        if (!b) return;
+        if (b.classList.contains('geo-off')){ spegni(); return; }
+        zoomA(z + parseInt(b.dataset.z, 10), mappa.clientWidth / 2, mappa.clientHeight / 2);
+      });
+
+      /* trascinamento con mouse o dito */
+      var giu = false, lx = 0, ly = 0, idPunt = null;
+      mappa.addEventListener('pointerdown', function(e){
+        if (e.target.closest('.geo-pin, .geo-ui, .geo-attr')) return;
+        giu = true; lx = e.clientX; ly = e.clientY; idPunt = e.pointerId;
+        mappa.classList.add('trascina');
+        mappa.setPointerCapture(idPunt);
+      });
+      mappa.addEventListener('pointermove', function(e){
+        if (!giu || e.pointerId !== idPunt) return;
+        var dx = e.clientX - lx, dy = e.clientY - ly;
+        lx = e.clientX; ly = e.clientY;
+        var px = lon2x(cLon, z) - dx, py = lat2y(cLat, z) - dy;
+        cLon = x2lon(px, z);
+        cLat = Math.max(-85, Math.min(85, y2lat(py, z)));
+        disegna();
+      });
+      function su(e){
+        if (!giu || (e.pointerId !== undefined && e.pointerId !== idPunt)) return;
+        giu = false; mappa.classList.remove('trascina');
+        try { mappa.releasePointerCapture(idPunt); } catch (err){}
+      }
+      mappa.addEventListener('pointerup', su);
+      mappa.addEventListener('pointercancel', su);
+
+      /* La rotella NON zooma da sola: scorrendo la pagina si finiva dentro
+         la mappa e si passava da un capo all'altro della valle in un attimo,
+         senza nemmeno riuscire a vederla. Lo zoom vuole ⌘/Ctrl (o il pinch
+         del trackpad, che arriva come wheel+ctrl), e i colpi si sommano
+         invece di contarne uno per evento: il trackpad ne genera decine.  */
+      var accumulo = 0, tAvviso = 0;
+      mappa.addEventListener('wheel', function(e){
+        if (!(e.ctrlKey || e.metaKey)){
+          avviso.classList.add('on');
+          clearTimeout(tAvviso);
+          tAvviso = setTimeout(function(){ avviso.classList.remove('on'); }, 1300);
+          return;                                  /* la pagina scorre normalmente */
+        }
+        e.preventDefault();
+        accumulo += e.deltaY;
+        var passi = accumulo / 90 | 0;
+        if (!passi) return;
+        accumulo -= passi * 90;
+        var r = mappa.getBoundingClientRect();
+        zoomA(z - passi, e.clientX - r.left, e.clientY - r.top);
+      }, {passive:false});
+
+      mappa.addEventListener('dblclick', function(e){
+        var r = mappa.getBoundingClientRect();
+        zoomA(z + 1, e.clientX - r.left, e.clientY - r.top);
+      });
+
+      /* tastiera: frecce per spostarsi, +/- per lo zoom */
+      mappa.tabIndex = 0;
+      mappa.addEventListener('keydown', function(e){
+        var passo = 60, dx = 0, dy = 0;
+        if (e.key === 'ArrowLeft')  dx =  passo;
+        else if (e.key === 'ArrowRight') dx = -passo;
+        else if (e.key === 'ArrowUp')    dy =  passo;
+        else if (e.key === 'ArrowDown')  dy = -passo;
+        else if (e.key === '+' || e.key === '='){ zoomA(z + 1, mappa.clientWidth/2, mappa.clientHeight/2); e.preventDefault(); return; }
+        else if (e.key === '-'){ zoomA(z - 1, mappa.clientWidth/2, mappa.clientHeight/2); e.preventDefault(); return; }
+        else return;
+        e.preventDefault();
+        cLon = x2lon(lon2x(cLon, z) - dx, z);
+        cLat = Math.max(-85, Math.min(85, y2lat(lat2y(cLat, z) - dy, z)));
+        disegna();
+      });
+
+      addEventListener('resize', disegna, {passive:true});
+      /* il riquadro può nascere a larghezza zero (sezione ancora in
+         animazione d'ingresso): si ridisegna appena prende le misure */
+      if (window.ResizeObserver) new ResizeObserver(disegna).observe(mappa);
+
+      mostraScheda(0);
+      disegna();
+      mappa.focus({preventScroll:true});
+    }
+
+    /* inquadratura iniziale calcolata sulle coordinate, non fissata a mano:
+       se domani le postazioni si spostano, la mappa le contiene comunque */
+    function inquadra(){
+      var W = mappa.clientWidth || 900, H = mappa.clientHeight || 460;
+      var lats = GEO_DAE.map(function(d){ return d.lat; });
+      var lons = GEO_DAE.map(function(d){ return d.lon; });
+      cLat = (Math.max.apply(null, lats) + Math.min.apply(null, lats)) / 2;
+      cLon = (Math.max.apply(null, lons) + Math.min.apply(null, lons)) / 2;
+      var margine = 90;   /* px di respiro attorno ai pin, etichette comprese */
+      for (var zz = ZMAX; zz >= ZMIN; zz--){
+        var xs = lons.map(function(l){ return lon2x(l, zz); });
+        var ys = lats.map(function(l){ return lat2y(l, zz); });
+        var dw = Math.max.apply(null, xs) - Math.min.apply(null, xs);
+        var dh = Math.max.apply(null, ys) - Math.min.apply(null, ys);
+        if (dw <= W - margine*2 && dh <= H - margine*2){ z = zz; return; }
+      }
+      z = ZMIN;
+    }
+
+    function zoomA(nz, ax, ay){
+      nz = Math.max(ZMIN, Math.min(ZMAX, nz));
+      if (nz === z) return;
+      var W = mappa.clientWidth, H = mappa.clientHeight;
+      /* il punto sotto al cursore resta fermo */
+      var lonA = x2lon(lon2x(cLon, z) - W/2 + ax, z);
+      var latA = y2lat(lat2y(cLat, z) - H/2 + ay, z);
+      z = nz;
+      cLon = x2lon(lon2x(lonA, z) - ax + W/2, z);
+      cLat = Math.max(-85, Math.min(85, y2lat(lat2y(latA, z) - ay + H/2, z)));
+      disegna();
+    }
+
+    function spegni(){
+      palco.innerHTML = '';
+      palco.appendChild(cancello);
+      cache = {}; pin = []; mappa = null; inquadrato = false;
+      z = 11; cLat = 46.147; cLon = 9.722;
+      document.getElementById('geo-on').focus({preventScroll:true});
+    }
+
+    bottoneOn.addEventListener('click', accendi);
+  })();
+
+  /* ── 5. Menu compatto ──────────────────────────────────────── */
+  var nav = document.querySelector('.nav');
+  var toggle = document.getElementById('nav-toggle');
+  function chiudiMenu(){ nav.classList.remove('open'); toggle.setAttribute('aria-expanded','false'); }
+  toggle.addEventListener('click', function(){
+    var aperto = nav.classList.toggle('open');
+    toggle.setAttribute('aria-expanded', aperto ? 'true' : 'false');
+    toggle.setAttribute('aria-label', aperto ? 'Chiudi il menu' : 'Apri il menu');
+  });
+  document.querySelectorAll('.nav-links a').forEach(function(a){ a.addEventListener('click', chiudiMenu); });
+  document.addEventListener('keydown', function(e){ if (e.key === 'Escape') chiudiMenu(); });
+
+  /* ── 6. Nav: sezione corrente + avanzamento + torna su ─────── */
+  var links = [].slice.call(document.querySelectorAll('.nav-links a'));
+  var secs  = links.map(function(a){ return document.querySelector(a.getAttribute('href')); });
+  var bar = document.getElementById('progress');
+  var top = document.querySelector('.totop');
+
+  function aggiorna(){
+    var y = scrollY;
+    var max = document.documentElement.scrollHeight - innerHeight;
+    bar.style.width = (max > 0 ? (y / max) * 100 : 0) + '%';
+    top.classList.toggle('on', y > innerHeight * 1.2);
+
+    var attivo = -1;
+    secs.forEach(function(s, i){
+      if (s && s.getBoundingClientRect().top <= innerHeight * 0.42) attivo = i;
+    });
+    links.forEach(function(a, i){
+      if (i === attivo) a.setAttribute('aria-current','true');
+      else a.removeAttribute('aria-current');
+    });
+  }
+  addEventListener('scroll', function(){
+    if (!aggiorna.p){ aggiorna.p = requestAnimationFrame(function(){ aggiorna.p = 0; aggiorna(); }); }
+  }, {passive:true});
+  addEventListener('resize', aggiorna, {passive:true});
+  aggiorna();
+
+  top.addEventListener('click', function(){
+    scrollTo({top:0, behavior: reduce ? 'auto' : 'smooth'});
+  });
+})();
+</script>
+<div class="lucernario" id="lucernario" role="dialog" aria-modal="true"
+     aria-label="Il totem ambientato sul sentiero" hidden>
+  <figure>
+    <img id="lucernario-img" src="" alt="">
+    <figcaption>Il totem DAE ambientato sul Sentiero Valtellina &middot; fotoinserimento di studio</figcaption>
+  </figure>
+  <button class="chiudi" type="button" aria-label="Chiudi l'ingrandimento">&#215;</button>
+</div>
+<script>
+/* Il lucernario: la miniatura dell'ambientazione si apre a tutto schermo.
+   L'immagine grande eredita il src della miniatura al momento del click,
+   così nel bundle cifrato il file viaggia una volta sola. */
+(function(){
+  var velo = document.getElementById('lucernario');
+  var mini = document.getElementById('apri-ambient');
+  if (!velo || !mini) return;
+  var grande = document.getElementById('lucernario-img');
+  var chiudiBtn = velo.querySelector('.chiudi');
+  function apri(){
+    var mi = mini.querySelector('img');
+    grande.src = mi.currentSrc || mi.src;
+    grande.alt = mi.alt;
+    velo.hidden = false;
+    requestAnimationFrame(function(){ velo.classList.add('aperto'); });
+    chiudiBtn.focus();
+  }
+  function chiudi(){
+    velo.classList.remove('aperto');
+    setTimeout(function(){ velo.hidden = true; }, 300);
+    mini.focus();
+  }
+  mini.addEventListener('click', apri);
+  velo.addEventListener('click', function(e){
+    if (e.target === velo || e.target.closest('.chiudi')) chiudi();
+  });
+  addEventListener('keydown', function(e){
+    if (e.key === 'Escape' && !velo.hidden) chiudi();
+  });
+})();
+</script>
+</body>
+</html>
