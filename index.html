@@ -840,6 +840,28 @@ a.soc:hover .soc-cat::after,a.soc:focus-visible .soc-cat::after{opacity:1}
   .soci-track{animation:none}
 }
 
+/* ══ CON IL PATROCINIO DI ═══════════════════════════════════ */
+.patro{display:grid; grid-template-columns:repeat(5,1fr); gap:clamp(12px,1.6vw,18px); margin-top:clamp(30px,4vw,48px)}
+@media (max-width:1100px){.patro{grid-template-columns:repeat(3,1fr)}}
+@media (max-width:640px){.patro{grid-template-columns:repeat(2,1fr)}}
+.patro-ente{
+  display:flex; flex-direction:column; align-items:center; text-align:center; gap:16px; text-decoration:none; color:inherit;
+  padding:clamp(20px,2.4vw,28px) 16px; border:1px solid rgba(243,240,233,.13); border-radius:var(--r);
+  background:rgba(243,240,233,.035);
+  transition:border-color .3s var(--ease), background .3s var(--ease), transform .3s var(--ease);
+}
+.patro-ente:hover,.patro-ente:focus-visible{background:rgba(243,240,233,.08); border-color:rgba(225,29,42,.55); transform:translateY(-3px)}
+/* altezza fissa al riquadro E all'immagine: gli stemmi verticali (Tirano, Morbegno)
+   altrimenti sforano sopra il nome dell'ente */
+.patro-mark{width:100%; height:112px; display:grid; place-items:center}
+.patro-mark img{display:block; width:78%; height:112px; object-fit:contain; opacity:.82; transition:opacity .3s var(--ease)}
+.patro-ente:hover .patro-mark img{opacity:1}
+.patro-name{display:block; font-size:.8rem; font-weight:700; line-height:1.35; color:var(--paper); letter-spacing:-.005em}
+.patro-name small{display:block; font-weight:400; font-size:.66rem; letter-spacing:.08em; text-transform:uppercase; color:#8b959e; margin-top:6px}
+a.patro-ente .patro-name small::after{content:' ↗'; color:var(--ecg); opacity:0; transition:opacity .25s var(--ease)}
+a.patro-ente:hover .patro-name small::after,a.patro-ente:focus-visible .patro-name small::after{opacity:1}
+.patro-nota{font-size:.8rem; color:var(--stone); margin:clamp(22px,3vw,30px) 0 0; max-width:70ch}
+
 /* ══ EVENTO ═════════════════════════════════════════════════ */
 .event{display:grid; grid-template-columns:1.1fr .9fr; gap:clamp(30px,5vw,72px); align-items:center}
 @media (max-width:900px){.event{grid-template-columns:1fr}}
@@ -1219,6 +1241,7 @@ body.doc-open{overflow:hidden}
       <li><a href="#sponsor">Sponsor</a></li>
       <li><a href="#roadmap">Roadmap</a></li>
       <li><a href="#soci">I soci</a></li>
+      <li><a href="#patrocinio">Patrocini</a></li>
       <li><a href="#evento">Evento</a></li>
       <li class="solo-menu"><a href="#adotta">Adotta 1 DAE &rarr;</a></li>
     </ul>
@@ -1857,6 +1880,51 @@ body.doc-open{overflow:hidden}
   </div>
 </section>
 
+<!-- ═══════════════ CON IL PATROCINIO DI ═══════════════ -->
+<section id="patrocinio" class="dark" style="background:var(--ink-2)">
+  <div class="topo" aria-hidden="true"></div>
+  <div class="wrap">
+    <div class="split" style="align-items:end">
+      <div class="reveal">
+        <p class="eyebrow">Le istituzioni</p>
+        <h2 class="t">Con il Patrocinio di:</h2>
+      </div>
+      <p class="lead reveal" data-d="1" style="margin-bottom:0">
+        Gli enti del territorio che riconoscono il valore pubblico del progetto e ne accompagnano
+        la realizzazione lungo la tratta Morbegno&ndash;Sondrio.
+      </p>
+    </div>
+
+    <!-- ▸ SVILUPPATORE: i marchi sono in bianco su trasparente, come quelli dei soci.
+         Stemma del Comune di Morbegno: disegno vettoriale di MostEpic, Wikimedia Commons, CC BY-SA 4.0. -->
+    <div class="patro">
+      <a class="patro-ente reveal" href="https://www.cmsondrio.it/" target="_blank" rel="noopener" title="Comunità Montana Valtellina di Sondrio · vai al sito">
+        <span class="patro-mark"><img src="assets/loghi/patrocinio/cm-sondrio.png" alt="Comunità Montana Valtellina di Sondrio" width="315" height="240" loading="lazy"></span>
+        <span class="patro-name">Comunità Montana<br>Valtellina di Sondrio<small>Vai al sito</small></span>
+      </a>
+      <a class="patro-ente reveal" data-d="1" href="https://www.cmmorbegno.it/" target="_blank" rel="noopener" title="Comunità Montana Valtellina di Morbegno · vai al sito">
+        <span class="patro-mark"><img src="assets/loghi/patrocinio/cm-morbegno.png" alt="Comunità Montana Valtellina di Morbegno" width="239" height="240" loading="lazy"></span>
+        <span class="patro-name">Comunità Montana<br>Valtellina di Morbegno<small>Vai al sito</small></span>
+      </a>
+      <a class="patro-ente reveal" data-d="2" href="https://www.cmtirano.so.it/" target="_blank" rel="noopener" title="Comunità Montana Valtellina di Tirano · vai al sito">
+        <span class="patro-mark"><img src="assets/loghi/patrocinio/cm-tirano.png" alt="Comunità Montana Valtellina di Tirano" width="175" height="240" loading="lazy"></span>
+        <span class="patro-name">Comunità Montana<br>Valtellina di Tirano<small>Vai al sito</small></span>
+      </a>
+      <a class="patro-ente reveal" data-d="3" href="https://www.comune.morbegno.so.it/" target="_blank" rel="noopener" title="Comune di Morbegno · vai al sito">
+        <span class="patro-mark"><img src="assets/loghi/patrocinio/comune-morbegno.png" alt="Comune di Morbegno" width="187" height="240" loading="lazy"></span>
+        <span class="patro-name">Comune di<br>Morbegno<small>Vai al sito</small></span>
+      </a>
+      <a class="patro-ente reveal" data-d="3" href="https://crisondrio.it/" target="_blank" rel="noopener" title="Croce Rossa Italiana Comitato di Sondrio · vai al sito">
+        <span class="patro-mark"><img src="assets/loghi/patrocinio/cri-sondrio.png" alt="Croce Rossa Italiana Comitato di Sondrio" width="249" height="240" loading="lazy"></span>
+        <span class="patro-name">Croce Rossa Italiana<br>Comitato di Sondrio<small>Vai al sito</small></span>
+      </a>
+    </div>
+    <p class="patro-nota reveal">
+      I marchi istituzionali sono riprodotti a titolo di riconoscimento del patrocinio concesso al progetto.
+    </p>
+  </div>
+</section>
+
 <!-- ═══════════════ EVENTO ═══════════════ -->
 <section id="evento">
   <div class="topo" aria-hidden="true"></div>
@@ -2018,6 +2086,7 @@ body.doc-open{overflow:hidden}
           <li><a href="#imprese">Alle imprese</a></li>
           <li><a href="#sponsor">Piani di adozione</a></li>
           <li><a href="#soci">I soci del capitolo</a></li>
+          <li><a href="#patrocinio">Con il patrocinio di</a></li>
           <li><a href="#evento">Evento 29.10.2026</a></li>
         </ul>
       </div>
@@ -2424,6 +2493,7 @@ body.doc-open{overflow:hidden}
        ['roadmap',   0.50, 0.50, 1.20, 0, 0.50, 0.18, 0.76],
        ['imprese',   0.50, 0.52, 1.25, 0, 0.50, 0.30, 0.90],
        ['soci',      0.50, 0.52, 1.20, 0, 0.50, 0.16, 0.66],
+       ['patrocinio',0.50, 0.52, 1.20, 0, 0.50, 0.16, 0.66],
        ['evento',    0.26, 0.84, 0.64, 1, 0.50, 0.84, 0.64],
        ['adotta',    0.24, 0.86, 0.82, 2, 0.50, 0.16, 0.70],
        /* il footer non aveva posatoio: il cuore ci arrivava sfaldato e non si
