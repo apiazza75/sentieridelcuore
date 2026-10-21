@@ -821,6 +821,10 @@ a.soc:hover .soc-cat::after,a.soc:focus-visible .soc-cat::after{opacity:1}
   display:block; font-size:.87rem; font-weight:700; color:var(--paper); letter-spacing:-.01em;
   white-space:nowrap; overflow:hidden; text-overflow:ellipsis;
 }
+.soc-over{
+  display:block; font-size:.62rem; font-weight:700; letter-spacing:.12em; text-transform:uppercase; color:#8b959e; margin-bottom:2px;
+  white-space:nowrap; overflow:hidden; text-overflow:ellipsis;
+}
 .soc-cat{
   display:block; font-size:.68rem; letter-spacing:.06em; color:#8b959e; margin-top:3px;
   white-space:nowrap; overflow:hidden; text-overflow:ellipsis;
@@ -3111,7 +3115,8 @@ body.doc-open{overflow:hidden}
   /* ── 4b. Soci del Capitolo BNI Valtellina ───────────────────
      Fonte: scheda ufficiale del capitolo, luglio 2026 (29 soci).
      `pro: 1` = azienda coinvolta nella filiera del progetto.
-     `logo` = nome file in assets/loghi/ (opzionale: senza, si usa la sigla). */
+     `logo` = nome file in assets/loghi/ (opzionale: senza, si usa la sigla).
+     `o`    = riga facoltativa sopra il nome (es. l'insegna "Motori Sondrio"). */
   var SOCI = [
     {a:'Ufficio Service',        p:'Alessandro Piazza',     c:'Consulenza aziendale',       pro:1, l:'ufficio-service',      u:'https://ufficioservice.it/'},
     {a:'Studio Pastori',         p:'Pier Luigi Pastori',    c:'Architetto',                 pro:1, l:'studio-pastori',       u:'https://studiopastori.it/'},
@@ -3126,7 +3131,7 @@ body.doc-open{overflow:hidden}
     {a:'Studio Vitali',          p:'Arnaldo Vitali',        c:'Dottore commercialista',     pro:1, l:'studio-vitali',        u:'https://www.studiovitali.it/'},
     {a:'Martinalli Assicurazioni',p:'Andrea Martinalli',    c:'Assicurazioni e broker',     pro:1, l:'martinalli',           u:'https://martinalli.it/'},
     {a:'Incerto Alessandra',     p:'Alessandra Incerto',    c:'Consulenza finanziaria',     pro:1, l:'incerto'},
-    {a:'Clerici Auto',           p:'Silvia Ruffini',        c:'Auto: vendita e assistenza', pro:1, l:'clerici-auto',         u:'https://www.clericiauto.it/'},
+    {a:'Clerici Auto',           p:'Silvia Ruffini',        c:'Auto: vendita e assistenza', pro:1, l:'clerici-auto',         u:'https://www.clericiauto.it/', o:'Motori Sondrio'},
     {a:'Views ETS',              p:'Davide Rossatti',       c:'Associazione culturale',     pro:1, l:'views'},
     {a:'Balatroni',              p:'Alessandra Pradella',   c:'Persiane e tende da sole',          l:'balatroni',            u:'https://www.balatroni.com/'},
     {a:'NSC',                    p:'Alessandro Canali',     c:'Stampa e comunicazione',            l:'nsc',                  u:'https://nsc-net.it/'},
@@ -3159,7 +3164,8 @@ body.doc-open{overflow:hidden}
                (s.u ? ' · vai al sito' : '');
     el.innerHTML =
       '<span class="soc-mark"><img src="assets/loghi/' + s.l + '.png" alt="' + s.a + '" loading="lazy"></span>' +
-      '<span class="soc-txt"><span class="soc-name">' + s.a + '</span>' +
+      '<span class="soc-txt">' + (s.o ? '<span class="soc-over">' + s.o + '</span>' : '') +
+      '<span class="soc-name">' + s.a + '</span>' +
       '<span class="soc-cat">' + s.c + '</span></span>';
     return el;
   }
