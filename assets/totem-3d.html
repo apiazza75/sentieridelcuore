@@ -1091,7 +1091,7 @@ button.active:hover,button.active:focus{background:var(--accent);color:#fff}
 const $=id=>document.getElementById(id);
 const state={az:.60,el:.23,zoom:1,panX:0,panY:0,view:'iso',auto:false,source:false,visible:{wood:true,steel:true,walls:true,base:true,dae:true,ground:true,branding:true,niche:true,led:true},night:false,wallColor:[202/255,4/255,41/255],ready:false};
 const labels={institutions:'Patrocini in bianco',qr:'Invito e QR',iso:'Vista a tre quarti',front:'Vista frontale',back:'Retro · BNI Valtellina',backiso:'Retro a tre quarti',side:'Vista laterale',dae:'Scasso DAE · metallo opaco',top:'Vista dall’alto',free:'Vista libera'};
-if(new URLSearchParams(location.search).get('embed')==='1')document.body.classList.add('embed');
+const queryParams=new URLSearchParams(location.search);const hashParams=new URLSearchParams(location.hash.replace(/^#/,''));if(queryParams.get('embed')==='1'||hashParams.get('embed')==='1')document.body.classList.add('embed');
 const canvas=$('canvas');let gl,SCENE,meshes=[],program,shadowProgram,shadowFB,shadowTex,labelTex,brandFrontTex,brandBackTex,ledDistanceTex,lightVP,shadowDirty=true,pending=false,loopId=0,lastTime=0,renderCount=0;
 const SHADOW_SIZE=2048;
 const VSH=`#version 300 es
