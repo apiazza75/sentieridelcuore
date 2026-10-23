@@ -24,6 +24,7 @@
 @font-face{font-family:'Anton';font-style:normal;font-weight:400;font-display:swap;src:url('assets/fonts/anton.woff2') format('woff2')}
 @font-face{font-family:'Archivo';font-style:normal;font-weight:100 900;font-display:swap;src:url('assets/fonts/archivo.woff2') format('woff2')}
 @font-face{font-family:'Newsreader';font-style:normal;font-weight:200 500;font-display:swap;src:url('assets/fonts/newsreader.woff2') format('woff2')}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
 </style>
 <style>
 /* ══════════════════════════════════════════════════════════════
@@ -1247,6 +1248,7 @@ body.doc-open{overflow:hidden}
       <li><a href="#soci">I soci</a></li>
       <li><a href="#patrocinio">Patrocini</a></li>
       <li><a href="#evento">Evento</a></li>
+      <li class="solo-menu"><a href="#iscrizione-evento">Iscriviti alla serata &rarr;</a></li>
       <li class="solo-menu"><a href="#adotta">Adotta 1 DAE &rarr;</a></li>
     </ul>
     <a class="btn btn-primary btn-sm" href="#adotta" style="flex:none">Adotta 1 DAE</a>
@@ -1290,7 +1292,7 @@ body.doc-open{overflow:hidden}
         </p>
         <div class="hero-cta">
           <a class="btn btn-primary" href="#adotta">Adotta 1 DAE <span class="ar">&rarr;</span></a>
-          <a class="btn btn-ghost" href="#rete">Vedi la rete</a>
+          <a class="btn btn-ghost" href="#iscrizione-evento">Iscriviti al 29 ottobre <span class="ar">&rarr;</span></a>
         </div>
         <p class="hero-note">
           <span class="dot-live" aria-hidden="true"></span>
@@ -1940,7 +1942,7 @@ body.doc-open{overflow:hidden}
         La rete viene presentata al territorio nel giorno del decimo anniversario del Capitolo.
         Presentazione in teatro, consegna delle targhe agli sponsor, serata conviviale nel chiostro.
       </p>
-      <a class="btn btn-primary" href="#adotta">Voglio esserci come sponsor <span class="ar">&rarr;</span></a>
+      <a class="btn btn-primary" href="#iscrizione-evento">Partecipa alla serata <span class="ar">&rarr;</span></a>
     </div>
 
     <div class="reveal" data-d="1">
@@ -1952,6 +1954,36 @@ body.doc-open{overflow:hidden}
         <li><b>Serata</b><span>Conviviale nel chiostro</span></li>
         <li><b>Media partner</b><span>Tele Sondrio News (TSN) · <a class="ln" href="https://www.teleunica.tv/" target="_blank" rel="noopener">Teleunica</a></span></li>
       </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════ ISCRIZIONE EVENTO ═══════════════ -->
+<section id="iscrizione-evento" class="dark" aria-labelledby="iscrizione-evento-t">
+  <div class="topo" aria-hidden="true"></div>
+  <div class="wrap">
+    <div class="split" style="align-items:start">
+      <div>
+        <p class="eyebrow">29 ottobre 2026 · Morbegno</p>
+        <h2 class="t" id="iscrizione-evento-t">Un posto per te.<br>Un futuro pi&ugrave; sicuro<br>per tutti.</h2>
+        <p class="lead">Vieni a conoscere il progetto e le persone che lo stanno rendendo possibile.
+          <strong>Il convegno &egrave; gratuito</strong>; se vuoi, la serata prosegue nel chiostro
+          con l&rsquo;aperitivo lungo di networking.</p>
+      </div>
+      <div>
+        <p class="eyebrow">Prenota la tua partecipazione</p>
+        <ul class="event-meta" style="margin-top:0">
+          <li><b>Convegno</b><span><strong>Ore 19:00 · Ingresso gratuito</strong><br>In teatro, fino a esaurimento posti.</span></li>
+          <li><b>Aperitivo</b><span><strong>Dalle 19:40 · 35 &euro; a persona</strong><br>Facoltativo, nel chiostro. Pagamento sul posto.</span></li>
+          <li><b>Prenotazione</b><span><strong>Aperitivo: entro sabato 24 ottobre</strong><br>Indica nel modulo come desideri partecipare e il numero di persone.</span></li>
+        </ul>
+        <div class="cta-row">
+          <a class="btn btn-primary" href="https://airtable.com/app24FF3G6HYDmHTR/paghHDRdbZVGNafGI/form" target="_blank" rel="noopener noreferrer">Iscrivimi alla serata <span class="ar" aria-hidden="true">&nearr;</span><span class="sr-only"> (apre una nuova scheda)</span></a>
+        </div>
+        <p style="font-size:.84rem;line-height:1.6;margin-top:18px;color:var(--stone)">
+          Il modulo si apre su Airtable in una nuova scheda. Il servizio viene contattato solo al tuo clic.
+          L&rsquo;iscrizione all&rsquo;evento &egrave; distinta dalla richiesta di sponsorizzazione.</p>
+      </div>
     </div>
   </div>
 </section>
@@ -2092,6 +2124,7 @@ body.doc-open{overflow:hidden}
           <li><a href="#soci">I soci del capitolo</a></li>
           <li><a href="#patrocinio">Con il patrocinio di</a></li>
           <li><a href="#evento">Evento 29.10.2026</a></li>
+          <li><a href="#iscrizione-evento">Iscriviti alla serata</a></li>
         </ul>
       </div>
       <div>
