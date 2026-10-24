@@ -1,18 +1,65 @@
 <!doctype html>
-<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="Totem DAE BNI Valtellina: modello 3D ruotabile v20 con rovere naturale e LED rosso rubino."><title>Totem DAE · BNI Valtellina · Rovere e LED rosso v20</title><style>html,body{height:100%;margin:0;background:#f4f7f5;color:#29312d;font:15px system-ui,sans-serif}main{height:100%;display:grid;place-content:center;text-align:center;padding:0 24px}h1{font-size:21px}p{line-height:1.6;color:#66736d}button{font:inherit;padding:10px 16px;border:1px solid #bac6bf;border-radius:6px;background:white;cursor:pointer}</style></head><body><main><h1>Totem BNI Valtellina</h1><p id="loading" role="status">Caricamento del modello in rovere naturale con LED rosso rubino…</p><noscript>Attiva JavaScript per utilizzare il modello 3D ruotabile.</noscript></main><script src="./totem-materials-v20.js?v=20"></script><script>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Totem DAE BNI Valtellina: modello 3D ruotabile v20, rovere naturale e LED rosso rubino su entrambi i lati.">
+<title>Totem DAE · BNI Valtellina · Rovere e LED rosso v20</title>
+<style>
+html,body{height:100%;margin:0;background:#f4f7f5;color:#29312d;font:15px system-ui,sans-serif}main{min-height:100%;display:grid;place-content:center;text-align:center;padding:0 24px;box-sizing:border-box}h1{font-size:21px;margin:18px 0 6px}p{line-height:1.6;color:#66736d}main img{width:min(100%,880px);max-height:65vh;object-fit:contain;justify-self:center}button{font:inherit;padding:10px 16px;border:1px solid #bac6bf;border-radius:6px;background:white;cursor:pointer}
+</style>
+</head>
+<body>
+<main><h1>Totem BNI Valtellina · v20</h1><img src="./totem-v20-iso.avif?v=20.1" alt="Modello approvato: listelli in rovere naturale, pannelli rossi e profilo LED rosso rubino" width="640" height="400"><p id="loading" role="status">Caricamento del modello ruotabile in rovere naturale con LED rosso rubino…</p><noscript>Attiva JavaScript per ruotare il modello. L’immagine mostrata è un’anteprima statica della versione v20.</noscript></main>
+<script>
 (async function(){
 'use strict';
+const release='20.1';
+const asset=name=>{const u=new URL(name,location.href);u.searchParams.set('v',release);return u.href;};
 try{
+ const patch=document.createElement('script');
+ patch.src=asset('./totem-materials-v20.js');
+ await new Promise((resolve,reject)=>{patch.onload=resolve;patch.onerror=()=>reject(new Error('Aggiornamento materiali non disponibile.'));document.head.appendChild(patch);});
  if(typeof window.applyTotemV20!=='function')throw new Error('Aggiornamento materiali non disponibile.');
- const response=await fetch(new URL('./totem-base-v19.html',location.href),{credentials:'same-origin'});
+ const response=await fetch(asset('./totem-base-v19.html'),{credentials:'same-origin',cache:'no-store'});
  if(!response.ok)throw new Error('Caricamento geometria non riuscito: '+response.status);
  const original=await response.text();
- const updated=window.applyTotemV20(original);
+ const previews={iso:asset('./totem-v20-iso.avif'),backiso_sera:asset('./totem-v20-backiso_sera.webp')};
+ let updated=window.applyTotemV20(original,previews);
+ updated=updated.replace('Luce bianca neutra indicativa.','LED rosso rubino indicativo.');
+ const marker=/function enableStaticFallback\(\)\{[\s\S]*?\n\}\n\nasync function init/;
+ if(!marker.test(updated))throw new Error('Versione del visualizzatore non compatibile.');
+ updated=updated.replace(marker,`function enableStaticFallback(){
+ const views={iso:['iso','Sponsor · vista diurna'],backiso:['backiso_sera','Retro · vista serale']};
+ const show=view=>{
+  const [key,label]=views[view];
+  $('fallback').src=STATIC_VIEWS[key];$('fallback').style.display='block';
+  $('viewLabel').textContent=label+' · anteprima statica';
+  $('fallback').alt=label+' del modello v20 in rovere naturale e LED rosso rubino';
+  const night=key.includes('sera');$('night').checked=night;document.body.classList.toggle('night-mode',night);
+  document.querySelectorAll('[data-view]').forEach(b=>{const active=b.dataset.view===view;b.classList.toggle('active',active);b.setAttribute('aria-pressed',String(active));});
+  window.__STATIC_VIEW__=key;
+ };
+ document.querySelectorAll('[data-view]').forEach(b=>{const v=b.dataset.view;b.disabled=!views[v];b.hidden=!views[v];if(views[v]){b.onclick=()=>show(v);b.textContent=v==='iso'?'Sponsor · giorno':'Retro · sera';}});
+ $('night').disabled=false;$('night').onchange=e=>show(e.target.checked?'backiso':'iso');
+ const nightNote=$('night').closest('label');if(nightNote){const n=nightNote.querySelector('small');if(n)n.textContent='Anteprime: sponsor di giorno / retro di sera';}
+ $('panelToggle').disabled=false;$('panelToggle').onclick=()=>{const open=$('panel').classList.toggle('open');$('panelToggle').setAttribute('aria-expanded',String(open));};
+ $('save').disabled=false;$('save').textContent='Apri anteprima';$('save').onclick=()=>window.open($('fallback').src,'_blank','noopener');
+ document.querySelectorAll('[data-logo],#focusQR,#focusInstitutions').forEach(b=>{b.disabled=true;b.title='Disponibile nel modello ruotabile con WebGL 2';});
+ document.querySelectorAll('.zooms,.stage-top,.toolbar>button').forEach(el=>el.style.display='none');
+ const hint=document.querySelector('.hint');if(hint)hint.textContent='Anteprime v20: sponsor di giorno e retro di sera. Per la rotazione libera serve WebGL 2.';
+ $('status').textContent='WebGL 2 non disponibile: sono mostrate le anteprime aggiornate in rovere naturale e LED rosso rubino. La rotazione richiede l’accelerazione grafica.';
+ window.__TOTEM_FALLBACK_REVISION__='v20-rovere-rosso-rubino';
+ show('iso');
+}
+
+async function init`);
  document.open();document.write(updated);document.close();
 }catch(error){
  console.error(error);
  const status=document.getElementById('loading');
- if(status){status.textContent='Non è stato possibile caricare il modello. '+error.message;const button=document.createElement('button');button.textContent='Riprova';button.onclick=()=>location.reload();status.after(button);}
+ if(status){status.textContent='Il modello interattivo non è stato caricato. '+error.message+' L’immagine è un’anteprima statica v20.';const retry=document.createElement('button');retry.textContent='Riprova';retry.onclick=()=>location.reload();status.after(retry);}
 }
 })();
-</script></body></html>
+</script>
+</body></html>
