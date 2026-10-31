@@ -529,6 +529,10 @@ a.stat:hover::after,a.stat:focus-visible::after{opacity:.75; transform:none}
 .map-detail h3{color:var(--paper); font-size:1.5rem}
 .map-detail p{color:#b0bac2; font-size:.96rem; margin-bottom:0; max-width:62ch}
 .map-actions{display:flex; flex-wrap:wrap; gap:10px; margin-top:20px}
+.d-stato{cursor:default; border-color:rgba(225,29,42,.5); color:var(--ecg); gap:9px}
+.d-stato:hover{transform:none}
+.tappa-attiva{font-style:normal; font-size:.62em; letter-spacing:.14em; text-transform:uppercase; color:var(--ecg); margin-left:8px; vertical-align:middle}
+.node.attiva circle.core{stroke:#fff; stroke-width:2.5}
 .node.on circle.core{stroke:#fff; stroke-width:2.5}
 
 /* ══ POSTAZIONE / DESIGN ════════════════════════════════════ */
@@ -1363,7 +1367,7 @@ body.doc-open{overflow:hidden}
         </div>
         <p class="hero-note">
           <span class="dot-live" aria-hidden="true"></span>
-          <b id="slot-note">5 postazioni · slot sponsor in assegnazione</b>
+          <b id="slot-note">5 postazioni · la prima &egrave; attiva · 4 slot sponsor in assegnazione</b>
           <span>&mdash; progetto presentato a Morbegno il 29 ottobre 2026</span>
         </p>
       </div>
@@ -1523,6 +1527,8 @@ body.doc-open{overflow:hidden}
           <p id="d-desc">Testa di tratta: qui il progetto ha debuttato il 29 ottobre 2026. Postazione pilota del progetto.</p>
           <div class="map-actions">
             <button class="btn btn-primary btn-sm" type="button" id="d-adopt">Adotta questa postazione <span class="ar">&rarr;</span></button>
+            <span class="btn btn-sm d-stato" id="d-stato" hidden><span class="dot-live" aria-hidden="true"></span>Postazione attiva &middot; slot assegnato</span>
+            <a class="btn btn-ghost btn-sm" id="d-maps" href="https://maps.app.goo.gl/5sCTVkrNe6RqWBBM6" target="_blank" rel="noopener" hidden>Apri in Google Maps <span class="ar" aria-hidden="true">&nearr;</span></a>
             <a class="btn btn-ghost btn-sm" href="#postazione">Com&rsquo;è fatta</a>
           </div>
         </div>
@@ -1601,15 +1607,15 @@ body.doc-open{overflow:hidden}
       </div>
       <figcaption>
         <button class="totem-mini" type="button" id="apri-ambient" aria-haspopup="dialog"
-                aria-label="Ingrandisci il fotoinserimento del totem sul sentiero">
-          <img src="assets/totem-ambientato.jpg" loading="lazy" width="608" height="366"
-               alt="Fotoinserimento del totem DAE sul Sentiero Valtellina: la seduta in legno con teca a bordo sentiero, la fontanella e le montagne della valle sullo sfondo">
-          <span class="totem-mini-tag">Sul sentiero &middot; ingrandisci</span>
+                aria-label="Ingrandisci la fotografia della prima postazione installata">
+          <img src="assets/prima-postazione-albosaggia.jpg" loading="lazy" width="1600" height="1014"
+               alt="La prima postazione DAE installata ad Albosaggia sul Sentiero Valtellina: la seduta a elettrocardiogramma in legno e rosso con il marchio BNI 10 anni Valtellina, con i soci del Capitolo">
+          <span class="totem-mini-tag">La prima postazione &middot; ingrandisci</span>
         </button>
         <span class="totem-dida">
           <span>Totem DAE · modello di studio</span>
           <em>Trascina per ruotare · rotella o pizzico per lo zoom · <b>Componenti</b> per isolare i materiali.
-          Qui accanto, il totem <b>ambientato sul sentiero</b>.</em>
+          Qui accanto, <b>la prima postazione installata</b> ad Albosaggia, con i soci del Capitolo.</em>
         </span>
       </figcaption>
     </figure>
@@ -1888,10 +1894,10 @@ body.doc-open{overflow:hidden}
           con la consegna delle targhe alle aziende sponsor.</p>
           <a class="step-link" href="#evento">Com&rsquo;&egrave; andata</a>
         </div>
-        <div class="step reveal" data-d="3">
-          <time datetime="2026-11">Novembre 2026</time>
-          <h3>Prima realizzazione</h3>
-          <p><strong>Posa della prima postazione</strong>: il cantiere &egrave; aperto e la rete
+        <div class="step done reveal" data-d="3">
+          <time datetime="2026-10">Ottobre 2026</time>
+          <h3>La prima postazione &egrave; attiva</h3>
+          <p><strong>Installata ad Albosaggia</strong>, sul Sentiero Valtellina: la rete
           comincia a esistere sul sentiero, tappa dopo tappa.</p>
           <a class="step-link" href="#video">Il cantiere in video</a>
         </div>
@@ -1927,7 +1933,7 @@ body.doc-open{overflow:hidden}
           <b>Nasce la prima postazione</b>
           <small>Video · in arrivo</small>
         </div>
-        <figcaption class="vcap"><b>Nasce la prima postazione</b>Dal cantiere lungo il sentiero: i lavori per la prima colonnina della rete.</figcaption>
+        <figcaption class="vcap"><b>Nasce la prima postazione</b>Dal cantiere di Albosaggia: i lavori per la prima colonnina della rete, attiva da ottobre 2026.</figcaption>
       </figure>
     </div>
   </div>
@@ -2169,7 +2175,7 @@ body.doc-open{overflow:hidden}
                 <option>Talamona · km 6</option>
                 <option>Ardenno · km 12</option>
                 <option>Colorina · km 19</option>
-                <option>Sondrio · km 26</option>
+                <option disabled>Sondrio · km 26 · assegnata, non disponibile</option>
               </select>
             </div>
 
@@ -3036,11 +3042,12 @@ body.doc-open{overflow:hidden}
 
   /* ── 2. Mappa schematica: i 5 nodi ─────────────────────────── */
   var NODI = [
-    {n:'Morbegno', km:0,  d:'Testa di tratta, dove il progetto ha debuttato il 29 ottobre 2026. Qui viene posata la postazione pilota, con collaudo tecnico, verifica della fototrappola e registrazione in AREU.'},
+    {n:'Morbegno', km:0,  d:'Testa di tratta, dove il progetto ha debuttato il 29 ottobre 2026. Come ogni postazione: collaudo tecnico, verifica della fototrappola e registrazione in AREU.'},
     {n:'Talamona', km:6,  d:'Area ad alta frequentazione nei pressi degli impianti sportivi e delle aree di sosta: punto di passaggio quotidiano per runner e ciclisti.'},
     {n:'Ardenno',  km:12, d:'Nodo centrale della tratta. Presidio strategico nel punto più distante dai due capolinea, dove i tempi di soccorso sono più critici.'},
     {n:'Colorina', km:19, d:'Postazione a servizio delle aree di ristoro e degli accessi viari, con riferimenti chiari da comunicare alla centrale 118.'},
-    {n:'Sondrio',  km:26, d:'Chiusura della tratta in prossimità del capoluogo, dove la ciclopedonale registra la maggiore densità di utenti.'}
+    {n:'Sondrio',  km:26, d:'Chiusura della tratta in prossimità del capoluogo, dove la ciclopedonale registra la maggiore densità di utenti. È la prima postazione della rete: installata ad Albosaggia a ottobre 2026, slot sponsor assegnato.',
+      attiva:true, maps:'https://maps.app.goo.gl/5sCTVkrNe6RqWBBM6'}
   ];
   var g = document.getElementById('nodes');
   var elencoTappe = document.getElementById('rete-tappe');
@@ -3049,11 +3056,19 @@ body.doc-open{overflow:hidden}
   var corrente = NODI[0];
   var tappe = [];        /* i bottoni della versione verticale (mobile) */
 
+  var dAdopt = document.getElementById('d-adopt');
+  var dMaps  = document.getElementById('d-maps');
+  var dStato = document.getElementById('d-stato');
   function mostraNodo(nd){
     corrente = nd;
     document.getElementById('d-km').textContent = nd.km;
     document.getElementById('d-name').textContent = nd.n;
     document.getElementById('d-desc').textContent = nd.d;
+    /* postazione attiva: slot assegnato, niente adozione; al suo posto la posizione esatta */
+    dAdopt.hidden = !!nd.attiva;
+    dStato.hidden = !nd.attiva;
+    dMaps.hidden = !nd.maps;
+    if (nd.maps) dMaps.href = nd.maps;
     tappe.forEach(function(b){ b.setAttribute('aria-pressed', b.dataset.n === nd.n ? 'true' : 'false'); });
   }
 
@@ -3066,22 +3081,23 @@ body.doc-open{overflow:hidden}
     bt.dataset.n = nd.n;
     bt.setAttribute('aria-pressed', i === 0 ? 'true' : 'false');
     bt.innerHTML = '<span class="tappa-km mono">km ' + nd.km + '</span>' +
-                   '<span class="tappa-n">' + nd.n + '</span>';
+                   '<span class="tappa-n">' + nd.n + (nd.attiva ? ' <i class="tappa-attiva">attiva</i>' : '') + '</span>';
     li.appendChild(bt);
     elencoTappe.appendChild(li);
     tappe.push(bt);
 
     var el = document.createElementNS(SVGNS,'g');
-    el.setAttribute('class','node' + (i === 0 ? ' on' : ''));
+    el.setAttribute('class','node' + (i === 0 ? ' on' : '') + (nd.attiva ? ' attiva' : ''));
     el.setAttribute('tabindex','0');
     el.setAttribute('role','button');
-    el.setAttribute('aria-label', nd.n + ', km ' + nd.km);
+    el.setAttribute('aria-label', nd.n + ', km ' + nd.km + (nd.attiva ? ', postazione attiva' : ''));
     el.innerHTML =
       '<circle class="halo" cx="'+xs[i]+'" cy="96" r="11"/>' +
       '<circle class="core" cx="'+xs[i]+'" cy="96" r="8"/>' +
       '<circle class="hit"  cx="'+xs[i]+'" cy="96" r="34"/>' +
       '<text x="'+xs[i]+'" y="146">'+nd.n+'</text>' +
-      '<text x="'+xs[i]+'" y="166" style="font-size:10px;fill:#7d878f;letter-spacing:.1em">km '+nd.km+'</text>';
+      '<text x="'+xs[i]+'" y="166" style="font-size:10px;fill:#7d878f;letter-spacing:.1em">km '+nd.km+'</text>' +
+      (nd.attiva ? '<text x="'+xs[i]+'" y="184" style="font-size:9px;fill:#e11d2a;letter-spacing:.16em;font-weight:700">ATTIVA</text>' : '');
     /* le due viste — schema orizzontale e elenco verticale — puntano alla
        stessa scheda sotto: qualunque sia quella a schermo, si aggiornano
        entrambe e restano coerenti se si ruota il telefono */
@@ -3097,7 +3113,7 @@ body.doc-open{overflow:hidden}
     bt.addEventListener('click', select);
     g.appendChild(el);
   });
-  document.getElementById('d-desc').textContent = NODI[0].d;
+  mostraNodo(NODI[0]);
 
   /* dalla mappa al form: preseleziona la postazione scelta e ci porta sopra */
   function scegliOpzione(sel, testo){
@@ -3404,7 +3420,7 @@ body.doc-open{overflow:hidden}
     {n:'Talamona', km:6,  lat:46.1362, lon:9.6285},
     {n:'Ardenno',  km:12, lat:46.1571, lon:9.6742},
     {n:'Colorina', km:19, lat:46.1520, lon:9.7508},
-    {n:'Sondrio',  km:26, lat:46.1633, lon:9.8593}
+    {n:'Sondrio',  km:26, lat:46.1581, lon:9.8602, attiva:true, maps:'https://maps.app.goo.gl/5sCTVkrNe6RqWBBM6'}
   ];
   (function(){
     var palco = document.getElementById('geo-stage');
@@ -3492,7 +3508,9 @@ body.doc-open{overflow:hidden}
       var d = GEO_DAE[n];
       pin.forEach(function(b, m){ b.setAttribute('aria-pressed', m === n ? 'true' : 'false'); });
       scheda.innerHTML = '<span>km ' + d.km + '</span><b>' + d.n + '</b>' +
-        '<p>' + d.lat.toFixed(4) + '° N, ' + d.lon.toFixed(4) + '° E &mdash; posizione indicativa, in via di conferma.</p>';
+        '<p>' + d.lat.toFixed(4) + '° N, ' + d.lon.toFixed(4) + '° E &mdash; ' +
+        (d.attiva ? 'postazione attiva ad Albosaggia, posizione confermata. <a class="ln" href="' + d.maps + '" target="_blank" rel="noopener">Apri in Google Maps</a>'
+                  : 'posizione indicativa, in via di conferma.') + '</p>';
     }
 
     function accendi(){
@@ -3728,10 +3746,10 @@ body.doc-open{overflow:hidden}
 })();
 </script>
 <div class="lucernario" id="lucernario" role="dialog" aria-modal="true"
-     aria-label="Il totem ambientato sul sentiero" hidden>
+     aria-label="La prima postazione installata ad Albosaggia" hidden>
   <figure>
     <img id="lucernario-img" src="" alt="">
-    <figcaption>Il totem DAE ambientato sul Sentiero Valtellina &middot; fotoinserimento di studio</figcaption>
+    <figcaption>La prima postazione DAE della rete, installata ad Albosaggia sul Sentiero Valtellina &middot; ottobre 2026, con i soci del Capitolo BNI Valtellina</figcaption>
   </figure>
   <button class="chiudi" type="button" aria-label="Chiudi l'ingrandimento">&#215;</button>
 </div>
