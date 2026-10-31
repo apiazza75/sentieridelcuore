@@ -887,11 +887,52 @@ a.patro-ente .patro-name small::after{content:' ↗'; color:var(--ecg); opacity:
 a.patro-ente:hover .patro-name small::after,a.patro-ente:focus-visible .patro-name small::after{opacity:1}
 .patro-nota{font-size:.8rem; color:var(--stone); margin:clamp(22px,3vw,30px) 0 0; max-width:70ch}
 
-/* ══ PRESS ROOM (in arrivo) ═════════════════════════════════ */
-.press-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:clamp(16px,2.4vw,26px); margin-top:clamp(30px,4vw,48px)}
-@media (max-width:820px){.press-grid{grid-template-columns:1fr}}
-.press-grid .vframe{aspect-ratio:4/3}
-.press-grid .play{border-style:dashed}
+/* ══ PRESS ROOM · rassegna stampa (carosello) ═══════════════
+   Schede a scorrimento orizzontale con scatto (scroll-snap); le frecce
+   fanno avanzare di una scheda e si nascondono se tutto sta nello schermo. */
+.rassegna{margin-top:clamp(30px,4vw,48px)}
+.rassegna-head{display:flex; align-items:center; justify-content:space-between; gap:16px; margin-bottom:16px}
+.rassegna-hint{font-size:.74rem; letter-spacing:.1em; text-transform:uppercase; color:var(--stone)}
+.rassegna-nav{display:flex; gap:8px; margin-left:auto}
+.rassegna-btn{
+  width:44px; height:44px; border-radius:50%; border:1px solid rgba(243,240,233,.25); background:transparent;
+  color:var(--paper); font-size:1.05rem; line-height:1; cursor:pointer; display:grid; place-items:center;
+  transition:border-color .25s var(--ease), color .25s var(--ease), opacity .25s;
+}
+.rassegna-btn:hover,.rassegna-btn:focus-visible{border-color:var(--ecg); color:var(--ecg)}
+.rassegna-btn[disabled]{opacity:.28; cursor:default; border-color:rgba(243,240,233,.25); color:var(--paper)}
+.rassegna-track{
+  list-style:none; margin:0; padding:4px 0 12px; display:flex; gap:clamp(16px,2.4vw,26px);
+  overflow-x:auto; scroll-snap-type:x mandatory; scroll-behavior:smooth; scrollbar-width:none; -webkit-overflow-scrolling:touch;
+}
+.rassegna-track::-webkit-scrollbar{display:none}
+.press-card{flex:0 0 min(420px,86vw); scroll-snap-align:start; display:flex}
+.press-card>a,.press-card>.vframe{
+  display:flex; flex-direction:column; width:100%; text-decoration:none; color:inherit;
+  border:1px solid rgba(243,240,233,.13); border-radius:var(--r); background:rgba(243,240,233,.035); overflow:hidden;
+  transition:border-color .3s var(--ease), background .3s var(--ease), transform .3s var(--ease);
+}
+.press-card>a:hover,.press-card>a:focus-visible{background:rgba(243,240,233,.08); border-color:rgba(225,29,42,.55); transform:translateY(-3px); outline:0}
+.press-cover{position:relative; display:block; aspect-ratio:16/9; overflow:hidden; background:#0d1317}
+.press-cover img{display:block; width:100%; height:100%; object-fit:cover; transition:transform .7s var(--ease)}
+.press-card>a:hover .press-cover img{transform:scale(1.04)}
+.press-kind{
+  position:absolute; left:12px; top:12px; padding:6px 11px; border-radius:999px;
+  background:rgba(11,15,18,.8); color:var(--paper); font-size:.6rem; font-weight:700; letter-spacing:.14em; text-transform:uppercase;
+  backdrop-filter:blur(4px); display:inline-flex; align-items:center; gap:7px;
+}
+.press-kind i{width:0; height:0; border-style:solid; border-width:4px 0 4px 7px; border-color:transparent transparent transparent var(--ecg)}
+.press-body{display:flex; flex-direction:column; gap:10px; padding:18px 20px 22px; flex:1}
+.press-meta{display:flex; flex-wrap:wrap; gap:6px 12px; font-size:.66rem; letter-spacing:.12em; text-transform:uppercase; color:#8b959e}
+.press-meta b{color:var(--paper); font-weight:700}
+.press-title{display:block; font-size:1.06rem; line-height:1.3; letter-spacing:-.01em; color:var(--paper); transition:color .25s var(--ease)}
+.press-card>a:hover .press-title{color:#fff}
+.press-sum{font-size:.86rem; line-height:1.55; color:#a9b3bb; display:-webkit-box; -webkit-line-clamp:3; -webkit-box-orient:vertical; overflow:hidden}
+.press-more{margin-top:auto; padding-top:8px; font-size:.7rem; font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:var(--ecg)}
+.press-card>.vframe{aspect-ratio:auto; min-height:320px; justify-content:center}
+.press-card>.vframe .play{border-style:dashed}
+.press-note{margin:18px 0 0; font-size:.74rem; line-height:1.6; color:var(--stone); max-width:70ch}
+@media (prefers-reduced-motion:reduce){.rassegna-track{scroll-behavior:auto}}
 
 /* ══ EVENTO ═════════════════════════════════════════════════ */
 .event{display:grid; grid-template-columns:1.1fr .9fr; gap:clamp(30px,5vw,72px); align-items:center}
@@ -1336,7 +1377,7 @@ body.doc-open{overflow:hidden}
           nel giorno del decimo anniversario del Capitolo: presentazione in teatro,
           consegna delle targhe agli sponsor, serata conviviale nel chiostro.
         </p>
-        <a class="count-link" href="#press"><span class="dot-live" aria-hidden="true"></span>Press room: foto e rassegna in arrivo</a>
+        <a class="count-link" href="#press"><span class="dot-live" aria-hidden="true"></span>Press room: la rassegna stampa</a>
       </div>
     </div>
   </div>
@@ -1983,7 +2024,7 @@ body.doc-open{overflow:hidden}
         presentazione in teatro, consegna delle targhe agli sponsor, serata conviviale nel chiostro.
         Da qui il progetto passa dalle parole al sentiero.
       </p>
-      <a class="step-link" href="#press">Foto e rassegna stampa in arrivo</a>
+      <a class="step-link" href="#press">Leggi la rassegna stampa</a>
     </div>
 
     <div class="reveal" data-d="1">
@@ -1999,42 +2040,79 @@ body.doc-open{overflow:hidden}
   </div>
 </section>
 
-<!-- ═══════════════ PRESS ROOM (in arrivo) ═══════════════
-     L'evento del 29 ottobre 2026 si è concluso: la sezione di iscrizione è stata
-     sostituita da questo spazio, che raccoglierà foto, servizi e rassegna stampa.
-     ▸ Per pubblicare i materiali: sostituire i tre riquadri "in arrivo" con
-       gallery, embed del servizio TV e link agli articoli. -->
+<!-- ═══════════════ PRESS ROOM ═══════════════
+     Rassegna stampa del debutto (29 ottobre 2026). Ogni scheda <li class="press-card"> rimanda al
+     contenuto originale; la copertina è una copia salvata in assets/press/ (nessuna richiesta a siti
+     terzi, coerente con la politica "senza tracciamento" del sito).
+     ▸ Per aggiungere un contenuto: copiare una scheda, aggiornare href, immagine (1280x720 o 1000x563),
+       etichetta (Articolo / Video / Servizio TV), testata, data, titolo e sommario. Le più recenti prima.
+     ▸ L'ultima scheda "Fotografie della serata" è un segnaposto: sostituirla con la gallery quando pronta. -->
 <section id="press" class="dark" aria-labelledby="press-t">
   <div class="topo" aria-hidden="true"></div>
   <div class="wrap">
-    <div class="split" style="align-items:start">
+    <div class="split" style="align-items:end">
       <div class="reveal">
-        <p class="eyebrow">Press room &middot; in arrivo</p>
-        <h2 class="t" id="press-t">Le immagini<br>del debutto.</h2>
+        <p class="eyebrow">Press room</p>
+        <h2 class="t" id="press-t">Il debutto<br>raccontato<br>dai media.</h2>
       </div>
       <div class="reveal" data-d="1">
-        <p class="lead">Le fotografie della serata del 29 ottobre, i servizi dei media partner e la rassegna stampa
-          sono in lavorazione: questo spazio li raccoglier&agrave; tutti. Nel frattempo i
-          <a class="ln" href="#video">due video</a> raccontano il progetto e il cantiere della prima postazione.</p>
+        <p class="lead">Articoli, servizi e video che hanno raccontato la serata del 29 ottobre 2026 a Morbegno.
+          Ogni scheda apre il contenuto originale sul sito della testata. Le fotografie della serata arrivano a breve.</p>
       </div>
     </div>
-    <div class="press-grid">
-      <div class="vframe reveal">
-        <span class="play" aria-hidden="true"><svg width="20" height="18" viewBox="0 0 20 18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M2 5.5h3.4L7 3h6l1.6 2.5H18v10H2z"/><circle cx="10" cy="10.3" r="3.2"/></svg></span>
-        <b>Fotografie della serata</b>
-        <small>In arrivo</small>
+
+    <div class="rassegna reveal" data-d="1">
+      <div class="rassegna-head">
+        <span class="rassegna-hint">Rassegna stampa &middot; scorri</span>
+        <div class="rassegna-nav">
+          <button type="button" class="rassegna-btn" data-dir="-1" aria-label="Scheda precedente">&larr;</button>
+          <button type="button" class="rassegna-btn" data-dir="1" aria-label="Scheda successiva">&rarr;</button>
+        </div>
       </div>
-      <div class="vframe reveal" data-d="1">
-        <span class="play" aria-hidden="true"><svg width="20" height="18" viewBox="0 0 20 18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><rect x="2" y="4" width="16" height="11" rx="1.5"/><path d="M6.5 1.5 10 4l3.5-2.5M8.5 7.5v4l3.5-2z"/></svg></span>
-        <b>Servizi dei media partner</b>
-        <small>Tele Sondrio News &middot; Teleunica &middot; in arrivo</small>
-      </div>
-      <div class="vframe reveal" data-d="2">
-        <span class="play" aria-hidden="true"><svg width="20" height="18" viewBox="0 0 20 18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M4 2h14v13a1.5 1.5 0 0 1-1.5 1.5h-13A1.5 1.5 0 0 1 2 15V6h2z"/><path d="M7 5.5h8M7 8.5h8M7 11.5h5"/></svg></span>
-        <b>Rassegna stampa</b>
-        <small>In arrivo</small>
-      </div>
+      <ul class="rassegna-track" id="rassegna-track" aria-label="Rassegna stampa del debutto">
+
+        <li class="press-card">
+          <a href="https://www.laprovinciaunicatv.it/stories/sondrio/morbegno-e-bassa-valle/cinque-defibrillatori-tra-morbegno-e-sondrio-regalo-salvavita-del-bni-al-territ-o_3984034_11/" target="_blank" rel="noopener">
+            <span class="press-cover">
+              <img src="assets/press/laprovinciaunicatv-2026-10-30.jpg" alt="La platea del teatro di Sant&rsquo;Antonio a Morbegno durante la presentazione" width="1280" height="720" loading="lazy">
+              <span class="press-kind">Articolo</span>
+            </span>
+            <span class="press-body">
+              <span class="press-meta"><b>La Provincia Unica Tv</b><time datetime="2026-10-30">30 ottobre 2026</time></span>
+              <strong class="press-title">Cinque defibrillatori tra Morbegno e Sondrio, regalo salvavita del Bni al territorio</strong>
+              <span class="press-sum">Il Capitolo Bni Valtellina festeggia dieci anni con un progetto benefico: cinque postazioni salvavita lungo i 26 chilometri della ciclopedonale, accessibili 24 ore su 24 e collegate alla Croce Rossa. L&rsquo;obiettivo &egrave; estendere in futuro la rete fino a Colico e all&rsquo;Alta Valle.</span>
+              <span class="press-more">Leggi l&rsquo;articolo &nearr;</span>
+            </span>
+          </a>
+        </li>
+
+        <li class="press-card">
+          <a href="https://www.facebook.com/reel/1850292266404399/" target="_blank" rel="noopener">
+            <span class="press-cover">
+              <img src="assets/press/laprovinciaunicatv-video-2026-10-30.jpg" alt="Un momento della presentazione sul palco del teatro di Sant&rsquo;Antonio" width="1000" height="563" loading="lazy">
+              <span class="press-kind"><i aria-hidden="true"></i>Video</span>
+            </span>
+            <span class="press-body">
+              <span class="press-meta"><b>La Provincia Unica Tv</b><time datetime="2026-10-30">30 ottobre 2026</time><span>Facebook</span></span>
+              <strong class="press-title">Il battito della Valtellina: il servizio video della serata</strong>
+              <span class="press-sum">Cinque defibrillatori lungo 26 chilometri della ciclopedonale Morbegno&ndash;Sondrio, per rendere la Valtellina pi&ugrave; sicura e cardioprotetta: il progetto con cui BNI Valtellina festeggia i suoi dieci anni, trasformando un anniversario in un regalo concreto per il territorio.</span>
+              <span class="press-more">Guarda il video &nearr;</span>
+            </span>
+          </a>
+        </li>
+
+        <li class="press-card">
+          <div class="vframe">
+            <span class="play" aria-hidden="true"><svg width="20" height="18" viewBox="0 0 20 18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M2 5.5h3.4L7 3h6l1.6 2.5H18v10H2z"/><circle cx="10" cy="10.3" r="3.2"/></svg></span>
+            <b>Fotografie della serata</b>
+            <small>In arrivo</small>
+          </div>
+        </li>
+
+      </ul>
     </div>
+    <p class="press-note">Titoli, testi e immagini di anteprima appartengono alle rispettive testate e sono riprodotti
+      a scopo di rassegna stampa, con rimando al contenuto originale.</p>
   </div>
 </section>
 
@@ -2174,7 +2252,7 @@ body.doc-open{overflow:hidden}
           <li><a href="#soci">I soci del capitolo</a></li>
           <li><a href="#patrocinio">Con il patrocinio di</a></li>
           <li><a href="#evento">Il debutto &middot; 29.10.2026</a></li>
-          <li><a href="#press">Press room (in arrivo)</a></li>
+          <li><a href="#press">Press room</a></li>
         </ul>
       </div>
       <div>
@@ -2422,6 +2500,35 @@ body.doc-open{overflow:hidden}
     Array.prototype.forEach.call(v.querySelectorAll('source'), function(src){ src.addEventListener('error', manca); });
     if (v.readyState >= 1) pronto();
   });
+
+  /* ── 1b. Rassegna stampa: frecce del carosello ──────────────
+     Lo scorrimento è nativo (scroll-snap); le frecce spostano di una
+     scheda e spariscono quando tutte le schede stanno nello schermo. */
+  (function(){
+    var track = document.getElementById('rassegna-track');
+    if (!track) return;
+    var btns = Array.prototype.slice.call(document.querySelectorAll('.rassegna-btn'));
+    function passo(){
+      var c = track.querySelector('.press-card');
+      var gap = parseFloat(getComputedStyle(track).columnGap) || 0;
+      return c ? c.getBoundingClientRect().width + gap : 320;
+    }
+    function stato(){
+      var max = track.scrollWidth - track.clientWidth - 1;
+      var tutto = track.scrollWidth <= track.clientWidth + 1;
+      btns.forEach(function(b){ b.hidden = tutto; });
+      btns[0].disabled = track.scrollLeft <= 0;
+      btns[1].disabled = track.scrollLeft >= max;
+    }
+    btns.forEach(function(b){
+      b.addEventListener('click', function(){
+        track.scrollBy({ left: passo() * parseInt(b.getAttribute('data-dir'), 10), behavior: reduce ? 'auto' : 'smooth' });
+      });
+    });
+    track.addEventListener('scroll', stato, { passive:true });
+    addEventListener('resize', stato);
+    stato();
+  })();
 
   /* ── 1b. Monitor cardiaco: spazzata luminosa lungo il tracciato ──
      La coda luminosa insegue il cursore. Il cursore parte 0,6 s avanti
