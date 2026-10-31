@@ -1861,13 +1861,14 @@ body.doc-open{overflow:hidden}
            assets/video/presentazione.mp4        → il video di presentazione del progetto
            assets/video/prima-postazione.mp4     → le riprese del cantiere della prima postazione
          Formato consigliato: MP4 (H.264 + AAC), 1080p, sotto i 100 MB ciascuno (limite di GitHub).
-         Facoltativo: un'immagine di copertina con lo stesso nome e estensione .jpg (attributo poster).
+         Copertina: un'immagine con lo stesso nome e estensione .jpg, indicata nell'attributo poster
+         (per presentazione.jpg è il fotogramma a 8 s del video, 1280 px di larghezza).
          Finché un file manca, il riquadro mostra "Video · in arrivo"; appena c'è, il player compare da solo.
          In alternativa si può sostituire il <video> con l'<iframe> di YouTube o Vimeo. -->
     <div class="videos" id="video">
       <figure class="vcard reveal">
         <div class="vframe">
-          <video controls preload="metadata" playsinline>
+          <video controls preload="metadata" playsinline poster="assets/video/presentazione.jpg">
             <source src="assets/video/presentazione.mp4" type="video/mp4">
           </video>
           <span class="play" aria-hidden="true"><svg width="18" height="20" viewBox="0 0 18 20"><path d="M2 2l14 8-14 8z" fill="currentColor"/></svg></span>
