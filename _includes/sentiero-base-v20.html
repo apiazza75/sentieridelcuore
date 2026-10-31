@@ -349,6 +349,18 @@ section > .wrap,section > .soci,.hero-in,footer > .wrap{position:relative; z-ind
   font-size:.8rem; color:#b9c3cb; line-height:1.5;
 }
 .count-foot b{color:var(--paper); font-weight:700; display:block}
+/* debutto: l'evento si è concluso, il riquadro del countdown racconta la data e rimanda alla press room */
+.debutto-data{
+  margin:0; font-family:var(--f-display); font-weight:400; font-size:clamp(1.7rem,4.4vw,2.5rem);
+  line-height:1; color:var(--paper); text-transform:uppercase; letter-spacing:.01em;
+}
+.debutto-data small{display:block; margin-top:8px; font-family:var(--f-sans); font-size:.72rem; letter-spacing:.12em; color:#b9c3cb}
+.count-link{
+  display:inline-flex; align-items:center; gap:10px; margin-top:16px; text-decoration:none;
+  font-size:.72rem; font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:var(--ecg);
+  border-bottom:1px solid transparent; transition:border-color .25s;
+}
+.count-link:hover{border-color:var(--ecg)}
 
 /* ══ FASCIA DATI ════════════════════════════════════════════ */
 .stats{background:var(--ecg); color:#fff; padding-block:0}
@@ -517,6 +529,10 @@ a.stat:hover::after,a.stat:focus-visible::after{opacity:.75; transform:none}
 .map-detail h3{color:var(--paper); font-size:1.5rem}
 .map-detail p{color:#b0bac2; font-size:.96rem; margin-bottom:0; max-width:62ch}
 .map-actions{display:flex; flex-wrap:wrap; gap:10px; margin-top:20px}
+.d-stato{cursor:default; border-color:rgba(225,29,42,.5); color:var(--ecg); gap:9px}
+.d-stato:hover{transform:none}
+.tappa-attiva{font-style:normal; font-size:.62em; letter-spacing:.14em; text-transform:uppercase; color:var(--ecg); margin-left:8px; vertical-align:middle}
+.node.attiva circle.core{stroke:#fff; stroke-width:2.5}
 .node.on circle.core{stroke:#fff; stroke-width:2.5}
 
 /* ══ POSTAZIONE / DESIGN ════════════════════════════════════ */
@@ -778,6 +794,13 @@ tbody tr:last-child th,tbody tr:last-child td{border-bottom:0}
   text-align:center; padding:24px; color:var(--stone);
 }
 .vframe iframe,.vframe video{position:absolute; inset:0; width:100%; height:100%; border:0}
+/* il player resta nascosto finché il file non risponde: se manca, il riquadro mostra "in arrivo" */
+.vframe video{visibility:hidden; background:#000}
+.vframe.has-video video{visibility:visible}
+.vframe.has-video .play,.vframe.has-video b,.vframe.has-video small{display:none}
+.vcard{margin:0}
+.vcap{margin-top:12px; font-size:.84rem; line-height:1.5; color:#a9b3bb}
+.vcap b{display:block; color:var(--paper); font-size:.95rem; letter-spacing:.01em; margin-bottom:2px}
 .vframe .play{
   width:62px; height:62px; border-radius:50%; border:2px solid var(--ecg);
   display:grid; place-items:center; color:var(--ecg); flex:none;
@@ -867,6 +890,53 @@ a.soc:hover .soc-cat::after,a.soc:focus-visible .soc-cat::after{opacity:1}
 a.patro-ente .patro-name small::after{content:' ↗'; color:var(--ecg); opacity:0; transition:opacity .25s var(--ease)}
 a.patro-ente:hover .patro-name small::after,a.patro-ente:focus-visible .patro-name small::after{opacity:1}
 .patro-nota{font-size:.8rem; color:var(--stone); margin:clamp(22px,3vw,30px) 0 0; max-width:70ch}
+
+/* ══ PRESS ROOM · rassegna stampa (carosello) ═══════════════
+   Schede a scorrimento orizzontale con scatto (scroll-snap); le frecce
+   fanno avanzare di una scheda e si nascondono se tutto sta nello schermo. */
+.rassegna{margin-top:clamp(30px,4vw,48px)}
+.rassegna-head{display:flex; align-items:center; justify-content:space-between; gap:16px; margin-bottom:16px}
+.rassegna-hint{font-size:.74rem; letter-spacing:.1em; text-transform:uppercase; color:var(--stone)}
+.rassegna-nav{display:flex; gap:8px; margin-left:auto}
+.rassegna-btn{
+  width:44px; height:44px; border-radius:50%; border:1px solid rgba(243,240,233,.25); background:transparent;
+  color:var(--paper); font-size:1.05rem; line-height:1; cursor:pointer; display:grid; place-items:center;
+  transition:border-color .25s var(--ease), color .25s var(--ease), opacity .25s;
+}
+.rassegna-btn:hover,.rassegna-btn:focus-visible{border-color:var(--ecg); color:var(--ecg)}
+.rassegna-btn[disabled]{opacity:.28; cursor:default; border-color:rgba(243,240,233,.25); color:var(--paper)}
+.rassegna-track{
+  list-style:none; margin:0; padding:4px 0 12px; display:flex; gap:clamp(16px,2.4vw,26px);
+  overflow-x:auto; scroll-snap-type:x mandatory; scroll-behavior:smooth; scrollbar-width:none; -webkit-overflow-scrolling:touch;
+}
+.rassegna-track::-webkit-scrollbar{display:none}
+.press-card{flex:0 0 min(420px,86vw); scroll-snap-align:start; display:flex}
+.press-card>a,.press-card>.vframe{
+  display:flex; flex-direction:column; width:100%; text-decoration:none; color:inherit;
+  border:1px solid rgba(243,240,233,.13); border-radius:var(--r); background:rgba(243,240,233,.035); overflow:hidden;
+  transition:border-color .3s var(--ease), background .3s var(--ease), transform .3s var(--ease);
+}
+.press-card>a:hover,.press-card>a:focus-visible{background:rgba(243,240,233,.08); border-color:rgba(225,29,42,.55); transform:translateY(-3px); outline:0}
+.press-cover{position:relative; display:block; aspect-ratio:16/9; overflow:hidden; background:#0d1317}
+.press-cover img{display:block; width:100%; height:100%; object-fit:cover; transition:transform .7s var(--ease)}
+.press-card>a:hover .press-cover img{transform:scale(1.04)}
+.press-kind{
+  position:absolute; left:12px; top:12px; padding:6px 11px; border-radius:999px;
+  background:rgba(11,15,18,.8); color:var(--paper); font-size:.6rem; font-weight:700; letter-spacing:.14em; text-transform:uppercase;
+  backdrop-filter:blur(4px); display:inline-flex; align-items:center; gap:7px;
+}
+.press-kind i{width:0; height:0; border-style:solid; border-width:4px 0 4px 7px; border-color:transparent transparent transparent var(--ecg)}
+.press-body{display:flex; flex-direction:column; gap:10px; padding:18px 20px 22px; flex:1}
+.press-meta{display:flex; flex-wrap:wrap; gap:6px 12px; font-size:.66rem; letter-spacing:.12em; text-transform:uppercase; color:#8b959e}
+.press-meta b{color:var(--paper); font-weight:700}
+.press-title{display:block; font-size:1.06rem; line-height:1.3; letter-spacing:-.01em; color:var(--paper); transition:color .25s var(--ease)}
+.press-card>a:hover .press-title{color:#fff}
+.press-sum{font-size:.86rem; line-height:1.55; color:#a9b3bb; display:-webkit-box; -webkit-line-clamp:3; -webkit-box-orient:vertical; overflow:hidden}
+.press-more{margin-top:auto; padding-top:8px; font-size:.7rem; font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:var(--ecg)}
+.press-card>.vframe{aspect-ratio:auto; min-height:320px; justify-content:center}
+.press-card>.vframe .play{border-style:dashed}
+.press-note{margin:18px 0 0; font-size:.74rem; line-height:1.6; color:var(--stone); max-width:70ch}
+@media (prefers-reduced-motion:reduce){.rassegna-track{scroll-behavior:auto}}
 
 /* ══ EVENTO ═════════════════════════════════════════════════ */
 .event{display:grid; grid-template-columns:1.1fr .9fr; gap:clamp(30px,5vw,72px); align-items:center}
@@ -1248,8 +1318,7 @@ body.doc-open{overflow:hidden}
       <li><a href="#roadmap">Roadmap</a></li>
       <li><a href="#soci">I soci</a></li>
       <li><a href="#patrocinio">Patrocini</a></li>
-      <li><a href="#evento">Evento</a></li>
-      <li class="solo-menu"><a href="#iscrizione-evento">Partecipa al convegno &rarr;</a></li>
+      <li><a href="#evento">Il debutto</a></li>
       <li class="solo-menu"><a href="#adotta">Adotta 1 DAE &rarr;</a></li>
     </ul>
     <a class="btn btn-primary btn-sm" href="#adotta" style="flex:none">Adotta 1 DAE</a>
@@ -1294,28 +1363,25 @@ body.doc-open{overflow:hidden}
         <div class="hero-cta">
           <a class="btn btn-primary" href="#adotta">Adotta 1 DAE <span class="ar">&rarr;</span></a>
           <a class="btn btn-ghost" href="#rete">Vedi la rete</a>
-          <a class="btn btn-primary" href="#iscrizione-evento">PARTECIPA AL CONVEGNO <span class="ar">&rarr;</span></a>
+          <a class="btn btn-ghost" href="#video">Guarda i video</a>
         </div>
         <p class="hero-note">
           <span class="dot-live" aria-hidden="true"></span>
-          <b id="slot-note">5 postazioni · slot sponsor in assegnazione</b>
-          <span>&mdash; presentazione ufficiale a Morbegno</span>
+          <b id="slot-note">5 postazioni · la prima &egrave; attiva · 4 slot sponsor in assegnazione</b>
+          <span>&mdash; progetto presentato a Morbegno il 29 ottobre 2026</span>
         </p>
       </div>
 
-      <!-- Countdown evento -->
-      <div class="count" id="countdown" aria-live="polite">
-        <h4>All&rsquo;inaugurazione mancano</h4>
-        <div class="count-grid">
-          <div><b class="mono" data-cd="d">—</b><span>Giorni</span></div>
-          <div><b class="mono" data-cd="h">—</b><span>Ore</span></div>
-          <div><b class="mono" data-cd="m">—</b><span>Minuti</span></div>
-          <div><b class="mono" data-cd="s">—</b><span>Secondi</span></div>
-        </div>
+      <!-- Debutto del progetto -->
+      <div class="count" id="debutto">
+        <h4>Il debutto</h4>
+        <p class="debutto-data">29 ottobre 2026<small>Chiostro di Sant&rsquo;Antonio &middot; Morbegno</small></p>
         <p class="count-foot">
-          <b>Giovedì 29 ottobre 2026</b>
-          Chiostro di Sant&rsquo;Antonio, Morbegno &mdash; teatro da 220 posti e serata conviviale nel chiostro.
+          <b>Il progetto si &egrave; presentato al territorio</b>
+          nel giorno del decimo anniversario del Capitolo: presentazione in teatro,
+          consegna delle targhe agli sponsor, serata conviviale nel chiostro.
         </p>
+        <a class="count-link" href="#press"><span class="dot-live" aria-hidden="true"></span>Press room: la rassegna stampa</a>
       </div>
     </div>
   </div>
@@ -1458,9 +1524,11 @@ body.doc-open{overflow:hidden}
         <div class="km mono"><span id="d-km">0</span><span style="font-size:.42em"> km</span><small>Progressiva</small></div>
         <div>
           <h3 id="d-name">Morbegno</h3>
-          <p id="d-desc">Testa di tratta e sede dell&rsquo;evento di presentazione. Postazione pilota del progetto.</p>
+          <p id="d-desc">Testa di tratta: qui il progetto ha debuttato il 29 ottobre 2026. Postazione pilota del progetto.</p>
           <div class="map-actions">
             <button class="btn btn-primary btn-sm" type="button" id="d-adopt">Adotta questa postazione <span class="ar">&rarr;</span></button>
+            <span class="btn btn-sm d-stato" id="d-stato" hidden><span class="dot-live" aria-hidden="true"></span>Postazione attiva &middot; slot assegnato</span>
+            <a class="btn btn-ghost btn-sm" id="d-maps" href="https://maps.app.goo.gl/5sCTVkrNe6RqWBBM6" target="_blank" rel="noopener" hidden>Apri in Google Maps <span class="ar" aria-hidden="true">&nearr;</span></a>
             <a class="btn btn-ghost btn-sm" href="#postazione">Com&rsquo;è fatta</a>
           </div>
         </div>
@@ -1475,8 +1543,8 @@ body.doc-open{overflow:hidden}
              Comunità Montana e AREU — si aggiornano in GEO_DAE.        -->
       <div class="geo">
         <div class="geo-head">
-          <h3>Dove sorgeranno, sul territorio</h3>
-          <p>Posizioni indicative lungo la ciclopedonale &mdash; in via di conferma con Comunità Montana e AREU Lombardia.</p>
+          <h3>Dove sorgono, sul territorio</h3>
+          <p>La prima postazione (Sondrio, km 26) &egrave; attiva ad Albosaggia, posizione confermata; le altre sono indicative, in via di conferma con Comunit&agrave; Montana e AREU Lombardia.</p>
         </div>
 
         <div class="geo-stage" id="geo-stage">
@@ -1508,7 +1576,7 @@ body.doc-open{overflow:hidden}
 
         <p class="geo-nota">
           Le progressive chilometriche (0 &middot; 6 &middot; 12 &middot; 19 &middot; 26) e i punti sulla mappa sono
-          <b>stimati</b>: la posa definitiva sarà fissata con Comunità Montana e registrata in AREU Lombardia.
+          <b>stimati</b>, tranne la prima postazione, attiva ad Albosaggia: la posa definitiva delle altre sarà fissata con Comunità Montana e registrata in AREU Lombardia.
           Cartografia &copy; <a class="ln" href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OpenStreetMap</a>, contributori.
         </p>
       </div>
@@ -1539,15 +1607,15 @@ body.doc-open{overflow:hidden}
       </div>
       <figcaption>
         <button class="totem-mini" type="button" id="apri-ambient" aria-haspopup="dialog"
-                aria-label="Ingrandisci il fotoinserimento del totem sul sentiero">
-          <img src="assets/totem-ambientato.jpg" loading="lazy" width="608" height="366"
-               alt="Fotoinserimento del totem DAE sul Sentiero Valtellina: la seduta in legno con teca a bordo sentiero, la fontanella e le montagne della valle sullo sfondo">
-          <span class="totem-mini-tag">Sul sentiero &middot; ingrandisci</span>
+                aria-label="Ingrandisci la fotografia della prima postazione installata">
+          <img src="assets/prima-postazione-albosaggia.jpg" loading="lazy" width="1600" height="1014"
+               alt="La prima postazione DAE installata ad Albosaggia sul Sentiero Valtellina: la seduta a elettrocardiogramma in legno e rosso con il marchio BNI 10 anni Valtellina, con i soci del Capitolo">
+          <span class="totem-mini-tag">La prima postazione &middot; ingrandisci</span>
         </button>
         <span class="totem-dida">
           <span>Totem DAE · modello di studio</span>
           <em>Trascina per ruotare · rotella o pizzico per lo zoom · <b>Componenti</b> per isolare i materiali.
-          Qui accanto, il totem <b>ambientato sul sentiero</b>.</em>
+          Qui accanto, <b>la prima postazione installata</b> ad Albosaggia, con i soci del Capitolo.</em>
         </span>
       </figcaption>
     </figure>
@@ -1819,37 +1887,54 @@ body.doc-open{overflow:hidden}
           e definizione tecnica del progetto con i partner.</p>
           <a class="step-link" href="#modello">Chi fa che cosa</a>
         </div>
-        <div class="step reveal" data-d="2">
+        <div class="step done reveal" data-d="2">
           <time datetime="2026-10-29">Ottobre 2026</time>
-          <h3>Presentazione al pubblico</h3>
-          <p>Il <strong>29 ottobre a Morbegno</strong> il progetto si presenta al territorio,
+          <h3>Il debutto</h3>
+          <p>Il <strong>29 ottobre a Morbegno</strong> il progetto si &egrave; presentato al territorio,
           con la consegna delle targhe alle aziende sponsor.</p>
-          <a class="step-link" href="#evento">Dettagli dell&rsquo;evento</a>
+          <a class="step-link" href="#evento">Com&rsquo;&egrave; andata</a>
         </div>
-        <div class="step reveal" data-d="3">
-          <time datetime="2026-11">Novembre 2026</time>
-          <h3>Prima realizzazione</h3>
-          <p><strong>Posa della prima postazione</strong>: la rete comincia a esistere
-          sul sentiero, tappa dopo tappa.</p>
-          <a class="step-link" href="#rete">Dove sorgeranno</a>
+        <div class="step done reveal" data-d="3">
+          <time datetime="2026-10">Ottobre 2026</time>
+          <h3>La prima postazione &egrave; attiva</h3>
+          <p><strong>Installata ad Albosaggia</strong>, sul Sentiero Valtellina: la rete
+          comincia a esistere sul sentiero, tappa dopo tappa.</p>
+          <a class="step-link" href="#video">Il cantiere in video</a>
         </div>
       </div>
     </div>
 
-    <!-- ▸ SVILUPPATORE: sostituire i due riquadri con gli <iframe> dei video
-         "Un Sentiero, Una Missione" e "Sentiero Cardioprotetto" (YouTube/Vimeo),
-         oppure con <video src="assets/...mp4" controls poster="..."></video>. -->
-    <div class="videos">
-      <div class="vframe reveal">
-        <span class="play" aria-hidden="true"><svg width="18" height="20" viewBox="0 0 18 20"><path d="M2 2l14 8-14 8z" fill="currentColor"/></svg></span>
-        <b>Un Sentiero, Una Missione</b>
-        <small>Video · in arrivo</small>
-      </div>
-      <div class="vframe reveal" data-d="1">
-        <span class="play" aria-hidden="true"><svg width="18" height="20" viewBox="0 0 18 20"><path d="M2 2l14 8-14 8z" fill="currentColor"/></svg></span>
-        <b>Sentiero Cardioprotetto</b>
-        <small>Video · in arrivo</small>
-      </div>
+    <!-- ▸ VIDEO. I due file stanno in assets/video/ (MP4 H.264 + AAC, 1080p, moov in testa, sotto i 100 MB):
+           presentazione.mp4      → il video di presentazione del progetto (2:28, 59,7 MB)
+           prima-postazione.mp4   → le riprese del cantiere della prima postazione (1:54, 48,7 MB;
+                                    dall'originale 4K HEVC, convertito in H.264 1080p a circa 3,4 Mbit/s)
+         Copertina: immagine con lo stesso nome e estensione .jpg, nell'attributo poster (1280 px di larghezza;
+         presentazione.jpg è il fotogramma a 8 s, prima-postazione.jpg quello a 10 s).
+         Per sostituire un video basta rimpiazzare il file con lo stesso nome; se manca, il riquadro mostra
+         "Video · in arrivo" finché il file non risponde. In alternativa: <iframe> di YouTube o Vimeo. -->
+    <div class="videos" id="video">
+      <figure class="vcard reveal">
+        <div class="vframe">
+          <video controls preload="metadata" playsinline poster="assets/video/presentazione.jpg">
+            <source src="assets/video/presentazione.mp4" type="video/mp4">
+          </video>
+          <span class="play" aria-hidden="true"><svg width="18" height="20" viewBox="0 0 18 20"><path d="M2 2l14 8-14 8z" fill="currentColor"/></svg></span>
+          <b>Sentiero Cardioprotetto</b>
+          <small>Video · in arrivo</small>
+        </div>
+        <figcaption class="vcap"><b>Sentiero Cardioprotetto</b>Il video di presentazione del progetto: la colonnina, il sentiero, il battito.</figcaption>
+      </figure>
+      <figure class="vcard reveal" data-d="1">
+        <div class="vframe">
+          <video controls preload="metadata" playsinline poster="assets/video/prima-postazione.jpg">
+            <source src="assets/video/prima-postazione.mp4" type="video/mp4">
+          </video>
+          <span class="play" aria-hidden="true"><svg width="18" height="20" viewBox="0 0 18 20"><path d="M2 2l14 8-14 8z" fill="currentColor"/></svg></span>
+          <b>Nasce la prima postazione</b>
+          <small>Video · in arrivo</small>
+        </div>
+        <figcaption class="vcap"><b>Nasce la prima postazione</b>Dal cantiere di Albosaggia: i lavori per la prima colonnina della rete, attiva da ottobre 2026.</figcaption>
+      </figure>
     </div>
   </div>
 </section>
@@ -1938,13 +2023,14 @@ body.doc-open{overflow:hidden}
   <div class="topo" aria-hidden="true"></div>
   <div class="wrap event">
     <div class="reveal">
-      <p class="eyebrow">L&rsquo;evento</p>
+      <p class="eyebrow">Il debutto</p>
       <h2 class="t">29 ottobre 2026<br>Morbegno.</h2>
       <p class="lead">
-        La rete viene presentata al territorio nel giorno del decimo anniversario del Capitolo.
-        Presentazione in teatro, consegna delle targhe agli sponsor, serata conviviale nel chiostro.
+        La rete &egrave; stata presentata al territorio nel giorno del decimo anniversario del Capitolo:
+        presentazione in teatro, consegna delle targhe agli sponsor, serata conviviale nel chiostro.
+        Da qui il progetto passa dalle parole al sentiero.
       </p>
-      <a class="btn btn-primary" href="#iscrizione-evento">PARTECIPA AL CONVEGNO <span class="ar">&rarr;</span></a>
+      <a class="step-link" href="#press">Leggi la rassegna stampa</a>
     </div>
 
     <div class="reveal" data-d="1">
@@ -1952,7 +2038,7 @@ body.doc-open{overflow:hidden}
       <ul class="event-meta">
         <li><b>Data</b><span>Giovedì 29 ottobre 2026</span></li>
         <li><b>Luogo</b><span><a class="ln" href="https://maps.google.com/?q=Piazza+Sant%27Antonio,+Morbegno+SO" target="_blank" rel="noopener">Chiostro della chiesa di Sant&rsquo;Antonio<br>Piazza Sant&rsquo;Antonio, Morbegno (SO)</a></span></li>
-        <li><b>Presentazione</b><span>Teatro da 220 posti</span></li>
+        <li><b>Convegno</b><span>In teatro, 220 posti</span></li>
         <li><b>Serata</b><span>Conviviale nel chiostro</span></li>
         <li><b>Media partner</b><span>Tele Sondrio News (TSN) · <a class="ln" href="https://www.teleunica.tv/" target="_blank" rel="noopener">Teleunica</a></span></li>
       </ul>
@@ -1960,33 +2046,79 @@ body.doc-open{overflow:hidden}
   </div>
 </section>
 
-<!-- ═══════════════ ISCRIZIONE EVENTO ═══════════════ -->
-<section id="iscrizione-evento" class="dark" aria-labelledby="iscrizione-evento-t">
+<!-- ═══════════════ PRESS ROOM ═══════════════
+     Rassegna stampa del debutto (29 ottobre 2026). Ogni scheda <li class="press-card"> rimanda al
+     contenuto originale; la copertina è una copia salvata in assets/press/ (nessuna richiesta a siti
+     terzi, coerente con la politica "senza tracciamento" del sito).
+     ▸ Per aggiungere un contenuto: copiare una scheda, aggiornare href, immagine (1280x720 o 1000x563),
+       etichetta (Articolo / Video / Servizio TV), testata, data, titolo e sommario. Le più recenti prima.
+     ▸ L'ultima scheda "Fotografie della serata" è un segnaposto: sostituirla con la gallery quando pronta. -->
+<section id="press" class="dark" aria-labelledby="press-t">
   <div class="topo" aria-hidden="true"></div>
   <div class="wrap">
-    <div class="split" style="align-items:start">
-      <div>
-        <p class="eyebrow">29 ottobre 2026 · Morbegno</p>
-        <h2 class="t" id="iscrizione-evento-t">Un posto per te.<br>Un futuro pi&ugrave; sicuro<br>per tutti.</h2>
-        <p class="lead">Vieni a conoscere il progetto e le persone che lo stanno rendendo possibile.
-          <strong>Il convegno &egrave; gratuito</strong>; se vuoi, la serata prosegue nel chiostro
-          con l&rsquo;aperitivo lungo di networking.</p>
+    <div class="split" style="align-items:end">
+      <div class="reveal">
+        <p class="eyebrow">Press room</p>
+        <h2 class="t" id="press-t">Il debutto<br>raccontato<br>dai media.</h2>
       </div>
-      <div>
-        <p class="eyebrow">Prenota la tua partecipazione</p>
-        <ul class="event-meta" style="margin-top:0">
-          <li><b>Convegno</b><span><strong>Ore 19:00 · Ingresso gratuito</strong><br>In teatro, fino a esaurimento posti.</span></li>
-          <li><b>Aperitivo</b><span><strong>Dalle 19:40 · 35 &euro; a persona</strong><br>Facoltativo, nel chiostro. Pagamento sul posto.</span></li>
-          <li><b>Prenotazione</b><span><strong>Aperitivo: entro sabato 24 ottobre</strong><br>Indica nel modulo come desideri partecipare e il numero di persone.</span></li>
-        </ul>
-        <div class="cta-row">
-          <a class="btn btn-primary" href="https://airtable.com/app24FF3G6HYDmHTR/paghHDRdbZVGNafGI/form" target="_blank" rel="noopener noreferrer">PARTECIPA AL CONVEGNO <span class="ar" aria-hidden="true">&nearr;</span><span class="sr-only"> (apre una nuova scheda)</span></a>
-        </div>
-        <p style="font-size:.84rem;line-height:1.6;margin-top:18px;color:var(--stone)">
-          Il modulo si apre su Airtable in una nuova scheda. Il servizio viene contattato solo al tuo clic.
-          L&rsquo;iscrizione all&rsquo;evento &egrave; distinta dalla richiesta di sponsorizzazione.</p>
+      <div class="reveal" data-d="1">
+        <p class="lead">Articoli, servizi e video che hanno raccontato la serata del 29 ottobre 2026 a Morbegno.
+          Ogni scheda apre il contenuto originale sul sito della testata. Le fotografie della serata arrivano a breve.</p>
       </div>
     </div>
+
+    <div class="rassegna reveal" data-d="1">
+      <div class="rassegna-head">
+        <span class="rassegna-hint">Rassegna stampa &middot; scorri</span>
+        <div class="rassegna-nav">
+          <button type="button" class="rassegna-btn" data-dir="-1" aria-label="Scheda precedente">&larr;</button>
+          <button type="button" class="rassegna-btn" data-dir="1" aria-label="Scheda successiva">&rarr;</button>
+        </div>
+      </div>
+      <ul class="rassegna-track" id="rassegna-track" aria-label="Rassegna stampa del debutto">
+
+        <li class="press-card">
+          <a href="https://www.laprovinciaunicatv.it/stories/sondrio/morbegno-e-bassa-valle/cinque-defibrillatori-tra-morbegno-e-sondrio-regalo-salvavita-del-bni-al-territ-o_3984034_11/" target="_blank" rel="noopener">
+            <span class="press-cover">
+              <img src="assets/press/laprovinciaunicatv-2026-10-30.jpg" alt="La platea del teatro di Sant&rsquo;Antonio a Morbegno durante la presentazione" width="1280" height="720" loading="lazy">
+              <span class="press-kind">Articolo</span>
+            </span>
+            <span class="press-body">
+              <span class="press-meta"><b>La Provincia Unica Tv</b><time datetime="2026-10-30">30 ottobre 2026</time></span>
+              <strong class="press-title">Cinque defibrillatori tra Morbegno e Sondrio, regalo salvavita del Bni al territorio</strong>
+              <span class="press-sum">Il Capitolo Bni Valtellina festeggia dieci anni con un progetto benefico: cinque postazioni salvavita lungo i 26 chilometri della ciclopedonale, accessibili 24 ore su 24 e collegate alla Croce Rossa. L&rsquo;obiettivo &egrave; estendere in futuro la rete fino a Colico e all&rsquo;Alta Valle.</span>
+              <span class="press-more">Leggi l&rsquo;articolo &nearr;</span>
+            </span>
+          </a>
+        </li>
+
+        <li class="press-card">
+          <a href="https://www.facebook.com/reel/1850292266404399/" target="_blank" rel="noopener">
+            <span class="press-cover">
+              <img src="assets/press/laprovinciaunicatv-video-2026-10-30.jpg" alt="Un momento della presentazione sul palco del teatro di Sant&rsquo;Antonio" width="1000" height="563" loading="lazy">
+              <span class="press-kind"><i aria-hidden="true"></i>Video</span>
+            </span>
+            <span class="press-body">
+              <span class="press-meta"><b>La Provincia Unica Tv</b><time datetime="2026-10-30">30 ottobre 2026</time><span>Facebook</span></span>
+              <strong class="press-title">Il battito della Valtellina: il servizio video della serata</strong>
+              <span class="press-sum">Cinque defibrillatori lungo 26 chilometri della ciclopedonale Morbegno&ndash;Sondrio, per rendere la Valtellina pi&ugrave; sicura e cardioprotetta: il progetto con cui BNI Valtellina festeggia i suoi dieci anni, trasformando un anniversario in un regalo concreto per il territorio.</span>
+              <span class="press-more">Guarda il video &nearr;</span>
+            </span>
+          </a>
+        </li>
+
+        <li class="press-card">
+          <div class="vframe">
+            <span class="play" aria-hidden="true"><svg width="20" height="18" viewBox="0 0 20 18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M2 5.5h3.4L7 3h6l1.6 2.5H18v10H2z"/><circle cx="10" cy="10.3" r="3.2"/></svg></span>
+            <b>Fotografie della serata</b>
+            <small>In arrivo</small>
+          </div>
+        </li>
+
+      </ul>
+    </div>
+    <p class="press-note">Titoli, testi e immagini di anteprima appartengono alle rispettive testate e sono riprodotti
+      a scopo di rassegna stampa, con rimando al contenuto originale.</p>
   </div>
 </section>
 
@@ -2043,7 +2175,7 @@ body.doc-open{overflow:hidden}
                 <option>Talamona · km 6</option>
                 <option>Ardenno · km 12</option>
                 <option>Colorina · km 19</option>
-                <option>Sondrio · km 26</option>
+                <option disabled>Sondrio · km 26 · assegnata, non disponibile</option>
               </select>
             </div>
 
@@ -2125,8 +2257,8 @@ body.doc-open{overflow:hidden}
           <li><a href="#sponsor">Piani di adozione</a></li>
           <li><a href="#soci">I soci del capitolo</a></li>
           <li><a href="#patrocinio">Con il patrocinio di</a></li>
-          <li><a href="#evento">Evento 29.10.2026</a></li>
-          <li><a href="#iscrizione-evento">Partecipa al convegno</a></li>
+          <li><a href="#evento">Il debutto &middot; 29.10.2026</a></li>
+          <li><a href="#press">Press room</a></li>
         </ul>
       </div>
       <div>
@@ -2362,33 +2494,47 @@ body.doc-open{overflow:hidden}
   'use strict';
   var reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  /* ── 1. Countdown ───────────────────────────────────────────
-     ▸ SVILUPPATORE: una sola costante da aggiornare se cambia data/ora.
-     NB: il deck interno riporta "8 ottobre 2026"; qui è impostata la
-     data del master document (29 ottobre 2026, ore 19:00).            */
-  var EVENT_ISO = '2026-10-29T19:00:00+01:00';
-  var target = new Date(EVENT_ISO).getTime();
-  var cd = document.getElementById('countdown');
-  var f = {};
-  ['d','h','m','s'].forEach(function(k){ f[k] = cd.querySelector('[data-cd="'+k+'"]'); });
+  /* ── 1. Video ───────────────────────────────────────────────
+     Il player compare solo quando il file in assets/video/ esiste e
+     risponde; se manca (404) il riquadro continua a dire "in arrivo". */
+  Array.prototype.forEach.call(document.querySelectorAll('.vframe video'), function(v){
+    var box = v.parentNode;
+    function pronto(){ box.classList.add('has-video'); }
+    function manca(){ box.classList.remove('has-video'); }
+    v.addEventListener('loadedmetadata', pronto);
+    v.addEventListener('error', manca);
+    Array.prototype.forEach.call(v.querySelectorAll('source'), function(src){ src.addEventListener('error', manca); });
+    if (v.readyState >= 1) pronto();
+  });
 
-  function pad(n){ return n < 10 ? '0'+n : ''+n; }
-  function tick(){
-    var diff = target - Date.now();
-    if (diff <= 0){
-      cd.querySelector('h4').textContent = 'La rete è attiva';
-      ['d','h','m','s'].forEach(function(k){ f[k].textContent = '00'; });
-      clearInterval(timer);
-      return;
+  /* ── 1b. Rassegna stampa: frecce del carosello ──────────────
+     Lo scorrimento è nativo (scroll-snap); le frecce spostano di una
+     scheda e spariscono quando tutte le schede stanno nello schermo. */
+  (function(){
+    var track = document.getElementById('rassegna-track');
+    if (!track) return;
+    var btns = Array.prototype.slice.call(document.querySelectorAll('.rassegna-btn'));
+    function passo(){
+      var c = track.querySelector('.press-card');
+      var gap = parseFloat(getComputedStyle(track).columnGap) || 0;
+      return c ? c.getBoundingClientRect().width + gap : 320;
     }
-    var s = Math.floor(diff/1000);
-    f.d.textContent = Math.floor(s/86400);
-    f.h.textContent = pad(Math.floor(s/3600) % 24);
-    f.m.textContent = pad(Math.floor(s/60) % 60);
-    f.s.textContent = pad(s % 60);
-  }
-  tick();
-  var timer = setInterval(tick, 1000);
+    function stato(){
+      var max = track.scrollWidth - track.clientWidth - 1;
+      var tutto = track.scrollWidth <= track.clientWidth + 1;
+      btns.forEach(function(b){ b.hidden = tutto; });
+      btns[0].disabled = track.scrollLeft <= 0;
+      btns[1].disabled = track.scrollLeft >= max;
+    }
+    btns.forEach(function(b){
+      b.addEventListener('click', function(){
+        track.scrollBy({ left: passo() * parseInt(b.getAttribute('data-dir'), 10), behavior: reduce ? 'auto' : 'smooth' });
+      });
+    });
+    track.addEventListener('scroll', stato, { passive:true });
+    addEventListener('resize', stato);
+    stato();
+  })();
 
   /* ── 1b. Monitor cardiaco: spazzata luminosa lungo il tracciato ──
      La coda luminosa insegue il cursore. Il cursore parte 0,6 s avanti
@@ -2896,11 +3042,12 @@ body.doc-open{overflow:hidden}
 
   /* ── 2. Mappa schematica: i 5 nodi ─────────────────────────── */
   var NODI = [
-    {n:'Morbegno', km:0,  d:'Testa di tratta e sede dell’evento di presentazione. Qui viene posata la postazione pilota, con collaudo tecnico, verifica della fototrappola e registrazione in AREU.'},
+    {n:'Morbegno', km:0,  d:'Testa di tratta, dove il progetto ha debuttato il 29 ottobre 2026. Come ogni postazione: collaudo tecnico, verifica della fototrappola e registrazione in AREU.'},
     {n:'Talamona', km:6,  d:'Area ad alta frequentazione nei pressi degli impianti sportivi e delle aree di sosta: punto di passaggio quotidiano per runner e ciclisti.'},
     {n:'Ardenno',  km:12, d:'Nodo centrale della tratta. Presidio strategico nel punto più distante dai due capolinea, dove i tempi di soccorso sono più critici.'},
     {n:'Colorina', km:19, d:'Postazione a servizio delle aree di ristoro e degli accessi viari, con riferimenti chiari da comunicare alla centrale 118.'},
-    {n:'Sondrio',  km:26, d:'Chiusura della tratta in prossimità del capoluogo, dove la ciclopedonale registra la maggiore densità di utenti.'}
+    {n:'Sondrio',  km:26, d:'Chiusura della tratta in prossimità del capoluogo, dove la ciclopedonale registra la maggiore densità di utenti. È la prima postazione della rete: installata ad Albosaggia a ottobre 2026, slot sponsor assegnato.',
+      attiva:true, maps:'https://maps.app.goo.gl/5sCTVkrNe6RqWBBM6'}
   ];
   var g = document.getElementById('nodes');
   var elencoTappe = document.getElementById('rete-tappe');
@@ -2909,11 +3056,19 @@ body.doc-open{overflow:hidden}
   var corrente = NODI[0];
   var tappe = [];        /* i bottoni della versione verticale (mobile) */
 
+  var dAdopt = document.getElementById('d-adopt');
+  var dMaps  = document.getElementById('d-maps');
+  var dStato = document.getElementById('d-stato');
   function mostraNodo(nd){
     corrente = nd;
     document.getElementById('d-km').textContent = nd.km;
     document.getElementById('d-name').textContent = nd.n;
     document.getElementById('d-desc').textContent = nd.d;
+    /* postazione attiva: slot assegnato, niente adozione; al suo posto la posizione esatta */
+    dAdopt.hidden = !!nd.attiva;
+    dStato.hidden = !nd.attiva;
+    dMaps.hidden = !nd.maps;
+    if (nd.maps) dMaps.href = nd.maps;
     tappe.forEach(function(b){ b.setAttribute('aria-pressed', b.dataset.n === nd.n ? 'true' : 'false'); });
   }
 
@@ -2926,22 +3081,23 @@ body.doc-open{overflow:hidden}
     bt.dataset.n = nd.n;
     bt.setAttribute('aria-pressed', i === 0 ? 'true' : 'false');
     bt.innerHTML = '<span class="tappa-km mono">km ' + nd.km + '</span>' +
-                   '<span class="tappa-n">' + nd.n + '</span>';
+                   '<span class="tappa-n">' + nd.n + (nd.attiva ? ' <i class="tappa-attiva">attiva</i>' : '') + '</span>';
     li.appendChild(bt);
     elencoTappe.appendChild(li);
     tappe.push(bt);
 
     var el = document.createElementNS(SVGNS,'g');
-    el.setAttribute('class','node' + (i === 0 ? ' on' : ''));
+    el.setAttribute('class','node' + (i === 0 ? ' on' : '') + (nd.attiva ? ' attiva' : ''));
     el.setAttribute('tabindex','0');
     el.setAttribute('role','button');
-    el.setAttribute('aria-label', nd.n + ', km ' + nd.km);
+    el.setAttribute('aria-label', nd.n + ', km ' + nd.km + (nd.attiva ? ', postazione attiva' : ''));
     el.innerHTML =
       '<circle class="halo" cx="'+xs[i]+'" cy="96" r="11"/>' +
       '<circle class="core" cx="'+xs[i]+'" cy="96" r="8"/>' +
       '<circle class="hit"  cx="'+xs[i]+'" cy="96" r="34"/>' +
       '<text x="'+xs[i]+'" y="146">'+nd.n+'</text>' +
-      '<text x="'+xs[i]+'" y="166" style="font-size:10px;fill:#7d878f;letter-spacing:.1em">km '+nd.km+'</text>';
+      '<text x="'+xs[i]+'" y="166" style="font-size:10px;fill:#7d878f;letter-spacing:.1em">km '+nd.km+'</text>' +
+      (nd.attiva ? '<text x="'+xs[i]+'" y="184" style="font-size:9px;fill:#e11d2a;letter-spacing:.16em;font-weight:700">ATTIVA</text>' : '');
     /* le due viste — schema orizzontale e elenco verticale — puntano alla
        stessa scheda sotto: qualunque sia quella a schermo, si aggiornano
        entrambe e restano coerenti se si ruota il telefono */
@@ -2957,7 +3113,7 @@ body.doc-open{overflow:hidden}
     bt.addEventListener('click', select);
     g.appendChild(el);
   });
-  document.getElementById('d-desc').textContent = NODI[0].d;
+  mostraNodo(NODI[0]);
 
   /* dalla mappa al form: preseleziona la postazione scelta e ci porta sopra */
   function scegliOpzione(sel, testo){
@@ -3264,7 +3420,7 @@ body.doc-open{overflow:hidden}
     {n:'Talamona', km:6,  lat:46.1362, lon:9.6285},
     {n:'Ardenno',  km:12, lat:46.1571, lon:9.6742},
     {n:'Colorina', km:19, lat:46.1520, lon:9.7508},
-    {n:'Sondrio',  km:26, lat:46.1633, lon:9.8593}
+    {n:'Sondrio',  km:26, lat:46.1581, lon:9.8602, attiva:true, maps:'https://maps.app.goo.gl/5sCTVkrNe6RqWBBM6'}
   ];
   (function(){
     var palco = document.getElementById('geo-stage');
@@ -3352,7 +3508,9 @@ body.doc-open{overflow:hidden}
       var d = GEO_DAE[n];
       pin.forEach(function(b, m){ b.setAttribute('aria-pressed', m === n ? 'true' : 'false'); });
       scheda.innerHTML = '<span>km ' + d.km + '</span><b>' + d.n + '</b>' +
-        '<p>' + d.lat.toFixed(4) + '° N, ' + d.lon.toFixed(4) + '° E &mdash; posizione indicativa, in via di conferma.</p>';
+        '<p>' + d.lat.toFixed(4) + '° N, ' + d.lon.toFixed(4) + '° E &mdash; ' +
+        (d.attiva ? 'postazione attiva ad Albosaggia, posizione confermata. <a class="ln" href="' + d.maps + '" target="_blank" rel="noopener">Apri in Google Maps</a>'
+                  : 'posizione indicativa, in via di conferma.') + '</p>';
     }
 
     function accendi(){
@@ -3588,10 +3746,10 @@ body.doc-open{overflow:hidden}
 })();
 </script>
 <div class="lucernario" id="lucernario" role="dialog" aria-modal="true"
-     aria-label="Il totem ambientato sul sentiero" hidden>
+     aria-label="La prima postazione installata ad Albosaggia" hidden>
   <figure>
     <img id="lucernario-img" src="" alt="">
-    <figcaption>Il totem DAE ambientato sul Sentiero Valtellina &middot; fotoinserimento di studio</figcaption>
+    <figcaption>La prima postazione DAE della rete, installata ad Albosaggia sul Sentiero Valtellina &middot; ottobre 2026, con i soci del Capitolo BNI Valtellina</figcaption>
   </figure>
   <button class="chiudi" type="button" aria-label="Chiudi l'ingrandimento">&#215;</button>
 </div>
