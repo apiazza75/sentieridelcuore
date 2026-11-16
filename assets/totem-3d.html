@@ -30,7 +30,7 @@ try{
  const marker=/function enableStaticFallback\(\)\{[\s\S]*?\n\}\n\nasync function init/;
  if(!marker.test(updated))throw new Error('Versione del visualizzatore non compatibile.');
  updated=updated.replace(marker,`function enableStaticFallback(){
- const views={iso:['iso','Sponsor · vista diurna'],backiso:['backiso_sera','Retro · vista serale']};
+ const views={iso:['iso','Sostenitori · vista diurna'],backiso:['backiso_sera','Retro · vista serale']};
  const show=view=>{
   const [key,label]=views[view];
   $('fallback').src=STATIC_VIEWS[key];$('fallback').style.display='block';
@@ -40,14 +40,14 @@ try{
   document.querySelectorAll('[data-view]').forEach(b=>{const active=b.dataset.view===view;b.classList.toggle('active',active);b.setAttribute('aria-pressed',String(active));});
   window.__STATIC_VIEW__=key;
  };
- document.querySelectorAll('[data-view]').forEach(b=>{const v=b.dataset.view;b.disabled=!views[v];b.hidden=!views[v];if(views[v]){b.onclick=()=>show(v);b.textContent=v==='iso'?'Sponsor · giorno':'Retro · sera';}});
+ document.querySelectorAll('[data-view]').forEach(b=>{const v=b.dataset.view;b.disabled=!views[v];b.hidden=!views[v];if(views[v]){b.onclick=()=>show(v);b.textContent=v==='iso'?'Sostenitori · giorno':'Retro · sera';}});
  $('night').disabled=false;$('night').onchange=e=>show(e.target.checked?'backiso':'iso');
- const nightNote=$('night').closest('label');if(nightNote){const n=nightNote.querySelector('small');if(n)n.textContent='Anteprime: sponsor di giorno / retro di sera';}
+ const nightNote=$('night').closest('label');if(nightNote){const n=nightNote.querySelector('small');if(n)n.textContent='Anteprime: sostenitori di giorno / retro di sera';}
  $('panelToggle').disabled=false;$('panelToggle').onclick=()=>{const open=$('panel').classList.toggle('open');$('panelToggle').setAttribute('aria-expanded',String(open));};
  $('save').disabled=false;$('save').textContent='Apri anteprima';$('save').onclick=()=>window.open($('fallback').src,'_blank','noopener');
  document.querySelectorAll('[data-logo],#focusQR,#focusInstitutions').forEach(b=>{b.disabled=true;b.title='Disponibile nel modello ruotabile con WebGL 2';});
  document.querySelectorAll('.zooms,.stage-top,.toolbar>button').forEach(el=>el.style.display='none');
- const hint=document.querySelector('.hint');if(hint)hint.textContent='Anteprime v20: sponsor di giorno e retro di sera. Per la rotazione libera serve WebGL 2.';
+ const hint=document.querySelector('.hint');if(hint)hint.textContent='Anteprime v20: sostenitori di giorno e retro di sera. Per la rotazione libera serve WebGL 2.';
  $('status').textContent='WebGL 2 non disponibile: sono mostrate le anteprime aggiornate in rovere naturale e LED rosso rubino. La rotazione richiede l’accelerazione grafica.';
  window.__TOTEM_FALLBACK_REVISION__='v20-rovere-rosso-rubino';
  show('iso');

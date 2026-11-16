@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Sentiero Cardio-Protetto · Morbegno–Sondrio | BNI Valtellina</title>
-<meta name="description" content="26 km di ciclopedonale. 5 postazioni DAE accessibili H24. Defibrillazione entro 3-5 minuti. Il progetto di cardioprotezione del Sentiero Valtellina promosso dal Capitolo BNI Valtellina con Croce Rossa Italiana e AREU Lombardia.">
+<title>Sentiero Cardio-Protetto · Morbegno–Sondrio | Network Valtellina</title>
+<meta name="description" content="Sostieni con una donazione Sentieri del Cuore, il progetto di Network Valtellina per una rete di DAE sul Sentiero Valtellina. BNI Valtellina e le sue aziende sono i primi sostenitori.">
 <meta name="theme-color" content="#0b0f12">
 
 <link rel="canonical" href="https://sentieridelcuore.it/">
@@ -12,7 +12,7 @@
 <meta property="og:type" content="website">
 <meta property="og:locale" content="it_IT">
 <meta property="og:title" content="Sentiero Cardio-Protetto: il battito della Valtellina">
-<meta property="og:description" content="Una rete di 5 defibrillatori accessibili H24 lungo i 26 km della ciclopedonale Morbegno–Sondrio. Adotta 1 DAE.">
+<meta property="og:description" content="Una rete di 5 defibrillatori accessibili H24 lungo i 26 km della ciclopedonale Morbegno–Sondrio. Sostieni il progetto.">
 <meta property="og:image" content="https://sentieridelcuore.it/assets/og-cover-v2.jpg">
 <meta name="twitter:card" content="summary_large_image">
 
@@ -25,11 +25,12 @@
 @font-face{font-family:'Archivo';font-style:normal;font-weight:100 900;font-display:swap;src:url('assets/fonts/archivo.woff2') format('woff2')}
 @font-face{font-family:'Newsreader';font-style:normal;font-weight:200 500;font-display:swap;src:url('assets/fonts/newsreader.woff2') format('woff2')}
 .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+[hidden]{display:none!important}
 </style>
 <style>
 /* ══════════════════════════════════════════════════════════════
    SENTIERO CARDIO-PROTETTO — Morbegno / Sondrio
-   Capitolo BNI Valtellina · 10° Anniversario
+   Network Valtellina · Sentieri del Cuore
    Landing page one-page, self-contained (no build step).
    ══════════════════════════════════════════════════════════════ */
 
@@ -654,7 +655,7 @@ a.stat:hover::after,a.stat:focus-visible::after{opacity:.75; transform:none}
 .tier--silver{border-color:var(--ecg); box-shadow:0 22px 46px -30px rgba(11,15,18,.5)}
 .tier--gold{background:var(--ink); color:var(--paper); border-color:var(--ink)}
 .tier--gold h3{color:var(--oro)}
-.tier--gold li{color:#c4cdd4}
+.tier--gold li{color:#c4cdd4}.tier--gold .price-sub{color:#c4cdd4}
 .tag{
   position:absolute; top:-11px; right:22px; background:var(--ecg); color:#fff;
   font-size:.62rem; letter-spacing:.16em; text-transform:uppercase; font-weight:700;
@@ -1011,7 +1012,7 @@ a.patro-ente:hover .patro-name small::after,a.patro-ente:focus-visible .patro-na
 }
 .f textarea{resize:none; min-height:44px; overflow:hidden}
 
-/* livello di adozione come chip */
+/* modalità di sostegno come chip */
 .chips{display:flex; flex-wrap:wrap; gap:8px; margin-top:8px}
 .chips input{position:absolute; opacity:0; pointer-events:none}
 .chip{
@@ -1278,6 +1279,9 @@ body.doc-open{overflow:hidden}
 .sr{position:absolute; width:1px; height:1px; overflow:hidden; clip:rect(0 0 0 0); white-space:nowrap}
 .skip{position:absolute; left:-999px; top:8px; z-index:200; background:var(--ecg); color:#fff; padding:10px 18px; border-radius:var(--r)}
 .skip:focus{left:8px}
+.support-demo{margin-top:32px;border-top:1px solid #bac1c5;border-bottom:1px solid #bac1c5;padding:22px 0}
+.support-demo summary{cursor:pointer;font-weight:700;display:flex;justify-content:space-between;gap:20px}
+.demo-images{display:grid;gap:18px;margin-top:24px}.demo-images img{display:block;width:100%;height:auto}
 </style>
 </head>
 <body>
@@ -1302,7 +1306,7 @@ body.doc-open{overflow:hidden}
       <svg viewBox="0 0 60 24" aria-hidden="true"><path d="M0 15h9l3.5-1 2.5-7.5 3.5 14 3-9 2.5 3.5h7l3-1 2.5-6 3 10.5 2.5-7.5 2 4h16" fill="none" stroke="#e11d2a" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
       <span style="display:block">
         <b>Sentiero Cardio-Protetto</b>
-        <span>BNI Valtellina</span>
+        <span>Un progetto di Network Valtellina</span>
       </span>
     </a>
     <button class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="nav-menu" aria-label="Apri il menu">
@@ -1314,14 +1318,14 @@ body.doc-open{overflow:hidden}
       <li><a href="#rete">La rete</a></li>
       <li><a href="#postazione">Postazione</a></li>
       <li><a href="#modello">Modello</a></li>
-      <li><a href="#sponsor">Sponsor</a></li>
+      <li><a href="#sponsor">Sostieni</a></li>
       <li><a href="#roadmap">Roadmap</a></li>
-      <li><a href="#soci">I soci</a></li>
+      <li><a href="#soci">Sostenitori</a></li>
       <li><a href="#patrocinio">Patrocini</a></li>
       <li><a href="#evento">Il debutto</a></li>
-      <li class="solo-menu"><a href="#adotta">Adotta 1 DAE &rarr;</a></li>
+      <li class="solo-menu"><a href="#adotta">Sostieni il progetto &rarr;</a></li>
     </ul>
-    <a class="btn btn-primary btn-sm" href="#adotta" style="flex:none">Adotta 1 DAE</a>
+    <a class="btn btn-primary btn-sm" href="#adotta" style="flex:none">Sostieni il progetto</a>
   </div>
   <span class="progress" id="progress" aria-hidden="true"></span>
 </nav>
@@ -1351,23 +1355,23 @@ body.doc-open{overflow:hidden}
     <div class="hero-grid">
       <div>
         <h1 class="display">
-          <span class="l1">Capitolo BNI Valtellina · 10° Anniversario</span>
+          <span class="l1">Network Valtellina · Sentieri del Cuore</span>
           <span class="l2">Il battito<br>della <em>Valtellina</em></span>
         </h1>
         <p class="lead">
           Un arresto cardiaco concede <strong style="color:#fff;font-weight:600">cinque minuti</strong>.
           Sul sentiero, l&rsquo;ambulanza ne impiega di più. Per questo stiamo costruendo una rete di
           5 defibrillatori accessibili H24 lungo i 26 km tra Morbegno e Sondrio:
-          <strong style="color:#fff;font-weight:600">soccorso in 3&ndash;5 minuti, ovunque ti trovi</strong>.
+          <strong style="color:#fff;font-weight:600">più vicini alle persone, quando ogni minuto conta</strong>.
         </p>
         <div class="hero-cta">
-          <a class="btn btn-primary" href="#adotta">Adotta 1 DAE <span class="ar">&rarr;</span></a>
+          <a class="btn btn-primary" href="#adotta">Sostieni il progetto <span class="ar">&rarr;</span></a>
           <a class="btn btn-ghost" href="#rete">Vedi la rete</a>
           <a class="btn btn-ghost" href="#video">Guarda i video</a>
         </div>
         <p class="hero-note">
           <span class="dot-live" aria-hidden="true"></span>
-          <b id="slot-note">5 postazioni · la prima &egrave; attiva · 4 slot sponsor in assegnazione</b>
+          <b id="slot-note">5 postazioni · la prima è attiva · sostieni i prossimi passi</b>
           <span>&mdash; progetto presentato a Morbegno il 29 ottobre 2026</span>
         </p>
       </div>
@@ -1379,7 +1383,7 @@ body.doc-open{overflow:hidden}
         <p class="count-foot">
           <b>Il progetto si &egrave; presentato al territorio</b>
           nel giorno del decimo anniversario del Capitolo: presentazione in teatro,
-          consegna delle targhe agli sponsor, serata conviviale nel chiostro.
+          consegna delle targhe ai sostenitori, serata conviviale nel chiostro.
         </p>
         <a class="count-link" href="#press"><span class="dot-live" aria-hidden="true"></span>Press room: la rassegna stampa</a>
       </div>
@@ -1395,7 +1399,7 @@ body.doc-open{overflow:hidden}
       <a class="stat" href="#rete"><b class="mono" data-cnt="5">0</b><span>Postazioni DAE</span></a>
       <a class="stat" href="#perche"><b>3&ndash;5</b><span>Minuti al defibrillatore</span></a>
       <a class="stat" href="#postazione"><b>H24</b><span>Accesso libero, 365 giorni</span></a>
-      <a class="stat" href="#costi"><b>0 %</b><span>Margine sui fondi raccolti</span></a>
+      <a class="stat" href="#costi"><b>Insieme</b><span>Realizzazione e cura nel tempo</span></a>
     </div>
   </div>
 </section>
@@ -1453,10 +1457,11 @@ body.doc-open{overflow:hidden}
           un soccorso, i minuti diventano chilometri.
         </p>
         <p>
-          Il Capitolo BNI Valtellina, in occasione dei suoi <strong>10 anni dalla fondazione</strong>, ha scelto
-          di lasciare al territorio un&rsquo;infrastruttura permanente anziché una celebrazione. La prima tratta
-          coperta è quella <strong>Morbegno&ndash;Sondrio</strong>: 26 km, cinque nodi ad alta frequentazione,
-          una rete di defibrillatori semiautomatici sempre accessibili.
+          <strong>Network Valtellina</strong> promuove il progetto Sentieri del Cuore per lasciare al territorio
+          un&rsquo;infrastruttura che duri. L&rsquo;idea nasce dal <strong>decimo anniversario di BNI Valtellina</strong>:
+          il Capitolo e le sue aziende sono i primi sostenitori del progetto e della prima postazione.
+          Il primo obiettivo è la tratta <strong>Morbegno&ndash;Sondrio</strong>: 26 km e cinque nodi ad alta frequentazione,
+          da collegare in una rete di defibrillatori accessibili H24.
         </p>
         <p style="margin-bottom:0">
           Ogni postazione è registrata in <strong>AREU Lombardia</strong>: il DAE è geolocalizzato sulla mappa
@@ -1526,8 +1531,8 @@ body.doc-open{overflow:hidden}
           <h3 id="d-name">Morbegno</h3>
           <p id="d-desc">Testa di tratta: qui il progetto ha debuttato il 29 ottobre 2026. Postazione pilota del progetto.</p>
           <div class="map-actions">
-            <button class="btn btn-primary btn-sm" type="button" id="d-adopt">Adotta questa postazione <span class="ar">&rarr;</span></button>
-            <span class="btn btn-sm d-stato" id="d-stato" hidden><span class="dot-live" aria-hidden="true"></span>Postazione attiva &middot; slot assegnato</span>
+            <button class="btn btn-primary btn-sm" type="button" id="d-adopt">Sostieni questa postazione <span class="ar">&rarr;</span></button>
+            <span class="btn btn-sm d-stato" id="d-stato" hidden><span class="dot-live" aria-hidden="true"></span>Postazione attiva · primi sostenitori BNI</span>
             <a class="btn btn-ghost btn-sm" id="d-maps" href="https://maps.app.goo.gl/5sCTVkrNe6RqWBBM6" target="_blank" rel="noopener" hidden>Apri in Google Maps <span class="ar" aria-hidden="true">&nearr;</span></a>
             <a class="btn btn-ghost btn-sm" href="#postazione">Com&rsquo;è fatta</a>
           </div>
@@ -1613,9 +1618,9 @@ body.doc-open{overflow:hidden}
           <span class="totem-mini-tag">La prima postazione &middot; ingrandisci</span>
         </button>
         <span class="totem-dida">
-          <span>Totem DAE · modello di studio</span>
+          <span>Prima postazione · modello di studio</span>
           <em>Trascina per ruotare · rotella o pizzico per lo zoom · <b>Componenti</b> per isolare i materiali.
-          Qui accanto, <b>la prima postazione installata</b> ad Albosaggia, con i soci del Capitolo.</em>
+          Qui accanto, <b>la prima postazione installata</b> ad Albosaggia, sostenuta da BNI Valtellina. Le nuove targhe sono illustrate nella sezione <a href="#sponsor">Sostegno e targhe</a>.</em>
         </span>
       </figcaption>
     </figure>
@@ -1677,9 +1682,9 @@ body.doc-open{overflow:hidden}
     <div class="notice reveal">
       <h3>Responsabilità e gestione tecnica</h3>
       <p>La gestione tecnica, la manutenzione e il monitoraggio delle postazioni sono di competenza
-      <strong>esclusiva della Croce Rossa Italiana</strong>. BNI Valtellina, il Capitolo e le aziende
-      sponsor sono pertanto esonerati da ogni responsabilità in caso di malfunzionamento, manomissione
-      o danneggiamento delle colonnine e delle apparecchiature installate.</p>
+      della <strong>Croce Rossa Italiana, secondo gli accordi del progetto</strong>.
+      Network Valtellina coordina l&rsquo;iniziativa e raccoglie il sostegno del territorio.
+      Il contributo delle aziende finanzia il progetto; non attribuisce ai sostenitori compiti di gestione tecnica.</p>
     </div>
   </div>
 </section>
@@ -1687,178 +1692,91 @@ body.doc-open{overflow:hidden}
 <!-- ═══════════════ MARGINE ZERO ═══════════════ -->
 <section id="costi" class="dark" style="background:var(--ink-2)">
   <div class="wrap">
-    <div class="reveal">
-      <p class="eyebrow">Come funziona l&rsquo;adozione</p>
-      <h2 class="t" style="max-width:16ch">La quota costruisce.<br>Il canone custodisce.</h2>
-      <p class="lead" style="color:#b9c3cb">
-        La <strong style="color:#fff;font-weight:600">quota alla firma</strong> copre per intero la
-        costruzione della postazione: colonnina, defibrillatore e teca riscaldata. Il
-        <strong style="color:#fff;font-weight:600">canone annuo</strong> paga soltanto i servizi di
-        Croce Rossa &mdash; telecontrollo, verifiche e manutenzione. Filiera interna del Capitolo,
-        senza agenzie n&eacute; intermediari.
-      </p>
+    <div class="reveal"><p class="eyebrow">Dove arriva il tuo contributo</p>
+      <h2 class="t">Un gesto oggi.<br>Una presenza nel tempo.</h2>
+      <p class="lead" style="color:#b9c3cb">Le donazioni sostengono la realizzazione delle postazioni e la loro cura:
+        dal defibrillatore alle verifiche periodiche. Il valore del progetto è esserci, anche negli anni a venire.</p>
     </div>
-
-    <div class="eq reveal" data-d="1">
-      <div class="eq-item adott">
-        <small>Bronze</small><b class="mono">2 anni</b>
-        <span>€&nbsp;2.600 alla firma, in un unico versamento &mdash; nessun canone. Postazione condivisa fra 4 aziende.</span>
-      </div>
-      <div class="eq-item adott">
-        <small>Silver</small><b class="mono">4 anni</b>
-        <span>€&nbsp;3.250 alla firma + €&nbsp;85 l&rsquo;anno di servizi. Postazione condivisa fra 3 aziende.</span>
-      </div>
-      <div class="eq-item adott">
-        <small>Gold</small><b class="mono">8 anni</b>
-        <span>€&nbsp;10.250 alla firma + €&nbsp;320 l&rsquo;anno di servizi. La postazione è solo tua, con la colonnina interamente brandizzata.</span>
-      </div>
-      <div class="eq-item res">
-        <b class="mono">+1</b>
-        <span>La quota si versa una volta sola: chi prosegue paga solo il canone. Chi subentra a una postazione già costruita, con la sua quota ne finanzia una nuova. Ogni adesione fa crescere la rete.</span>
-      </div>
+    <div class="cards-3">
+      <div class="pillar reveal"><h3>Realizzare</h3><p>Colonnina, DAE, teca protettiva e posa: il contributo diventa un presidio concreto sul sentiero.</p></div>
+      <div class="pillar reveal" data-d="1"><h3>Prendersene cura</h3><p>Monitoraggio, manutenzione e consumabili: sostenere il progetto significa contribuire anche alla continuità del servizio.</p></div>
+      <div class="pillar reveal" data-d="2"><h3>Far crescere la rete</h3><p>Le risorse raccolte permettono di procedere con nuove postazioni. L&rsquo;ambizione è coprire tutto il sentiero, con la forza del territorio.</p></div>
     </div>
   </div>
 </section>
 
 <!-- ═══════════════ ALLE IMPRESE ═══════════════ -->
 <section id="imprese" class="dark">
-  <div class="topo" aria-hidden="true"></div>
-  <div class="wrap">
-    <div class="split" style="align-items:end; margin-bottom:clamp(36px,5vw,58px)">
-      <div class="reveal">
-        <p class="eyebrow">Alle imprese del territorio</p>
-        <h2 class="t">Perché la tua<br>impresa dovrebbe<br>esserci.</h2>
-      </div>
-      <p class="lead reveal" data-d="1" style="margin-bottom:0">
-        Non una sponsorizzazione che dura una campagna: un presidio salvavita che porta il nome
-        della tua azienda per <strong style="color:#fff;font-weight:600">tutti gli anni dell&rsquo;adozione</strong>,
-        nel punto in cui il territorio passa ogni giorno.
-      </p>
+  <div class="topo" aria-hidden="true"></div><div class="wrap">
+    <div class="split" style="align-items:end;margin-bottom:clamp(36px,5vw,58px)">
+      <div class="reveal"><p class="eyebrow">Alle imprese del territorio</p><h2 class="t">Il territorio<br>ti dà tanto.<br>Lascia un segno.</h2></div>
+      <p class="lead reveal" data-d="1">Qui vivono le persone che lavorano con te, i tuoi clienti e le loro famiglie.
+        Sostenere Sentieri del Cuore significa prendersi cura del luogo che ogni giorno dà forza alla tua impresa.</p>
     </div>
-
     <div class="feat">
-      <div class="reveal">
-        <h3>Visibilità che non scade</h3>
-        <p>Una <strong>targa dedicata</strong> sul percorso più frequentato della provincia:
-        <strong>migliaia di passaggi a settimana</strong>, dodici mesi l&rsquo;anno, per tutta la durata
-        dell&rsquo;adozione. Una pagina pubblicitaria dura un giorno.</p>
-      </div>
-      <div class="reveal" data-d="1">
-        <h3>Ogni euro si vede</h3>
-        <p>Filiera interna del Capitolo: <strong>niente agenzie, niente intermediari</strong>.
-        La tua quota diventa colonnina, DAE e manutenzione &mdash; e le adesioni successive
-        <strong>costruiscono nuove postazioni</strong>. Un caso concreto per il tuo
-        <strong>bilancio sociale</strong>.</p>
-      </div>
-      <div class="reveal" data-d="2">
-        <h3>Sicurezza per chi ti sta a cuore</h3>
-        <p><strong>Dipendenti, clienti e le loro famiglie</strong> vivono il sentiero ogni settimana:
-        il DAE che adotti protegge prima di tutto le tue persone. E con il piano Gold la
-        <strong>colonnina porta interamente la tua immagine</strong>.</p>
-      </div>
-      <div class="reveal" data-d="3">
-        <h3>Partner che danno garanzie</h3>
-        <p>Al tuo fianco <strong>Croce Rossa Italiana, Comunità Montana e AREU 118</strong>, insieme
-        alle <strong>28 imprese del Capitolo</strong>: ruoli scritti, responsabilità chiare, un
-        progetto già in cammino.</p>
-      </div>
+      <div class="reveal"><h3>Un bene di tutti</h3><p>La postazione resta a disposizione di chiunque percorra il sentiero. Un contributo privato diventa un servizio per la comunità.</p></div>
+      <div class="reveal" data-d="1"><h3>Una responsabilità condivisa</h3><p>Puoi contribuire come singola azienda o insieme ad altre realtà. Anche le persone possono sostenere il progetto con una donazione.</p></div>
+      <div class="reveal" data-d="2"><h3>Un ringraziamento riconoscibile</h3><p>Una targa riporta i nomi e i loghi di chi ha contribuito alla postazione, in uno spazio definito e uguale per tutti.</p></div>
+      <div class="reveal" data-d="3"><h3>Competenze che si incontrano</h3><p>Network Valtellina coordina persone, imprese e professionisti, con Croce Rossa e gli enti del territorio per gli aspetti tecnici e istituzionali.</p></div>
     </div>
-
-    <div class="cta-row reveal">
-      <a class="btn btn-primary" href="#adotta">Adotta 1 DAE <span class="ar">&rarr;</span></a>
-      <a class="btn btn-ghost" href="#sponsor">Confronta i piani</a>
-      <a class="btn btn-ghost" href="#modello">Chi c&rsquo;è dietro</a>
-    </div>
+    <div class="cta-row reveal"><a class="btn btn-primary" href="#adotta">Voglio contribuire <span class="ar">&rarr;</span></a><a class="btn btn-ghost" href="#sponsor">Come viene riconosciuto il sostegno</a></div>
   </div>
 </section>
 
 <!-- ═══════════════ SPONSOR ═══════════════ -->
 <section id="sponsor">
-  <div class="topo" aria-hidden="true"></div>
-  <div class="wrap">
+  <div class="topo" aria-hidden="true"></div><div class="wrap">
     <div class="split" style="align-items:end">
-      <div class="reveal">
-        <p class="eyebrow">Adotta 1 DAE</p>
-        <h2 class="t">Diventa<br>protagonista.</h2>
+      <div class="reveal"><p class="eyebrow">Tipi di sostegno · Sentieri del Cuore</p><h2 class="t">Il tuo contributo.<br>Il nostro grazie.</h2></div>
+      <p class="lead reveal" data-d="1">Raccogliamo <strong>donazioni per il progetto</strong>.
+        La targa sulla postazione è un riconoscimento del contributo ricevuto: non è uno spazio pubblicitario in vendita
+        e non prevede prestazioni promozionali in cambio della donazione.</p>
+    </div>
+    <div class="tiers" aria-label="Tipi di sostegno">
+      <article class="tier tier--bronze reveal"><span class="accent" aria-hidden="true"></span><h3>Bronze</h3><div class="price mono">€ 2.600</div><div class="price-sub">Donazione iniziale per azienda · nessun contributo annuo</div><ul><li class="inh">Orizzonte di sostegno: 2 anni</li><li>Postazione sostenuta insieme da 4 aziende</li><li>Realizzazione, DAE, posa e cura della postazione</li><li>Ringraziamento nella griglia comune dei sostenitori</li></ul><a class="btn btn-ghost" href="#adotta" data-tier="Bronze">Sostieni con Bronze</a></article>
+      <article class="tier tier--silver reveal" data-d="1"><span class="accent" aria-hidden="true"></span><h3>Silver</h3><div class="price mono">€ 3.250</div><div class="price-sub">Donazione iniziale per azienda + € 85 annui per la gestione</div><ul><li class="inh">Orizzonte di sostegno: 4 anni</li><li>Postazione sostenuta insieme da 3 aziende</li><li>Realizzazione, DAE, posa e cura della postazione</li><li>Ringraziamento nella griglia comune dei sostenitori</li></ul><a class="btn btn-primary" href="#adotta" data-tier="Silver">Sostieni con Silver <span class="ar">&rarr;</span></a></article>
+      <article class="tier tier--gold reveal" data-d="2"><span class="accent" aria-hidden="true"></span><h3>Gold</h3><div class="price mono">€ 10.250</div><div class="price-sub">Donazione iniziale + € 320 annui per la gestione</div><ul><li class="inh">Orizzonte di sostegno: 8 anni</li><li>Una azienda sostiene la postazione</li><li>Realizzazione, DAE, posa e cura della postazione</li><li>Logo e nome nella stessa area di ringraziamento prevista per tutti</li></ul><a class="btn btn-ghost" href="#adotta" data-tier="Gold">Sostieni con Gold</a></article>
+    </div>
+    <p class="reveal" style="margin-top:24px;font-size:.9rem">Gli importi sostengono la realizzazione e la continuità del progetto.
+      I contributi annui sono destinati a monitoraggio, verifiche e manutenzione. Il modulo è una richiesta di informazioni:
+      modalità di versamento e destinazione del sostegno vengono condivise con la segreteria.</p>
+    <div class="table-scroll reveal"><table><caption>Tipi di sostegno · confronto economico per azienda</caption><thead><tr><th scope="col">Formula</th><th scope="col">Bronze</th><th scope="col">Silver</th><th scope="col">Gold</th></tr></thead><tbody>
+      <tr><th scope="row">Donazione iniziale</th><td data-l="Bronze">€ 2.600</td><td data-l="Silver">€ 3.250</td><td data-l="Gold">€ 10.250</td></tr>
+      <tr><th scope="row">Contributo annuo per la gestione</th><td data-l="Bronze">Nessuno</td><td data-l="Silver">€ 85</td><td data-l="Gold">€ 320</td></tr>
+      <tr><th scope="row">Orizzonte di sostegno</th><td data-l="Bronze">2 anni</td><td data-l="Silver">4 anni</td><td data-l="Gold">8 anni</td></tr>
+      <tr><th scope="row">Aziende che sostengono la postazione</th><td data-l="Bronze">4</td><td data-l="Silver">3</td><td data-l="Gold">1</td></tr>
+      <tr><th scope="row">Riconoscimento del contributo</th><td data-l="Bronze">Targa condivisa</td><td data-l="Silver">Targa condivisa</td><td data-l="Gold">Targa con un logo</td></tr>
+    </tbody></table></div>
+    <div class="reveal" style="margin:54px 0 30px"><p class="eyebrow">Partecipare alla vita del progetto</p><h3 style="font-size:clamp(1.7rem,3vw,2.4rem)">Un sostegno che crea relazioni.</h3>
+      <p>Per tutte le formule, le stesse occasioni per conoscere il progetto e le persone che lo rendono possibile.</p></div>
+    <div class="feat">
+      <div class="reveal"><h3>Incontri dell&rsquo;associazione</h3><p>Inviti ai momenti promossi da Network Valtellina per presentare il progetto, raccontarne gli sviluppi e incontrare la comunità.</p></div>
+      <div class="reveal" data-d="1"><h3>Il grazie sul sito</h3><p>Nome e logo nell&rsquo;elenco dei sostenitori, con l&rsquo;autorizzazione dell&rsquo;azienda, per riconoscere chi contribuisce al bene comune.</p></div>
+      <div class="reveal" data-d="2"><h3>I risultati, condivisi</h3><p>Aggiornamenti sulle postazioni realizzate e sull&rsquo;impiego dei contributi: raccontare l&rsquo;impatto è parte della cura del progetto.</p></div>
+      <div class="reveal" data-d="3"><h3>La comunità sul sentiero</h3><p>Momenti di presentazione delle nuove postazioni e iniziative di divulgazione della cardioprotezione, insieme alle persone e agli enti coinvolti.</p></div>
+    </div>
+    <p class="reveal" style="margin-top:24px;font-size:.88rem">Inviti e ringraziamenti accompagnano la vita del progetto;
+      non costituiscono prestazioni pubblicitarie acquistabili e non sono graduati in base alla donazione.</p>
+    <div class="reveal" style="margin-top:54px"><p class="eyebrow">La targa del sostenitore</p><h3 style="font-size:clamp(1.7rem,3vw,2.4rem)">Stesso spazio. Un grazie a ciascuno.</h3></div>
+    <div class="cards-3" style="margin-top:40px">
+      <article class="card reveal"><span class="num">01</span><h3>Una azienda</h3><p>Un logo nello spazio riservato. Sotto, la dicitura “Postazione DAE realizzata con il contributo di:” e il nome dell&rsquo;azienda.</p><a class="ln" href="#adotta">Sostieni come azienda &rarr;</a></article>
+      <article class="card reveal" data-d="1"><span class="num">02</span><h3>Due aziende</h3><p>Un lato per ciascuna azienda. Posizione, dimensione del riquadro e formula di ringraziamento rimangono identiche.</p><a class="ln" href="#adotta">Contribuisci insieme &rarr;</a></article>
+      <article class="card reveal" data-d="2"><span class="num">03–04</span><h3>Più aziende</h3><p>Fino a quattro loghi in una griglia fissa, nello stesso spazio su ciascun lato. Sotto, la frase comune con i nomi delle aziende sostenitrici.</p><a class="ln" href="#adotta">Parliamone &rarr;</a></article>
+    </div>
+    <div class="notice reveal" style="margin-top:36px;color:var(--ink)">
+      <h3>Un&rsquo;identità comune, su ogni postazione</h3>
+      <p>In basso rimangono i marchi di <strong>Croce Rossa Italiana, della Comunità Montana di riferimento e di Network Valtellina</strong>.
+        Cambia solo l&rsquo;area di ringraziamento ai sostenitori. Il QR, se presente, rimanda al progetto.</p>
+    </div>
+    <details class="support-demo reveal"><summary>Guarda gli schemi dimostrativi delle targhe <span aria-hidden="true">+</span></summary>
+      <div class="demo-images">
+        <a href="assets/targhe/01-una-azienda.png" target="_blank" rel="noopener"><img src="assets/targhe/01-una-azienda.png" alt="Demo: una azienda, stesso logo su entrambi i lati e dettaglio della targa" loading="lazy"></a>
+        <a href="assets/targhe/02-due-aziende.png" target="_blank" rel="noopener"><img src="assets/targhe/02-due-aziende.png" alt="Demo: due aziende, un lato per ciascuna" loading="lazy"></a>
+        <a href="assets/targhe/03-quattro-aziende.png" target="_blank" rel="noopener"><img src="assets/targhe/03-quattro-aziende.png" alt="Demo: quattro aziende, griglia di quattro loghi nella stessa posizione su entrambi i lati" loading="lazy"></a>
       </div>
-      <p class="lead reveal" data-d="1" style="margin-bottom:0">
-        Cinque postazioni, tre modi di adottarle. Ogni adozione è tutto compreso &mdash; DAE,
-        colonnina, posa, energia, monitoraggio e manutenzione &mdash; e i benefici sono
-        <strong>identici per tutti</strong>: cambiano solo durata e condivisione. Chi subentra a
-        una postazione già costruita, con la sua quota <strong>ne finanzia una nuova</strong>.
-      </p>
-    </div>
-
-    <div class="tiers">
-      <article class="tier tier--bronze reveal">
-        <span class="accent" aria-hidden="true"></span>
-        <h3>Bronze</h3>
-        <div class="price mono">€ 2.600</div>
-        <div class="price-sub">un unico versamento alla firma &middot; nessun canone</div>
-        <ul>
-          <li class="inh">La postazione è tua per 2 anni</li>
-          <li>Condivisa con altre 3 aziende del territorio</li>
-          <li>Tutto compreso: DAE, colonnina, posa, energia e manutenzione</li>
-          <li>Targa personalizzata, mappa ed elenco sponsor</li>
-        </ul>
-        <a class="btn btn-ghost" href="#adotta" data-tier="Bronze">Scegli Bronze</a>
-      </article>
-
-      <article class="tier tier--silver reveal" data-d="1">
-        <span class="accent" aria-hidden="true"></span>
-        <span class="tag">Più scelto</span>
-        <h3>Silver</h3>
-        <div class="price mono">€ 3.250</div>
-        <div class="price-sub">alla firma + € 85 l&rsquo;anno di servizi</div>
-        <ul>
-          <li class="inh">La postazione è tua per 4 anni</li>
-          <li>Condivisa con altre 2 aziende del territorio</li>
-          <li>Tutto compreso: DAE, colonnina, posa, energia e manutenzione</li>
-          <li>Targa personalizzata, mappa ed elenco sponsor</li>
-        </ul>
-        <a class="btn btn-primary" href="#adotta" data-tier="Silver">Scegli Silver <span class="ar">&rarr;</span></a>
-      </article>
-
-      <article class="tier tier--gold reveal" data-d="2">
-        <span class="accent" aria-hidden="true"></span>
-        <h3>Gold</h3>
-        <div class="price mono">€ 10.250</div>
-        <div class="price-sub">alla firma + € 320 l&rsquo;anno di servizi</div>
-        <ul>
-          <li class="inh">La postazione è solo tua, per 8 anni</li>
-          <li><strong>Brandizzazione totale della colonnina</strong>, personalizzazione custom inclusa</li>
-          <li>Tutto compreso: DAE, colonnina, posa, energia e manutenzione</li>
-          <li>Targa personalizzata, mappa ed elenco sponsor</li>
-        </ul>
-        <a class="btn btn-ghost" href="#adotta" data-tier="Gold">Scegli Gold</a>
-      </article>
-    </div>
-
-    <!-- Tabella comparativa -->
-    <div class="table-scroll reveal">
-      <table role="table">
-        <caption>Confronto dei livelli di adozione</caption>
-        <thead role="rowgroup">
-          <tr role="row">
-            <th role="columnheader" scope="col">Cosa comprende</th>
-            <th role="columnheader" scope="col">Bronze · 2 anni</th>
-            <th role="columnheader" scope="col">Silver · 4 anni</th>
-            <th role="columnheader" scope="col">Gold · 8 anni</th>
-          </tr>
-        </thead>
-        <tbody role="rowgroup">
-          <tr role="row"><th role="rowheader" scope="row">Aziende per postazione</th><td role="cell" data-l="Bronze"><b>4</b></td><td role="cell" data-l="Silver"><b>3</b></td><td role="cell" data-l="Gold"><b>1 &mdash; solo la tua</b></td></tr>
-          <tr role="row"><th role="rowheader" scope="row">Alla firma</th><td role="cell" data-l="Bronze">€ 2.600</td><td role="cell" data-l="Silver">€ 3.250</td><td role="cell" data-l="Gold">€ 10.250</td></tr>
-          <tr role="row"><th role="rowheader" scope="row">Canone annuo di servizi</th><td role="cell" data-l="Bronze">nessuno</td><td role="cell" data-l="Silver">€ 85</td><td role="cell" data-l="Gold">€ 320</td></tr>
-          <tr role="row"><th role="rowheader" scope="row">DAE, colonnina, posa, energia e manutenzione inclusi</th><td role="cell" data-l="Bronze" class="y">✓</td><td role="cell" data-l="Silver" class="y">✓</td><td role="cell" data-l="Gold" class="y">✓</td></tr>
-          <tr role="row"><th role="rowheader" scope="row">Targa personalizzata sulla postazione</th><td role="cell" data-l="Bronze" class="y">✓</td><td role="cell" data-l="Silver" class="y">✓</td><td role="cell" data-l="Gold" class="y">✓</td></tr>
-          <tr role="row"><th role="rowheader" scope="row">Inserimento in mappa ed elenco sponsor</th><td role="cell" data-l="Bronze" class="y">✓</td><td role="cell" data-l="Silver" class="y">✓</td><td role="cell" data-l="Gold" class="y">✓</td></tr>
-          <tr role="row"><th role="rowheader" scope="row">Registrazione AREU 118 e telecontrollo</th><td role="cell" data-l="Bronze" class="y">✓</td><td role="cell" data-l="Silver" class="y">✓</td><td role="cell" data-l="Gold" class="y">✓</td></tr>
-          <tr role="row"><th role="rowheader" scope="row">Brandizzazione totale della colonnina</th><td role="cell" data-l="Bronze" class="n">—</td><td role="cell" data-l="Silver" class="n">—</td><td role="cell" data-l="Gold" class="y">✓</td></tr>
-          <tr role="row"><th role="rowheader" scope="row">Rinnovo alla scadenza pagando solo i servizi</th><td role="cell" data-l="Bronze" class="y">✓</td><td role="cell" data-l="Silver" class="y">✓</td><td role="cell" data-l="Gold" class="y">✓</td></tr>
-        </tbody>
-      </table>
-    </div>
+      <p>Loghi e nomi sono segnaposto dimostrativi. <a class="ln" href="assets/targhe/Targhe-sostenitori-Network-Valtellina.pdf" target="_blank" rel="noopener">Scarica le tavole in PDF &nearr;</a></p>
+    </details>
+    <p style="margin-top:32px">Vuoi contribuire come persona? <a class="ln" href="#adotta" data-tier="Donazione personale">Ogni sostegno conta: contattaci</a>.</p>
   </div>
 </section>
 
@@ -1883,7 +1801,7 @@ body.doc-open{overflow:hidden}
         <div class="step done reveal" data-d="1">
           <time datetime="2026-04">Aprile 2026</time>
           <h3>Accordi e definizione</h3>
-          <p><strong>Accordi con gli enti</strong>, assegnazione dei <strong>5 slot sponsor</strong>
+          <p><strong>Accordi con gli enti</strong>, individuazione delle <strong>postazioni da sostenere</strong>
           e definizione tecnica del progetto con i partner.</p>
           <a class="step-link" href="#modello">Chi fa che cosa</a>
         </div>
@@ -1891,7 +1809,7 @@ body.doc-open{overflow:hidden}
           <time datetime="2026-10-29">Ottobre 2026</time>
           <h3>Il debutto</h3>
           <p>Il <strong>29 ottobre a Morbegno</strong> il progetto si &egrave; presentato al territorio,
-          con la consegna delle targhe alle aziende sponsor.</p>
+          con la consegna delle targhe alle aziende sostenitrici.</p>
           <a class="step-link" href="#evento">Com&rsquo;&egrave; andata</a>
         </div>
         <div class="step done reveal" data-d="3">
@@ -1945,13 +1863,13 @@ body.doc-open{overflow:hidden}
   <div class="wrap">
     <div class="split" style="align-items:end; margin-bottom:clamp(30px,4vw,48px)">
       <div class="reveal">
-        <p class="eyebrow">Il capitolo</p>
-        <h2 class="t">28 imprese.<br>Una filiera.</h2>
+        <p class="eyebrow">Chi ha creduto per primo nel progetto</p>
+        <h2 class="t">Le prime imprese.<br>Il primo passo.</h2>
       </div>
       <p class="lead reveal" data-d="1" style="margin-bottom:0">
-        Progettazione, permessi, costruzione, posa, governance e sicurezza: ogni anello
-        della catena è un socio del Capitolo. È questo che rende possibile un presidio
-        salvavita <strong style="color:#fff;font-weight:600">senza agenzie né intermediari</strong>.
+        <strong style="color:#fff;font-weight:600">BNI Valtellina e le sue aziende</strong> sono i primi sostenitori
+        di Sentieri del Cuore e della prima colonnina, installata ad Albosaggia.
+        Da questo primo gesto nasce una rete aperta al contributo di tutto il territorio.
         <span class="soci-legenda"><i aria-hidden="true"></i> nella filiera del progetto</span>
       </p>
     </div>
@@ -1967,7 +1885,7 @@ body.doc-open{overflow:hidden}
 
   <div class="wrap" style="margin-top:clamp(28px,4vw,42px)">
     <p class="soci-nota reveal">
-      Elenco dei soci del Capitolo BNI Valtellina aggiornato a luglio 2026.
+      Le imprese del Capitolo BNI Valtellina che hanno accompagnato l&rsquo;avvio del progetto.
       <a href="https://bni-lombardianord.it/26-lombardia-nord-bni-valtellina/it/memberlist" target="_blank" rel="noopener">Scheda ufficiale del capitolo &nearr;</a>
     </p>
   </div>
@@ -2027,7 +1945,7 @@ body.doc-open{overflow:hidden}
       <h2 class="t">29 ottobre 2026<br>Morbegno.</h2>
       <p class="lead">
         La rete &egrave; stata presentata al territorio nel giorno del decimo anniversario del Capitolo:
-        presentazione in teatro, consegna delle targhe agli sponsor, serata conviviale nel chiostro.
+        presentazione in teatro, consegna delle targhe ai sostenitori, serata conviviale nel chiostro.
         Da qui il progetto passa dalle parole al sentiero.
       </p>
       <a class="step-link" href="#press">Leggi la rassegna stampa</a>
@@ -2130,27 +2048,27 @@ body.doc-open{overflow:hidden}
         <p class="eyebrow" style="color:#fff">L&rsquo;impatto inizia ora</p>
         <h2 class="t" style="color:#fff">Un gesto concreto oggi.<br>Una vita salvata<br>domani.</h2>
         <p class="lead" style="color:rgba(255,255,255,.92)">
-          Solo cinque slot sulla tratta Morbegno&ndash;Sondrio. Ogni slot è geografico:
-          l&rsquo;azienda è associata alla sua colonnina per <strong style="color:#fff">tutto il periodo dell&rsquo;adozione</strong>.
+          Una donazione può aiutare a realizzare una nuova postazione o a prenderci cura di quelle esistenti.
+          Raccontaci come desideri contribuire: <strong style="color:#fff">il progetto cresce insieme alle persone che lo sostengono</strong>.
         </p>
         <ol style="list-style:none;padding:0;margin:clamp(24px,3vw,34px) 0 0;color:#fff">
           <li style="display:flex;gap:16px;margin-bottom:18px"><b class="display" style="font-size:1.5rem;opacity:.55">1</b><span>Compila la richiesta o contatta direttamente la segreteria del progetto.</span></li>
-          <li style="display:flex;gap:16px;margin-bottom:18px"><b class="display" style="font-size:1.5rem;opacity:.55">2</b><span>Scegli il livello di adozione e prenota lo slot geografico.</span></li>
-          <li style="display:flex;gap:16px"><b class="display" style="font-size:1.5rem;opacity:.55">3</b><span>Firma l&rsquo;accordo e unisciti alla rete salvavita della Valtellina.</span></li>
+          <li style="display:flex;gap:16px;margin-bottom:18px"><b class="display" style="font-size:1.5rem;opacity:.55">2</b><span>Valutiamo insieme il tipo di sostegno e la destinazione del tuo contributo.</span></li>
+          <li style="display:flex;gap:16px"><b class="display" style="font-size:1.5rem;opacity:.55">3</b><span>Ricevi dalla segreteria le indicazioni per effettuare la donazione.</span></li>
         </ol>
       </div>
 
       <div class="form-card reveal" data-d="1">
         <div class="form-head">
-          <span class="kicker">Richiesta di adozione</span>
+          <span class="kicker">Richiesta di sostegno</span>
           <h3>Bastano due minuti.</h3>
           <p>Nessun impegno: è l&rsquo;inizio di una conversazione con la segreteria del progetto.</p>
         </div>
 
         <form id="form-adozione" novalidate>
           <div class="fg">
-            <div class="f full"><label for="azienda">Azienda *</label><input id="azienda" required autocomplete="organization" placeholder="Il nome della tua azienda">
-              <span class="f-msg" id="err-azienda">Indica il nome dell&rsquo;azienda.</span></div>
+            <div class="f full"><label for="azienda">Azienda / organizzazione *</label><input id="azienda" required autocomplete="organization" placeholder="Nome dell’azienda, oppure Privato">
+              <span class="f-msg" id="err-azienda">Indica l&rsquo;azienda, oppure scrivi Privato.</span></div>
             <div class="f"><label for="referente">Referente *</label><input id="referente" required autocomplete="name" placeholder="Nome e cognome">
               <span class="f-msg" id="err-referente">Indica nome e cognome del referente.</span></div>
             <div class="f"><label for="email">Email *</label><input id="email" type="email" required autocomplete="email" placeholder="nome@azienda.it">
@@ -2159,12 +2077,13 @@ body.doc-open{overflow:hidden}
               <input id="tel" type="tel" inputmode="tel" autocomplete="tel" maxlength="24" placeholder="+39 0342 218069">
               <span class="f-msg" id="err-tel">Numero non valido: da 8 a 15 cifre, con eventuale prefisso internazionale (+39&hellip;).</span></div>
 
-            <div class="f full"><span class="label">Livello di adozione</span>
-              <div class="chips" role="radiogroup" aria-label="Livello di adozione">
+            <div class="f full"><span class="label">Tipo di sostegno</span>
+              <div class="chips" role="radiogroup" aria-label="Tipo di sostegno">
                 <input type="radio" name="livello" id="lv0" value="Da valutare insieme" checked><label class="chip" for="lv0">Da valutare insieme</label>
-                <input type="radio" name="livello" id="lv1" value="Bronze · 2 anni · € 2.600"><label class="chip" for="lv1">Bronze &middot; 2 anni</label>
-                <input type="radio" name="livello" id="lv2" value="Silver · 4 anni · € 3.250"><label class="chip" for="lv2">Silver &middot; 4 anni</label>
-                <input type="radio" name="livello" id="lv3" value="Gold · 8 anni · € 10.250"><label class="chip" for="lv3">Gold &middot; 8 anni</label>
+                <input type="radio" name="livello" id="lv1" value="Bronze · 2 anni · € 2.600"><label class="chip" for="lv1">Bronze · 2 anni</label>
+                <input type="radio" name="livello" id="lv2" value="Silver · 4 anni · € 3.250"><label class="chip" for="lv2">Silver · 4 anni</label>
+                <input type="radio" name="livello" id="lv3" value="Gold · 8 anni · € 10.250"><label class="chip" for="lv3">Gold · 8 anni</label>
+                <input type="radio" name="livello" id="lv4" value="Donazione personale"><label class="chip" for="lv4">Donazione personale</label>
               </div>
             </div>
 
@@ -2175,11 +2094,11 @@ body.doc-open{overflow:hidden}
                 <option>Talamona · km 6</option>
                 <option>Ardenno · km 12</option>
                 <option>Colorina · km 19</option>
-                <option disabled>Sondrio · km 26 · assegnata, non disponibile</option>
+                <option value="Sondrio · km 26">Sondrio / Albosaggia · cura della postazione attiva</option>
               </select>
             </div>
 
-            <div class="f full"><label for="note">Vuoi dirci qualcosa? <em>&mdash; facoltativo</em></label><textarea id="note" rows="1" placeholder="Domande, esigenze di visibilità, tempistiche&hellip;"></textarea></div>
+            <div class="f full"><label for="note">Vuoi dirci qualcosa? <em>&mdash; facoltativo</em></label><textarea id="note" rows="1" placeholder="Domande, idee o il tipo di contributo che vorresti dare&hellip;"></textarea></div>
 
             <div class="hp" aria-hidden="true"><label for="sito">Sito web</label><input id="sito" tabindex="-1" autocomplete="off"></div>
 
@@ -2208,8 +2127,8 @@ body.doc-open{overflow:hidden}
         <details class="privacy" id="privacy">
           <summary>Informativa sul trattamento dei dati &mdash; art. 13 GDPR</summary>
           <div class="pv">
-            <p><b>Titolare del trattamento:</b> costituenda associazione &ldquo;Capitolo Valtellina&rdquo;, con sede presso Ufficio Service Srl Società Benefit, Via Giuseppe Piazzi 14, 23100 Sondrio &mdash; <b>info@ufficioservice.it</b>.</p>
-            <p><b>Finalità e base giuridica:</b> i dati inviati con questo modulo servono esclusivamente a ricontattarti in merito all&rsquo;adozione di un DAE (misure precontrattuali su tua richiesta, art. 6.1.b, e consenso, art. 6.1.a). Nessun marketing, nessuna profilazione, nessuna cessione a terzi.</p>
+            <p><b>Titolare del trattamento:</b> associazione &ldquo;Network Valtellina&rdquo;, con sede presso Ufficio Service Srl Società Benefit, Via Giuseppe Piazzi 14, 23100 Sondrio &mdash; <b>info@ufficioservice.it</b>.</p>
+            <p><b>Finalità e base giuridica:</b> i dati inviati con questo modulo servono esclusivamente a ricontattarti in merito al sostegno del progetto Sentieri del Cuore (misure precontrattuali su tua richiesta, art. 6.1.b, e consenso, art. 6.1.a). Nessun marketing, nessuna profilazione, nessuna cessione a terzi.</p>
             <p><b>Conservazione:</b> massimo <b>30 giorni</b> dall&rsquo;invio. Alla scadenza i dati vengono cancellati automaticamente dal nostro archivio e ricevi un&rsquo;email che conferma l&rsquo;avvenuta cancellazione. L&rsquo;eventuale corrispondenza nel frattempo avviata prosegue sui canali ordinari.</p>
             <p><b>Modalità:</b> la richiesta è registrata in un archivio contatti riservato alla segreteria del progetto e notificata a info@ufficioservice.it. L&rsquo;archivio è ospitato su Airtable, che opera come fornitore del servizio.</p>
             <p><b>I tuoi diritti:</b> accesso, rettifica, cancellazione anticipata, limitazione, opposizione e portabilità scrivendo a info@ufficioservice.it; puoi inoltre proporre reclamo al Garante per la protezione dei dati personali.</p>
@@ -2235,14 +2154,15 @@ body.doc-open{overflow:hidden}
           <svg viewBox="0 0 60 24" aria-hidden="true" style="width:44px;height:22px"><path d="M0 15h9l3.5-1 2.5-7.5 3.5 14 3-9 2.5 3.5h7l3-1 2.5-6 3 10.5 2.5-7.5 2 4h16" fill="none" stroke="#e11d2a" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
           <span style="display:block"><b style="color:var(--paper)">Sentiero Cardio-Protetto</b><span>Tratta Morbegno–Sondrio</span></span>
         </a>
+        <img src="assets/network-valtellina-bianco.svg" alt="Network Valtellina — associazione promotrice" width="1048" height="440" style="display:block;width:230px;height:auto;margin:0 0 24px">
         <p style="max-width:44ch;margin:0 0 26px">
-          Progetto promosso dal <strong style="color:#cfd7dd">Capitolo BNI Valtellina</strong> in occasione
-          del 10° anniversario dalla fondazione, in partnership con Croce Rossa Italiana,
-          Comunità Montana e AREU Lombardia.
+          Un progetto dell&rsquo;associazione <strong style="color:#cfd7dd">Network Valtellina</strong>,
+          con Croce Rossa Italiana e gli enti del territorio. BNI Valtellina e le sue aziende sono
+          i primi sostenitori del progetto e della prima postazione.
         </p>
         <a class="bni-lock" href="https://bni-lombardianord.it/26-lombardia-nord-bni-valtellina/it/index" target="_blank" rel="noopener">
           <span class="bni-plate"><img src="assets/bni-10-valtellina.png" alt="BNI Valtellina — 10 anni" width="936" height="361"></span>
-          <span class="bni-txt"><b>10° anniversario</b><span>Capitolo Valtellina · 2016&ndash;2026</span></span>
+          <span class="bni-txt"><b>I primi sostenitori</b><span>BNI Valtellina · 10 anni per il territorio</span></span>
         </a>
       </div>
       <div>
@@ -2254,8 +2174,8 @@ body.doc-open{overflow:hidden}
           <li><a href="#postazione">La postazione</a></li>
           <li><a href="#modello">Modello operativo</a></li>
           <li><a href="#imprese">Alle imprese</a></li>
-          <li><a href="#sponsor">Piani di adozione</a></li>
-          <li><a href="#soci">I soci del capitolo</a></li>
+          <li><a href="#sponsor">Sostegno e targhe</a></li>
+          <li><a href="#soci">I primi sostenitori</a></li>
           <li><a href="#patrocinio">Con il patrocinio di</a></li>
           <li><a href="#evento">Il debutto &middot; 29.10.2026</a></li>
           <li><a href="#press">Press room</a></li>
@@ -2300,18 +2220,18 @@ body.doc-open{overflow:hidden}
     <button class="doc-x" type="button" aria-label="Chiudi il documento">&times;</button>
     <p class="eyebrow">Documento legale</p>
     <h2 class="t" id="privacy-policy-t">Informativa<br>sulla privacy</h2>
-    <p class="doc-date">Ai sensi degli artt. 13 e 14 del Regolamento (UE) 2016/679 &mdash; ultimo aggiornamento: 2 agosto 2026</p>
+    <p class="doc-date">Ai sensi degli artt. 13 e 14 del Regolamento (UE) 2016/679 &mdash; ultimo aggiornamento: 16 novembre 2026</p>
 
     <h3>1. Titolare del trattamento</h3>
-    <p>Costituenda associazione <b>&ldquo;Capitolo Valtellina&rdquo;</b>, con sede presso Ufficio Service Srl Società Benefit,
+    <p>Associazione <b>&ldquo;Network Valtellina&rdquo;</b>, con sede presso Ufficio Service Srl Società Benefit,
       Via Giuseppe Piazzi 14, 23100 Sondrio (SO). Contatto per ogni questione relativa ai dati personali:
       <a class="ln" href="mailto:info@ufficioservice.it">info@ufficioservice.it</a> &mdash; tel. <a class="ln" href="tel:+390342218069">+39 0342 218069</a>.
       Non è nominato un Responsabile della protezione dei dati (DPO), non ricorrendone i presupposti dell&rsquo;art. 37 GDPR.</p>
 
     <h3>2. Quali dati raccogliamo</h3>
-    <p>Questo sito raccoglie dati personali <b>solo se sei tu a inviarli</b> con il modulo &ldquo;Richiesta di adozione&rdquo;.
+    <p>Questo sito raccoglie dati personali <b>solo se sei tu a inviarli</b> con il modulo &ldquo;Richiesta di sostegno&rdquo;.
       I campi sono: <b>nome dell&rsquo;azienda</b>, <b>nome e cognome del referente</b>, <b>indirizzo email</b>,
-      <b>numero di telefono</b> (facoltativo), <b>livello di adozione</b> e <b>postazione</b> di interesse,
+      <b>numero di telefono</b> (facoltativo), <b>modalità di sostegno</b> e <b>postazione</b> di interesse,
       più l&rsquo;eventuale <b>testo libero</b> che scrivi nelle note. Vengono registrati anche la data e l&rsquo;ora dell&rsquo;invio
       e il nome del sito di provenienza.</p>
     <p>Non raccogliamo categorie particolari di dati (art. 9 GDPR). Ti chiediamo di non inserire nel campo note
@@ -2322,7 +2242,7 @@ body.doc-open{overflow:hidden}
 
     <h3>3. Perché li trattiamo, e su quale base</h3>
     <ul class="doc-ul">
-      <li><b>Ricontattarti in merito all&rsquo;adozione di un DAE</b> e gestire la trattativa che ne può nascere &mdash;
+      <li><b>Ricontattarti in merito al sostegno del progetto Sentieri del Cuore</b> e dare seguito alla tua richiesta &mdash;
         base giuridica: misure precontrattuali adottate su tua richiesta, <b>art. 6.1.b</b> GDPR, e il <b>consenso</b>
         che presti spuntando la casella, <b>art. 6.1.a</b>.</li>
       <li><b>Sicurezza e corretto funzionamento del sito</b> (log tecnici) &mdash; legittimo interesse, <b>art. 6.1.f</b>.</li>
@@ -2394,7 +2314,7 @@ body.doc-open{overflow:hidden}
     <button class="doc-x" type="button" aria-label="Chiudi il documento">&times;</button>
     <p class="eyebrow">Documento legale</p>
     <h2 class="t" id="cookie-policy-t">Cookie<br>policy</h2>
-    <p class="doc-date">Provvedimento del Garante privacy n. 231 del 10 giugno 2021 &mdash; ultimo aggiornamento: 2 agosto 2026</p>
+    <p class="doc-date">Provvedimento del Garante privacy n. 231 del 10 giugno 2021 &mdash; ultimo aggiornamento: 16 novembre 2026</p>
 
     <h3>In breve</h3>
     <p class="doc-key">Questo sito <b>non installa cookie</b>: né tecnici, né analitici, né di profilazione.
@@ -2411,7 +2331,7 @@ body.doc-open{overflow:hidden}
       Sono equiparati ai cookie tutti gli strumenti che memorizzano o leggono informazioni sul terminale dell&rsquo;utente.</p>
 
     <h3>L&rsquo;unica cosa memorizzata: la password dell&rsquo;anteprima</h3>
-    <p>Finché il progetto resta in <b>anteprima riservata</b>, le pagine sono protette da password.
+    <p>Nella distinta <b>anteprima riservata al comitato</b>, le pagine sono protette da password.
       Quando la inserisci, viene conservata nella <b>memoria di sessione</b> del browser
       (<i>sessionStorage</i>, chiave <code>scp</code>) per non richiedertela a ogni ricaricamento.</p>
     <ul class="doc-ul">
@@ -2425,8 +2345,7 @@ body.doc-open{overflow:hidden}
       <li><b>Come cancellarla subito:</b> chiudi la scheda, oppure svuota i dati del sito dalle
         impostazioni del browser.</li>
     </ul>
-    <p>Quando il sito diverrà pubblico e la protezione verrà rimossa, <b>non verrà scritto più nulla</b>
-      sul tuo dispositivo.</p>
+    <p>Il sito pubblico <b>sentieridelcuore.it</b> non utilizza questa protezione né memorizza la password dell&rsquo;anteprima.</p>
 
     <h3>Cosa abbiamo scelto di non usare</h3>
     <ul class="doc-ul">
@@ -2435,12 +2354,10 @@ body.doc-open{overflow:hidden}
       <li><b>Font locali.</b> I caratteri tipografici (Anton, Archivo, Newsreader) sono ospitati su questo sito:
         il tuo indirizzo IP non viene comunicato a Google Fonts né ad altri servizi esterni.</li>
       <li><b>Immagini e loghi locali.</b> Ogni immagine è incorporata nella pagina, nessuna arriva da server terzi.</li>
-      <li><b>Nessun video incorporato attivo.</b> Se in futuro verranno inseriti video, saranno caricati solo dopo un
-        tuo clic esplicito, con la stessa logica della mappa.</li>
-      <li><b>Nessun cookie dall&rsquo;invio del modulo.</b> Il servizio che riceve la richiesta di adozione
+      <li><b>Video ospitati sul sito.</b> I filmati sono file locali, riproducibili con i controlli del browser. Non incorporiamo player di piattaforme video esterne.</li>
+      <li><b>Nessun cookie dall&rsquo;invio del modulo.</b> Il servizio che riceve la richiesta di sostegno
         proverebbe a impostare dei propri cookie: la chiamata parte con le credenziali disattivate, quindi
-        quei cookie <b>vengono scartati dal browser</b> e non finiscono mai sul tuo dispositivo. Verificato
-        a ogni rilascio.</li>
+        quei cookie <b>non vengono accettati dalla richiesta</b>.</li>
     </ul>
 
     <h3>L&rsquo;unica eccezione: la mappa interattiva</h3>
@@ -2477,7 +2394,7 @@ body.doc-open{overflow:hidden}
       su altri siti può impedirne il corretto funzionamento.</p>
 
     <h3>Titolare e contatti</h3>
-    <p>Costituenda associazione &ldquo;Capitolo Valtellina&rdquo;, presso Ufficio Service Srl SB, Via Giuseppe Piazzi 14,
+    <p>Associazione &ldquo;Network Valtellina&rdquo;, presso Ufficio Service Srl SB, Via Giuseppe Piazzi 14,
       23100 Sondrio &mdash; <a class="ln" href="mailto:info@ufficioservice.it">info@ufficioservice.it</a>.
       Per tutto il resto vale l&rsquo;<a href="#privacy-policy" data-doc="privacy-policy">informativa sulla privacy</a>.</p>
 
@@ -3046,7 +2963,7 @@ body.doc-open{overflow:hidden}
     {n:'Talamona', km:6,  d:'Area ad alta frequentazione nei pressi degli impianti sportivi e delle aree di sosta: punto di passaggio quotidiano per runner e ciclisti.'},
     {n:'Ardenno',  km:12, d:'Nodo centrale della tratta. Presidio strategico nel punto più distante dai due capolinea, dove i tempi di soccorso sono più critici.'},
     {n:'Colorina', km:19, d:'Postazione a servizio delle aree di ristoro e degli accessi viari, con riferimenti chiari da comunicare alla centrale 118.'},
-    {n:'Sondrio',  km:26, d:'Chiusura della tratta in prossimità del capoluogo, dove la ciclopedonale registra la maggiore densità di utenti. È la prima postazione della rete: installata ad Albosaggia a ottobre 2026, slot sponsor assegnato.',
+    {n:'Sondrio',  km:26, d:'Chiusura della tratta in prossimità del capoluogo, dove la ciclopedonale registra la maggiore densità di utenti. È la prima postazione della rete: installata ad Albosaggia a ottobre 2026, realizzata con il sostegno di BNI Valtellina e delle sue aziende.',
       attiva:true, maps:'https://maps.app.goo.gl/5sCTVkrNe6RqWBBM6'}
   ];
   var g = document.getElementById('nodes');
@@ -3064,8 +2981,8 @@ body.doc-open{overflow:hidden}
     document.getElementById('d-km').textContent = nd.km;
     document.getElementById('d-name').textContent = nd.n;
     document.getElementById('d-desc').textContent = nd.d;
-    /* postazione attiva: slot assegnato, niente adozione; al suo posto la posizione esatta */
-    dAdopt.hidden = !!nd.attiva;
+    /* Anche una postazione attiva può ricevere sostegno per la manutenzione. */
+    dAdopt.hidden = false;
     dStato.hidden = !nd.attiva;
     dMaps.hidden = !nd.maps;
     if (nd.maps) dMaps.href = nd.maps;
